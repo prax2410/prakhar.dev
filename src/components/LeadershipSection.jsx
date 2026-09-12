@@ -1,6 +1,6 @@
 import React from 'react';
-import { teamStructure, leadershipPoints } from '../data/portfolioData';
-import { Users, GitPullRequest, ShieldCheck, Compass, Terminal, GraduationCap } from 'lucide-react';
+import { teamStructure, seniorEngineeringPrinciples } from '../data/portfolioData';
+import { Users, GitPullRequest, ShieldCheck, Compass, Terminal, GraduationCap, Sparkles } from 'lucide-react';
 
 export default function LeadershipSection() {
   const leadershipPillars = [
@@ -93,6 +93,47 @@ export default function LeadershipSection() {
                 <p className="text-[11px] text-zinc-500 dark:text-zinc-400 mt-1 leading-normal">
                   {member.desc}
                 </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Senior Engineering Principles & Philosophy Strip */}
+        <div className="mt-12 pt-12 border-t border-zinc-200/80 dark:border-zinc-800/80">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
+            <div>
+              <div className="text-xs font-mono text-zinc-500 uppercase tracking-wider mb-2">
+                Engineering Philosophy
+              </div>
+              <h3 className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-white">
+                How I Build & Scale Systems
+              </h3>
+            </div>
+            <p className="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 max-w-md">
+              Core architectural principles guiding technology choices, system boundaries, code review standards, and operational reliability.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {seniorEngineeringPrinciples.map((item, idx) => (
+              <div
+                key={idx}
+                className="p-5 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/60 flex flex-col justify-between hover:border-zinc-400 dark:hover:border-zinc-600 transition-colors"
+              >
+                <div>
+                  <div className="flex items-center justify-between gap-2 mb-2.5">
+                    <span className="text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 border border-zinc-200/60 dark:border-zinc-700/60">
+                      {item.tag}
+                    </span>
+                    <span className="text-xs font-mono text-zinc-400">Principle 0{idx + 1}</span>
+                  </div>
+                  <h4 className="text-sm sm:text-base font-bold text-zinc-900 dark:text-white mb-1.5">
+                    {item.title}
+                  </h4>
+                  <p className="text-xs text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                    {item.principle}
+                  </p>
+                </div>
               </div>
             ))}
           </div>

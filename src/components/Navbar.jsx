@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Sun, Moon, Menu, X, FileText, Download } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 import { personalInfo } from '../data/portfolioData';
+import Tooltip from './Tooltip';
 
 export default function Navbar() {
   const { isDark, toggleTheme } = useTheme();
@@ -69,26 +70,30 @@ export default function Navbar() {
           {/* Right Action Cluster */}
           <div className="flex items-center gap-2 sm:gap-3">
             {/* Dark / Light Toggle */}
-            <button
-              onClick={toggleTheme}
-              aria-label="Toggle dark/light mode"
-              className="p-2 rounded-xl border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:border-zinc-400 dark:hover:border-zinc-600 transition-colors"
-            >
-              {isDark ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-zinc-700" />}
-            </button>
+            <Tooltip text={isDark ? "Switch to light mode" : "Switch to dark mode"} position="bottom">
+              <button
+                onClick={toggleTheme}
+                aria-label="Toggle dark/light mode"
+                className="p-2 rounded-xl border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:border-zinc-400 dark:hover:border-zinc-600 transition-colors"
+              >
+                {isDark ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-zinc-700" />}
+              </button>
+            </Tooltip>
 
             {/* Resume Button */}
-            <a
-              href={personalInfo.resumeUrl}
-              target="_blank"
-              rel="noreferrer"
-              download="Prakhar_CV_2026.pdf"
-              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 text-xs font-semibold hover:opacity-90 transition-opacity shadow-sm"
-            >
-              <FileText className="w-3.5 h-3.5" />
-              <span>Resume</span>
-              <Download className="w-3 h-3 opacity-70 hidden sm:inline" />
-            </a>
+            <Tooltip text="Download CV (PDF)" position="bottom">
+              <a
+                href={personalInfo.resumeUrl}
+                target="_blank"
+                rel="noreferrer"
+                download="Prakhar_CV_2026.pdf"
+                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 text-xs font-semibold hover:opacity-90 transition-opacity shadow-sm"
+              >
+                <FileText className="w-3.5 h-3.5" />
+                <span>Resume</span>
+                <Download className="w-3 h-3 opacity-70 hidden sm:inline" />
+              </a>
+            </Tooltip>
 
             {/* Mobile Menu Trigger */}
             <button

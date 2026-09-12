@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Github, ArrowUpRight, Lock, ShieldCheck, Mail } from "lucide-react";
 import { projectsData } from "../data/portfolioData";
+import Tooltip from "./Tooltip";
 
 export default function ProjectsShowcase() {
 	const [filter, setFilter] = useState("All");
@@ -147,67 +148,115 @@ export default function ProjectsShowcase() {
 					</AnimatePresence>
 				</motion.div>
 
-				{/* Modal for In-depth Details */}
+				{/* Modal for Senior Engineering Case Study */}
 				{activeProject && (
 					<div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
-						<div className="relative w-full max-w-lg p-6 sm:p-7 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-2xl space-y-4 max-h-[85vh] overflow-y-auto">
-							<div className="flex items-start justify-between">
+						<div className="relative w-full max-w-2xl p-6 sm:p-8 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 shadow-2xl space-y-5 max-h-[88vh] overflow-y-auto">
+							
+							{/* Header */}
+							<div className="flex items-start justify-between gap-4 pb-4 border-b border-zinc-100 dark:border-zinc-800">
 								<div>
-									<span className="text-xs font-mono text-zinc-400 uppercase">
-										{activeProject.category}
-									</span>
-									<h3 className="text-xl font-bold text-zinc-900 dark:text-white mt-0.5">
+									<div className="flex items-center gap-2 flex-wrap">
+										<span className="text-xs font-mono text-zinc-500 uppercase tracking-wider">
+											{activeProject.category}
+										</span>
+										<span className="px-2 py-0.5 rounded-full text-[10px] font-mono font-medium bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300">
+											{activeProject.badge}
+										</span>
+									</div>
+									<h3 className="text-xl sm:text-2xl font-bold text-zinc-900 dark:text-white mt-1">
 										{activeProject.title}
 									</h3>
+									<p className="text-xs sm:text-sm text-zinc-500 dark:text-zinc-400 mt-0.5">
+										{activeProject.tagline}
+									</p>
 								</div>
-								<button
-									onClick={() => setActiveProject(null)}
-									className="p-1 rounded-lg text-zinc-400 hover:text-zinc-900 dark:hover:text-white"
-								>
-									✕
-								</button>
+								<Tooltip text="Close (Esc)" position="left">
+									<button
+										onClick={() => setActiveProject(null)}
+										aria-label="Close modal"
+										className="p-1.5 rounded-lg text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors"
+									>
+										✕
+									</button>
+								</Tooltip>
 							</div>
 
-							<p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-300 leading-relaxed">
-								{activeProject.description}
-							</p>
-
-							{/* Real-World Impact */}
-							<div className="p-4 rounded-xl bg-zinc-50 dark:bg-zinc-800/50 border border-zinc-200/60 dark:border-zinc-700/60 text-xs">
-								<span className="font-semibold text-zinc-900 dark:text-white block mb-1">
-									Real-World Impact:
-								</span>
-								<p className="text-zinc-600 dark:text-zinc-300 leading-relaxed">
-									{activeProject.impact}
+							{/* Overview */}
+							<div>
+								<h4 className="text-xs font-mono font-semibold uppercase tracking-wider text-zinc-400 mb-1.5">
+									System Overview
+								</h4>
+								<p className="text-xs sm:text-sm text-zinc-600 dark:text-zinc-300 leading-relaxed">
+									{activeProject.description}
 								</p>
 							</div>
 
+							{/* Key Architecture Decisions (Senior Dimension) */}
+							{activeProject.architectureDecisions && (
+								<div className="p-4 rounded-xl bg-zinc-50 dark:bg-zinc-800/40 border border-zinc-200/70 dark:border-zinc-700/60 space-y-2.5">
+									<h4 className="text-xs font-mono font-semibold uppercase tracking-wider text-indigo-600 dark:text-indigo-400 flex items-center gap-1.5">
+										<span>Key Architecture Decisions & Trade-offs</span>
+									</h4>
+									<ul className="space-y-2 text-xs text-zinc-700 dark:text-zinc-300">
+										{activeProject.architectureDecisions.map((decision, dIdx) => (
+											<li key={dIdx} className="flex items-start gap-2 leading-relaxed">
+												<span className="text-emerald-500 font-bold shrink-0 mt-0.5">✓</span>
+												<span>{decision}</span>
+											</li>
+										))}
+									</ul>
+								</div>
+							)}
+
+							{/* Technical Challenge & Outcomes Grid */}
+							<div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 text-xs">
+								{activeProject.keyChallenges && (
+									<div className="p-3.5 rounded-xl bg-rose-50/50 dark:bg-rose-950/20 border border-rose-200/60 dark:border-rose-900/40">
+										<span className="font-semibold text-rose-800 dark:text-rose-400 block mb-1">
+											Core Technical Hurdle:
+										</span>
+										<p className="text-zinc-600 dark:text-zinc-300 leading-relaxed">
+											{activeProject.keyChallenges}
+										</p>
+									</div>
+								)}
+
+								{activeProject.engineeringOutcomes && (
+									<div className="p-3.5 rounded-xl bg-emerald-50/50 dark:bg-emerald-950/20 border border-emerald-200/60 dark:border-emerald-900/40">
+										<span className="font-semibold text-emerald-800 dark:text-emerald-400 block mb-1">
+											Engineering Outcome:
+										</span>
+										<p className="text-zinc-600 dark:text-zinc-300 leading-relaxed">
+											{activeProject.engineeringOutcomes}
+										</p>
+									</div>
+								)}
+							</div>
+
 							{/* Confidential IP Notice for Company Work */}
-							{activeProject.isProprietary ?
-								<div className="flex items-start gap-2.5 p-3.5 rounded-xl bg-amber-50/80 dark:bg-amber-950/40 border border-amber-200/80 dark:border-amber-900/60 text-amber-900 dark:text-amber-300 text-xs">
+							{activeProject.isProprietary && (
+								<div className="flex items-start gap-2.5 p-3 rounded-xl bg-amber-50/80 dark:bg-amber-950/40 border border-amber-200/80 dark:border-amber-900/60 text-amber-900 dark:text-amber-300 text-xs">
 									<Lock className="w-4 h-4 shrink-0 text-amber-600 dark:text-amber-400 mt-0.5" />
 									<div className="leading-relaxed">
 										<span className="font-semibold block">
-											Confidential Enterprise IP
+											Confidential Enterprise IP ({activeProject.organization})
 										</span>
-										Codebase belongs to{" "}
-										{activeProject.organization}. System
-										architecture, database schemas, and
-										protocol integrations are available for
-										technical discussion during interviews.
+										Source code is proprietary. System architecture, schema design, and concurrency trade-offs are available for in-depth technical discussion during interviews.
 									</div>
 								</div>
-							:	null}
+							)}
 
+							{/* Tech Stack */}
 							<div>
 								<span className="text-xs font-mono text-zinc-400 uppercase block mb-1.5">
-									Tech Stack
+									Technology Stack & Tools
 								</span>
 								<div className="flex flex-wrap gap-1.5">
 									{activeProject.tech.map((t) => (
 										<span
 											key={t}
-											className="px-2.5 py-1 rounded-md text-[11px] font-mono bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300"
+											className="px-2.5 py-1 rounded-md text-[11px] font-mono bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 border border-zinc-200/60 dark:border-zinc-700/50"
 										>
 											{t}
 										</span>
@@ -215,32 +264,34 @@ export default function ProjectsShowcase() {
 								</div>
 							</div>
 
-							<div className="flex justify-end gap-2.5 pt-3 border-t border-zinc-100 dark:border-zinc-800 text-xs">
+							{/* Modal Footer */}
+							<div className="flex items-center justify-between gap-3 pt-3 border-t border-zinc-100 dark:border-zinc-800 text-xs">
 								<button
 									onClick={() => setActiveProject(null)}
-									className="px-4 py-2 rounded-xl border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300"
+									className="px-4 py-2 rounded-xl border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-colors"
 								>
-									Close
+									Close Case Study
 								</button>
-								{activeProject.isProprietary ?
+								{activeProject.isProprietary ? (
 									<a
 										href="#contact"
 										onClick={() => setActiveProject(null)}
-										className="px-4 py-2 rounded-xl bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-semibold inline-flex items-center gap-1.5"
+										className="px-4 py-2 rounded-xl bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-semibold inline-flex items-center gap-1.5 hover:opacity-90 transition-opacity shadow-xs"
 									>
 										<Mail className="w-3.5 h-3.5" />
-										<span>Inquire / Discuss System</span>
+										<span>Discuss Architecture in Interview</span>
 									</a>
-								:	<a
+								) : (
+									<a
 										href={activeProject.links.github}
 										target="_blank"
 										rel="noreferrer"
-										className="px-4 py-2 rounded-xl bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-semibold inline-flex items-center gap-1.5"
+										className="px-4 py-2 rounded-xl bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-semibold inline-flex items-center gap-1.5 hover:opacity-90 transition-opacity shadow-xs"
 									>
 										<Github className="w-4 h-4" />
 										<span>View GitHub</span>
 									</a>
-								}
+								)}
 							</div>
 						</div>
 					</div>

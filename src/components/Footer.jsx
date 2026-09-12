@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowUp, Github, Linkedin, FileText, Heart } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
+import Tooltip from './Tooltip';
 
 export default function Footer() {
   const scrollToTop = () => {
@@ -30,44 +31,52 @@ export default function Footer() {
 
           {/* Right: Actions */}
           <div className="flex items-center gap-2.5">
-            <a
-              href={personalInfo.resumeUrl}
-              target="_blank"
-              rel="noreferrer"
-              download="Prakhar_CV_2026.pdf"
-              aria-label="Download Resume"
-              className="p-2 rounded-lg border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
-            >
-              <FileText className="w-4 h-4" />
-            </a>
+            <Tooltip text="Download CV (PDF)" position="top">
+              <a
+                href={personalInfo.resumeUrl}
+                target="_blank"
+                rel="noreferrer"
+                download="Prakhar_CV_2026.pdf"
+                aria-label="Download Resume"
+                className="p-2 rounded-lg border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
+              >
+                <FileText className="w-4 h-4" />
+              </a>
+            </Tooltip>
 
-            <a
-              href={personalInfo.github}
-              target="_blank"
-              rel="noreferrer"
-              aria-label="GitHub Profile"
-              className="p-2 rounded-lg border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
-            >
-              <Github className="w-4 h-4" />
-            </a>
+            <Tooltip text="GitHub (@prax2410)" position="top">
+              <a
+                href={personalInfo.github}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="GitHub Profile"
+                className="p-2 rounded-lg border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
+              >
+                <Github className="w-4 h-4" />
+              </a>
+            </Tooltip>
 
-            <a
-              href={personalInfo.linkedin}
-              target="_blank"
-              rel="noreferrer"
-              aria-label="LinkedIn Profile"
-              className="p-2 rounded-lg border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
-            >
-              <Linkedin className="w-4 h-4" />
-            </a>
+            <Tooltip text="LinkedIn Profile" position="top">
+              <a
+                href={personalInfo.linkedin}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="LinkedIn Profile"
+                className="p-2 rounded-lg border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
+              >
+                <Linkedin className="w-4 h-4" />
+              </a>
+            </Tooltip>
 
-            <button
-              onClick={scrollToTop}
-              aria-label="Back to top"
-              className="p-2 rounded-lg border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
-            >
-              <ArrowUp className="w-4 h-4" />
-            </button>
+            <Tooltip text="Back to top" position="top">
+              <button
+                onClick={scrollToTop}
+                aria-label="Back to top"
+                className="p-2 rounded-lg border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
+              >
+                <ArrowUp className="w-4 h-4" />
+              </button>
+            </Tooltip>
           </div>
 
         </div>

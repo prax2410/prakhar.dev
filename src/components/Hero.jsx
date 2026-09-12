@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowDown, FileText, Github, Linkedin, Mail, Terminal, Copy, Check, Radio, GitCommit, Code2 } from "lucide-react";
 import { personalInfo } from "../data/portfolioData";
+import Tooltip from "./Tooltip";
 
 export default function Hero() {
 	const [activeTab, setActiveTab] = useState("profile");
@@ -143,31 +144,39 @@ export default function Hero() {
 							</a>
 
 							<div className="flex items-center gap-1.5 pl-1">
-								<a
-									href={personalInfo.github}
-									target="_blank"
-									rel="noreferrer"
-									aria-label="GitHub"
-									className="p-2.5 rounded-xl border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
-								>
-									<Github className="w-4 h-4" />
-								</a>
-								<a
-									href={personalInfo.linkedin}
-									target="_blank"
-									rel="noreferrer"
-									aria-label="LinkedIn"
-									className="p-2.5 rounded-xl border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
-								>
-									<Linkedin className="w-4 h-4" />
-								</a>
-								<a
-									href={`mailto:${personalInfo.email}`}
-									aria-label="Email"
-									className="p-2.5 rounded-xl border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
-								>
-									<Mail className="w-4 h-4" />
-								</a>
+								<Tooltip text="GitHub (@prax2410)" position="top">
+									<a
+										href={personalInfo.github}
+										target="_blank"
+										rel="noreferrer"
+										aria-label="GitHub"
+										className="p-2.5 rounded-xl border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
+									>
+										<Github className="w-4 h-4" />
+									</a>
+								</Tooltip>
+
+								<Tooltip text="LinkedIn Profile" position="top">
+									<a
+										href={personalInfo.linkedin}
+										target="_blank"
+										rel="noreferrer"
+										aria-label="LinkedIn"
+										className="p-2.5 rounded-xl border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
+									>
+										<Linkedin className="w-4 h-4" />
+									</a>
+								</Tooltip>
+
+								<Tooltip text="Send an Email" position="top">
+									<a
+										href={`mailto:${personalInfo.email}`}
+										aria-label="Email"
+										className="p-2.5 rounded-xl border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
+									>
+										<Mail className="w-4 h-4" />
+									</a>
+								</Tooltip>
 							</div>
 						</motion.div>
 					</div>
@@ -227,13 +236,15 @@ export default function Hero() {
 									</button>
 								</div>
 
-								<button
-									onClick={handleCopy}
-									title="Copy JSON"
-									className="p-1 rounded text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 transition-colors"
-								>
-									{copied ? <Check className="w-3.5 h-3.5 text-emerald-500" /> : <Copy className="w-3.5 h-3.5" />}
-								</button>
+								<Tooltip text={copied ? "Copied to clipboard!" : "Copy snippet"} position="left">
+									<button
+										onClick={handleCopy}
+										aria-label="Copy snippet"
+										className="p-1 rounded text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 transition-colors"
+									>
+										{copied ? <Check className="w-3.5 h-3.5 text-emerald-500" /> : <Copy className="w-3.5 h-3.5" />}
+									</button>
+								</Tooltip>
 							</div>
 
 							{/* Terminal Body with Animated Transitions */}
@@ -279,10 +290,14 @@ export default function Hero() {
 												<div>
 													<span className="text-zinc-400">stack:</span> [
 													<div className="pl-4 text-emerald-600 dark:text-emerald-400">
-														"Node.js", "Express", "React", "PostgreSQL",<br />
+														"Node.js", "Express.js", "React.js", "PostgreSQL",<br />
 														"MQTT", "Modbus", "Azure", "AWS EC2"
 													</div>
-													]
+													],
+												</div>
+												<div>
+													<span className="text-zinc-400">focus:</span>{" "}
+													<span className="text-indigo-600 dark:text-indigo-400">"ACID Consistency • High-Frequency IIoT • Multi-Tenant RBAC"</span>
 												</div>
 											</div>
 

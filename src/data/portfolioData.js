@@ -184,6 +184,13 @@ export const projectsData = [
 			"Designed and developed a 12+ module ERP/SaaS platform covering HRMS, projects, attendance, payroll, inventory, purchase, sales, CRM, and other enterprise operations. Built full-stack functionality using React.js, Node.js, Express.js, and PostgreSQL, developing reusable UI components, REST APIs, business workflows, authentication, RBAC, validation, and data persistence.",
 		impact: "Developed 300+ REST APIs and designed a PostgreSQL data model with 100+ tables (transactions, JSONB, indexing). Built the platform to support 100+ companies, with 4 companies onboarded and 300–400 active employees represented.",
 		highlightMetric: "12+ Modules | 300+ APIs",
+		architectureDecisions: [
+			"Selected relational PostgreSQL over NoSQL to enforce strict ACID transactional consistency across interdependent inventory, financial, and payroll ledgers.",
+			"Architected 100+ normalized tables paired with JSONB columns for polymorphic company attributes, eliminating recurring schema migrations per onboarded tenant.",
+			"Built centralized RBAC middleware with granular role-permission mapping, ensuring strict data boundary isolation across multi-tenant organizations."
+		],
+		keyChallenges: "Managing high schema normalization without sacrificing latency across cross-module queries (e.g. correlating biometric attendance with automated payroll deductions).",
+		engineeringOutcomes: "Delivered sub-100ms API response times across core transactional modules; safely scaled to 4 active onboarded companies with capacity for 100+.",
 		tech: [
 			"React.js",
 			"Node.js",
@@ -210,6 +217,13 @@ export const projectsData = [
 			"Developed a full-stack production tracking system supporting 12-stage production workflows with branching routes based on operational requirements. Built frontend workflows and backend APIs to manage stage transitions, routing, production status, quantities, and workflow progress.",
 		impact: "Implemented application logic for tracking production movement across different workflow paths, providing seamless real-time visibility into ongoing plant operations.",
 		highlightMetric: "12-Stage Branching",
+		architectureDecisions: [
+			"Engineered a deterministic finite-state engine governing 12 stages to prevent illegal state jumps and race conditions during simultaneous operator entries.",
+			"Applied database row-level locking (SELECT FOR UPDATE) during batch status transitions to prevent duplicate inventory deduction under concurrent operator requests.",
+			"Decoupled workflow topology definitions from execution instances, enabling zero-downtime routing modifications for custom plant lines."
+		],
+		keyChallenges: "Handling non-linear branching routes (rework, bypass, scrap) while maintaining accurate work-in-progress (WIP) quantities and complete audit traceability.",
+		engineeringOutcomes: "Eliminated manual shopfloor paperwork delays across 12 stages, providing instant bottleneck visibility for plant supervisors.",
 		tech: [
 			"React.js",
 			"Node.js",
@@ -234,6 +248,13 @@ export const projectsData = [
 			"Developed full-stack production applications for 24×7 real-time monitoring of industrial machinery and automation systems. Built React-based monitoring interfaces and Node.js backend services for machine status, production data, alarms, events, and historical analytics.",
 		impact: "Integrated PLCs and machines through MQTT, Modbus TCP/RTU, TCP/IP, and TCP sockets with typical ~1-second polling intervals, supporting systems with up to ~65 machines/devices.",
 		highlightMetric: "~1s Polling Interval",
+		architectureDecisions: [
+			"Selected MQTT (QoS 1) and Modbus TCP/RTU over HTTP polling to minimize packet overhead and survive noisy factory Wi-Fi/Ethernet environments.",
+			"Engineered an in-memory buffer with backoff reconnection logic in the Node.js daemon to prevent telemetry data loss during edge gateway disconnects.",
+			"Optimized PostgreSQL connection pooling (pg-pool) and composite indexing on (device_id, timestamp) for high-frequency sub-second inserts."
+		],
+		keyChallenges: "Preventing event-loop starvation and memory leaks in a 24×7 Node.js daemon polling up to ~65 industrial machine controllers every second.",
+		engineeringOutcomes: "Maintained 24×7 real-time telemetry uptime across multi-site industrial deployments with sub-second dashboard updates.",
 		tech: [
 			"MQTT",
 			"Modbus TCP/RTU",
@@ -259,6 +280,13 @@ export const projectsData = [
 			"Developed full-stack functionality for real-time and historical production, energy, machine, alarm, and event monitoring. Built REST APIs, database workflows, and frontend monitoring views for operational dashboards and analytics.",
 		impact: "Optimized SQL queries and database workflows using indexing, transactions, and efficient data-access patterns for high-throughput production monitoring and historical trend reporting.",
 		highlightMetric: "Real-Time & Historical",
+		architectureDecisions: [
+			"Designed automated aggregation workers running via cron to downsample raw telemetry into hourly and daily summary tables, preventing dashboard latency degrade.",
+			"Implemented transactional database rollbacks and read/write query separation to isolate intensive analytics queries from live machine ingestion.",
+			"Structured reusable React SVG gauge and trend chart components that render efficiently without re-rendering the entire dashboard on incoming socket events."
+		],
+		keyChallenges: "Executing multi-million row historical energy trend queries without impacting concurrent live shopfloor sensor streaming.",
+		engineeringOutcomes: "Reduced management reporting generation from manual hours to automated real-time dispatch with zero database deadlocks.",
 		tech: [
 			"React.js",
 			"Node.js",
@@ -269,6 +297,29 @@ export const projectsData = [
 			"REST APIs",
 		],
 		links: {},
+	},
+];
+
+export const seniorEngineeringPrinciples = [
+	{
+		title: "Pragmatic Architecture over Resume-Driven Tech",
+		principle: "Choose proven, robust primitives (PostgreSQL, Node.js, React) and master them deeply. System simplicity, reliability, and business ROI always trump unneeded complexity.",
+		tag: "System Design",
+	},
+	{
+		title: "Contract-First & Defensive Boundaries",
+		principle: "Validate early at the system edge. Strict DTO schemas, idempotent mutations, atomic transactions, and predictable error contracts ensure systems fail safely.",
+		tag: "Reliability",
+	},
+	{
+		title: "Observability Built-in from Day 1",
+		principle: "If you cannot monitor or trace it in production, it is not production-ready. Structured logging, health checks, and daemon metrics must be engineered alongside features.",
+		tag: "Operations",
+	},
+	{
+		title: "Mentorship as an Engineering Multiplier",
+		principle: "Seniority is defined by how much you elevate your team. Thorough code reviews, architecture documentation, and pairing turn junior engineers into confident owners.",
+		tag: "Leadership",
 	},
 ];
 

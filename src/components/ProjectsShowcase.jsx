@@ -11,7 +11,7 @@ export default function ProjectsShowcase() {
 		"All",
 		"Enterprise SaaS & ERP",
 		"Enterprise System",
-		"IoT & Automation",
+		"IIoT & Automation",
 	];
 
 	const filteredProjects =
@@ -37,7 +37,7 @@ export default function ProjectsShowcase() {
 					</div>
 					<p className="text-sm text-zinc-600 dark:text-zinc-400 max-w-md">
 						Production systems and platforms I've architected, from
-						enterprise SaaS to industrial IoT hardware integrations.
+						enterprise SaaS to IIoT hardware integrations.
 					</p>
 				</div>
 

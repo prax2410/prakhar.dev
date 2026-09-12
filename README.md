@@ -1,11 +1,11 @@
-# Prakhar — Senior Software Engineer | Software Manager
+# Prakhar — Senior Software Engineer
 
 [![Portfolio Live](https://img.shields.io/badge/Live_Portfolio-Online-emerald?style=for-the-badge&logo=vercel)](https://prax2410.github.io/portfolio/)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin)](https://linkedin.com/in/prakhar-prakhar-b1b052106)
 [![GitHub](https://img.shields.io/badge/GitHub-Profile-181717?style=for-the-badge&logo=github)](https://github.com/prax2410)
 [![Tech Stack](https://img.shields.io/badge/Stack-Node.js_•_React_•_PostgreSQL_•_Azure-blue?style=for-the-badge)](https://github.com/prax2410)
 
-> **Senior Software Engineer with 4+ years of experience** building enterprise SaaS, ERP, and Industrial IoT applications across the full software development lifecycle. Hands-on experience with Node.js, Express.js, React, JavaScript, and PostgreSQL, with ownership spanning frontend development, backend services, REST APIs, database design, integrations, deployment, and production support. **Promoted from Software Development Engineer to Software Manager at YM Automation**, combining deep hands-on engineering with technical leadership and end-to-end delivery.
+> **Senior Software Engineer with 4+ years of experience** building enterprise SaaS, ERP, and IIoT applications across the full software development lifecycle. Hands-on experience with Node.js, Express.js, React, JavaScript, and PostgreSQL, with ownership spanning frontend development, backend services, REST APIs, database design, integrations, deployment, and production support. **Career track at YM Automation: SDE → Software Manager**, combining deep hands-on engineering with technical leadership and end-to-end delivery.
 
 ---
 
@@ -22,7 +22,7 @@
 * **Impact**: Managed stage transitions, routing, production status, quantities, and real-time operational visibility.
 * **Stack**: React.js, Node.js, Express.js, PostgreSQL, REST APIs, Workflow Engine.
 
-### 3. Industrial IoT Monitoring Platform
+### 3. IIoT Monitoring Platform
 * **Scope**: 24×7 real-time monitoring of industrial machinery and automation equipment across multiple client plants.
 * **Protocols & Polling**: **MQTT, Modbus TCP/RTU, TCP/IP, and TCP sockets** with **~1-second polling intervals**.
 * **Scale**: High-throughput telemetry pipelines supporting systems with **up to ~65 machines/devices**.
@@ -43,16 +43,16 @@
 | **Backend** | Node.js, Express.js, JavaScript, REST APIs, WebSockets, Authentication, RBAC, API Development, Business Logic |
 | **Database** | PostgreSQL, SQL, Database Design, Query Optimization, Indexing, Transactions, JSONB, MongoDB |
 | **Cloud & Deployment** | Microsoft Azure, AWS EC2, Linux, Nginx, PM2, GitHub Actions, SSL, DNS |
-| **Industrial IoT** | MQTT, Modbus TCP/RTU, TCP/IP, TCP Sockets, PLC Integration, Real-time Data Processing |
+| **IIoT** | MQTT, Modbus TCP/RTU, TCP/IP, TCP Sockets, PLC Integration, Real-time Data Processing |
 | **Engineering** | Full-Stack Development, System Architecture, Database Architecture, Performance Optimization, Code Review, Debugging |
 
 ---
 
-## 💼 Career Progression (YM Automation Pvt Ltd)
+## 💼 Career Track: SDE → Software Manager (YM Automation Pvt Ltd)
 
 * **Software Manager** *(Oct 2024 - Present)*:
   * Leading cross-functional team (backend, frontend, mobile, UI/UX) while remaining hands-on with system architecture, development, debugging, and production support.
-  * Led 7–8 client projects across ~10 customer companies, managing multi-site industrial deployments and 24×7 IoT systems.
+  * Led 7–8 client projects across ~10 customer companies, managing multi-site industrial deployments and 24×7 IIoT systems.
 * **Software Development Engineer** *(Jul 2022 - Oct 2024)*:
   * Independently designed, developed, deployed, and supported 12 production software projects across full stack and database layers.
 

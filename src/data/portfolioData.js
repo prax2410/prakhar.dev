@@ -2,8 +2,9 @@ import resumePdf from "../assets/Prakhar_CV_2026.pdf";
 
 export const personalInfo = {
 	name: "Prakhar",
-	title: "Senior Software Engineer | Software Manager",
-	subtitle: "Full Stack • Node.js • React • PostgreSQL • Enterprise SaaS • Industrial IoT",
+	title: "Senior Software Engineer",
+	subtitle:
+		"Full Stack | Node.js | React | PostgreSQL | Enterprise SaaS | IIoT",
 	company: "YM Automation Pvt Ltd",
 	period: "Jul 2022 - Present",
 	location: "Bengaluru, Karnataka, India",
@@ -17,8 +18,8 @@ export const personalInfo = {
 	linkedinUsername: "Prakhar",
 	resumeUrl: resumePdf,
 	summary:
-		"Senior Software Engineer with 4+ years of experience building enterprise SaaS, ERP, and Industrial IoT applications across the full software development lifecycle. Hands-on experience with Node.js, Express.js, React, JavaScript, and PostgreSQL, with ownership spanning frontend development, backend services, REST APIs, database design, integrations, deployment, and production support. Built and supported a 12+ module ERP platform with 300+ APIs and production applications used across multiple customer organizations. Experienced in real-time industrial applications integrating PLCs and automation systems through MQTT, Modbus, and TCP/IP. Promoted from Software Development Engineer to Software Manager, combining hands-on engineering with technical leadership and end-to-end delivery.",
-	bio: "Senior Software Engineer & Software Manager with 4+ years of experience building enterprise SaaS platforms, 12+ module ERP systems, and 24×7 Industrial IoT applications integrating up to 65+ machines.",
+		"Senior Software Engineer with 4+ years of experience building enterprise SaaS, ERP, and IIoT applications across the full software development lifecycle. Hands-on experience with Node.js, Express.js, React, JavaScript, and PostgreSQL, with ownership spanning frontend development, backend services, REST APIs, database design, integrations, deployment, and production support. Built and supported a 12+ module ERP platform with 300+ APIs and production applications used across multiple customer organizations. Experienced in real-time industrial applications integrating PLCs and automation systems through MQTT, Modbus, and TCP/IP. Promoted from Software Development Engineer to Software Manager, combining hands-on engineering with technical leadership and end-to-end delivery.",
+	bio: "Senior Software Engineer with 4+ years of experience building enterprise SaaS, ERP, and IIoT applications. Promoted from Software Development Engineer to Software Manager at YM Automation Pvt Ltd.",
 	stats: [
 		{
 			label: "Platform Scale",
@@ -31,14 +32,14 @@ export const personalInfo = {
 			sub: "7–8 Projects across ~10 Cos",
 		},
 		{
-			label: "Industrial IoT",
+			label: "IIoT Scale",
 			value: "~65 Devices",
 			sub: "24×7 Real-time ~1s Polling",
 		},
 		{
-			label: "Leadership Track",
-			value: "4+ Years",
-			sub: "Promoted SDE to Manager",
+			label: "Career Track",
+			value: "SDE → Software Manager",
+			sub: "YM Automation (Jul 2022 - Present)",
 		},
 	],
 };
@@ -47,7 +48,7 @@ export const teamStructure = [
 	{
 		role: "UI/UX Design",
 		count: 2,
-		desc: "Figma design systems and intuitive user flows for ERP & IoT dashboards.",
+		desc: "Figma design systems and intuitive user flows for ERP & IIoT dashboards.",
 	},
 	{
 		role: "Frontend Engineering",
@@ -81,11 +82,11 @@ export const experienceData = [
 		type: "Technical Leadership & Full Stack",
 		isCurrent: true,
 		summary:
-			"Promoted to lead cross-functional software teams while remaining hands-on with application architecture, development, debugging, and production support.",
+			"Leading cross-functional software teams while remaining hands-on with application architecture, development, debugging, and production support.",
 		highlights: [
 			"Led a cross-functional software team across backend, frontend, mobile, and UI/UX while remaining hands-on with application architecture, development, debugging, and production support.",
-			"Designed and developed full-stack architectures for enterprise SaaS, ERP, and Industrial IoT applications, covering frontend interfaces, REST APIs, business logic, data models, integrations, and deployment.",
-			"Led 7–8 projects across ~10 customer companies, including multi-site industrial deployments and 24×7 IoT systems integrating PLCs through MQTT, Modbus TCP/RTU, and TCP/IP.",
+			"Designed and developed full-stack architectures for enterprise SaaS, ERP, and IIoT applications, covering frontend interfaces, REST APIs, business logic, data models, integrations, and deployment.",
+			"Led 7–8 projects across ~10 customer companies, including multi-site industrial deployments and 24×7 IIoT systems integrating PLCs through MQTT, Modbus TCP/RTU, and TCP/IP.",
 			"Managed end-to-end technical delivery including customer requirements, estimation, proposals, architecture, development planning, deployment, troubleshooting, and production support.",
 			"Conducted code reviews and mentoring, allocated technical tasks, tracked delivery, and resolved technical blockers across frontend and backend development.",
 		],
@@ -119,7 +120,7 @@ export const experienceData = [
 			"Developed full-stack web applications using React.js, JavaScript, Node.js, Express.js, and PostgreSQL, building responsive interfaces, REST APIs, business logic, authentication, RBAC, and application workflows.",
 			"Designed PostgreSQL schemas and implemented SQL queries, relationships, indexing, transactions, JSONB, and database optimization for production applications.",
 			"Developed real-time integrations with PLCs and industrial systems using MQTT, Modbus TCP/RTU, TCP/IP, TCP sockets, and polling, with typical polling intervals of ~1 second depending on requirements.",
-			"Built and supported 24×7 Industrial IoT applications for machine monitoring, production, energy, alarms, events, and analytics, integrating up to ~65 machines/devices.",
+			"Built and supported 24×7 IIoT applications for machine monitoring, production, energy, alarms, events, and analytics, integrating up to ~65 machines/devices.",
 		],
 		tech: [
 			"React.js",
@@ -148,10 +149,10 @@ export const keyAchievements = [
 	},
 	{
 		id: 2,
-		title: "24×7 Industrial IoT Deployments (~65 Devices)",
+		title: "24×7 IIoT Deployments (~65 Devices)",
 		description:
 			"Real-time integrations with PLCs using MQTT, Modbus TCP/RTU, and TCP sockets with ~1-second polling intervals across multi-site industrial plants.",
-		tag: "IoT & Hardware Automation",
+		tag: "IIoT & Hardware Automation",
 	},
 	{
 		id: 3,
@@ -162,10 +163,10 @@ export const keyAchievements = [
 	},
 	{
 		id: 4,
-		title: "Rapid Leadership Progression: SDE to Software Manager",
+		title: "Career Track: SDE → Software Manager",
 		description:
-			"Promoted from SDE to Software Manager within 2 years, steering cross-functional engineering teams, sprint delivery, and customer enterprise solutions.",
-		tag: "Leadership & Mentorship",
+			"Progressed from SDE to Software Manager at YM Automation, leading cross-functional engineering teams while driving full-stack application architecture and cloud deployments.",
+		tag: "YM Automation Progression",
 	},
 ];
 
@@ -221,9 +222,9 @@ export const projectsData = [
 		links: {},
 	},
 	{
-		id: "industrial-iot-monitoring",
-		title: "Industrial IoT Monitoring Platform",
-		category: "IoT & Automation",
+		id: "iiot-monitoring-platform",
+		title: "IIoT Monitoring Platform",
+		category: "IIoT & Automation",
 		badge: "24×7 Real-Time • ~65 Devices",
 		isProprietary: true,
 		organization: "YM Automation Clients",
@@ -248,7 +249,7 @@ export const projectsData = [
 	{
 		id: "production-energy-monitoring",
 		title: "Production & Energy Monitoring System",
-		category: "IoT & Automation",
+		category: "IIoT & Automation",
 		badge: "Energy & Metric Analytics",
 		isProprietary: true,
 		organization: "YM Automation Clients",
@@ -325,7 +326,7 @@ export const skillsData = [
 		],
 	},
 	{
-		category: "Industrial IoT",
+		category: "IIoT",
 		skills: [
 			"MQTT",
 			"Modbus TCP/RTU",
@@ -357,8 +358,8 @@ export const engineeringCompetencies = [
 	"API Development",
 	"Performance Optimization",
 	"Authentication & RBAC",
-	"Code Review & Mentoring",
-	"Production Support & Debugging",
+	"Code Review",
+	"Debugging",
 ];
 
 export const languages = [

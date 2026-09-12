@@ -8,7 +8,7 @@ export default function SkillMatrix() {
     Backend: Server,
     Database: Database,
     "Cloud & Deployment": Cloud,
-    "Industrial IoT": Cpu,
+    "IIoT": Cpu,
     "Engineering Competencies": Terminal,
   };
 
@@ -25,7 +25,7 @@ export default function SkillMatrix() {
             Skills & Engineering Competencies
           </h2>
           <p className="text-sm text-zinc-600 dark:text-zinc-400 mt-2 leading-relaxed">
-            Technologies, frameworks, and architectural disciplines I work with across enterprise cloud and industrial IoT systems.
+            Technologies, frameworks, and architectural disciplines I work with across enterprise cloud and IIoT systems.
           </p>
         </div>
 

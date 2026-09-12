@@ -17,6 +17,12 @@ export default function ExperienceTimeline() {
             <h2 className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-white">
               Work Experience
             </h2>
+            <div className="flex items-center gap-2 text-xs font-mono text-zinc-500 dark:text-zinc-400 mt-2">
+              <span>YM Automation Track:</span>
+              <span className="px-2 py-0.5 rounded bg-zinc-100 dark:bg-zinc-800 text-emerald-600 dark:text-emerald-400 font-bold border border-zinc-200 dark:border-zinc-700/60">
+                SDE → Software Manager
+              </span>
+            </div>
           </div>
           <a
             href={personalInfo.resumeUrl}
@@ -74,12 +80,12 @@ export default function ExperienceTimeline() {
                 <div className="p-3.5 rounded-xl bg-zinc-50 dark:bg-zinc-800/40 border border-zinc-200/60 dark:border-zinc-700/60 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs">
                   <div className="flex items-center gap-2 font-medium text-zinc-800 dark:text-zinc-200">
                     <Users className="w-4 h-4 text-emerald-500" />
-                    <span>Engineering Team Scope:</span>
+                    <span>Technical Leadership & Hands-on Delivery:</span>
                     <span className="text-zinc-600 dark:text-zinc-400 font-normal">
-                      Leading 7 members (2 UI/UX, 1 Frontend, 1 Backend, 1 Mobile, 3 Interns)
+                      Cross-functional software team (backend, frontend, mobile, UI/UX) • 7–8 client projects across ~10 companies
                     </span>
                   </div>
-                  <span className="text-[11px] font-mono text-zinc-400">Sprint planning & code reviews</span>
+                  <span className="text-[11px] font-mono text-zinc-400">Architecture, code reviews & delivery</span>
                 </div>
               )}
 

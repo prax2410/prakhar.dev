@@ -4,7 +4,7 @@ const ThemeContext = createContext();
 
 export const COLOR_THEMES = [
   { id: 'slate', name: 'Minimalist Slate', color: '#3f3f46', desc: 'Monochrome & Clean' },
-  { id: 'navy', name: 'Midnight Navy', color: '#0891b2', desc: 'IoT Telemetry & Automation' },
+  { id: 'navy', name: 'Midnight Navy', color: '#0891b2', desc: 'IIoT Telemetry & Automation' },
   { id: 'emerald', name: 'Obsidian Emerald', color: '#10b981', desc: 'System Architecture & Growth' },
   { id: 'violet', name: 'Royal Violet', color: '#8b5cf6', desc: 'UI/UX & Design-Dev Handoff' },
   { id: 'amber', name: 'Industrial Amber', color: '#f59e0b', desc: 'Industrial Engineering' }

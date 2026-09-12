@@ -47,7 +47,7 @@ export default function ContactSection() {
             Get in Touch
           </h2>
           <p className="text-sm sm:text-base text-zinc-600 dark:text-zinc-400 mt-2 leading-relaxed">
-            Interested in software management, system architecture discussions, or potential opportunities? Feel free to reach out directly.
+            Interested in discussing senior engineering roles, full-stack architecture, or technical opportunities? Feel free to reach out directly.
           </p>
         </div>
 
@@ -177,7 +177,7 @@ export default function ContactSection() {
                     required
                     value={formData.subject}
                     onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                    placeholder="Software Management / Technical Opportunity"
+                    placeholder="Senior Software Engineering / Technical Opportunity"
                     className="w-full px-3.5 py-2.5 rounded-xl bg-zinc-50 dark:bg-zinc-800/60 border border-zinc-200 dark:border-zinc-700 text-zinc-900 dark:text-white focus:outline-none focus:border-zinc-900 dark:focus:border-white transition-colors"
                   />
                 </div>

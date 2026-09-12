@@ -19,7 +19,7 @@ export default function Footer() {
             </div>
             <div>
               <div className="font-bold text-zinc-900 dark:text-white">Prakhar</div>
-              <div className="text-[11px] text-zinc-400 font-mono">Software Manager • Bengaluru, India</div>
+              <div className="text-[11px] text-zinc-400 font-mono">Senior Software Engineer • Bengaluru, India</div>
             </div>
           </div>
 

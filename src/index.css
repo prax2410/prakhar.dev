@@ -25,9 +25,11 @@
     --theme-accent-light: rgba(56, 189, 248, 0.14);
   }
 
-  /* ===================================================
-     2. MIDNIGHT NAVY THEME (IoT & Automation Leader)
-     =================================================== */
+   /* -------------------------------------------------------------
+   THEME PALETTE OVERRIDES
+   1. SLATE / OBSIDIAN (Default)
+   2. MIDNIGHT NAVY THEME (IIoT & Automation Leader)
+   ------------------------------------------------------------- */
   .theme-navy {
     --theme-bg: #f0f6ff;
     --theme-card: #ffffff;

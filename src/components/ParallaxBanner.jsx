@@ -13,7 +13,7 @@ export default function ParallaxBanner() {
 
 	const architectures = {
 		iot: {
-			title: "Industrial IoT Telemetry Pipeline",
+			title: "IIoT Telemetry Pipeline",
 			tag: "Hardware-to-Cloud Real-Time Stream",
 			description:
 				"Connecting shopfloor PLCs and automated factory machines to real-time browser dashboards with sub-second telemetry.",
@@ -113,7 +113,7 @@ export default function ParallaxBanner() {
 				{
 					label: "04. Dispatch",
 					title: "SMTP & Notification",
-					detail: "Automated email distribution directly to plant managers and stakeholders.",
+					detail: "Automated distribution of plant production metrics, alarms, and analytics reports.",
 					protocol: "Nodemailer / SMTP",
 				},
 			],
@@ -145,7 +145,7 @@ export default function ParallaxBanner() {
 						</h2>
 					</div>
 					<p className="text-sm text-zinc-600 dark:text-zinc-400 max-w-sm">
-						Interactive blueprints of how I structure real-time IoT
+						Interactive blueprints of how I structure real-time IIoT
 						streams, ERP micro-modules, and scheduled background
 						workers.
 					</p>
@@ -161,7 +161,7 @@ export default function ParallaxBanner() {
 							:	"bg-zinc-100 dark:bg-zinc-800/60 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white"
 						}`}
 					>
-						01. Industrial IoT Pipeline (MQTT & Modbus)
+						01. IIoT Pipeline (MQTT & Modbus)
 					</button>
 					<button
 						onClick={() => setActiveTab("erp")}

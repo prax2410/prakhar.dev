@@ -23,7 +23,7 @@ export default function Hero() {
 				{ tag: "MQTT", msg: `Sensor_P${Math.floor(Math.random() * 8 + 1)} stream synced: pressure 4.${Math.floor(Math.random() * 9)} bar` },
 				{ tag: "PG-POOL", msg: `PostgreSQL connection pool healthy: 24 active clients, 0 idle wait` },
 				{ tag: "MODBUS", msg: `Modbus RTU cycle complete across 32 registers -> 0 packet loss` },
-				{ tag: "AUTH", msg: `JWT verified for user SoftwareManager@YMAutomation [role: LEAD]` },
+				{ tag: "AUTH", msg: `JWT verified for user prakhar@ymautomation [role: ENG_LEAD]` },
 			];
 			const randomEvent = newEvents[Math.floor(Math.random() * newEvents.length)];
 			setLogs((prev) => [
@@ -39,11 +39,11 @@ export default function Hero() {
 		const profileText = JSON.stringify(
 			{
 				name: personalInfo.name,
-				title: personalInfo.title,
+				title: "Senior Software Engineer | Full Stack",
 				company: personalInfo.company,
 				experience: "4+ years (Jul 2022 - Present)",
-				progression: "Promoted from SDE to Software Manager",
-				scale: "12+ ERP/SaaS modules, 300+ REST APIs, ~65 IoT machines",
+				timeline: "SDE -> Software Manager",
+				scale: "12+ ERP/SaaS modules, 300+ REST APIs, ~65 IIoT machines, 12 production projects",
 				stack: ["Node.js", "Express.js", "React", "PostgreSQL", "MQTT", "Modbus", "Azure", "AWS EC2"],
 				location: personalInfo.location,
 			},
@@ -77,7 +77,7 @@ export default function Hero() {
 							className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-xs font-mono text-zinc-700 dark:text-zinc-300 shadow-sm"
 						>
 							<span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-							<span>Senior Software Engineer • Promoted to Software Manager</span>
+							<span>Senior Software Engineer • Full Stack</span>
 						</motion.div>
 
 						{/* Personal Name & Human Hook */}
@@ -90,11 +90,11 @@ export default function Hero() {
 							<h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight text-zinc-900 dark:text-white leading-[1.1]">
 								Hey, I'm Prakhar. <br />
 								<span className="text-zinc-500 dark:text-zinc-400 font-bold text-3xl sm:text-5xl">
-									Full Stack Engineer & Software Manager.
+									Senior Software Engineer | Full Stack
 								</span>
 							</h1>
 							<p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed max-w-xl font-normal pt-1">
-								With 4+ years of hands-on experience building enterprise SaaS platforms, 12+ module ERP systems, and 24×7 Industrial IoT applications. Promoted from SDE to Software Manager at <strong className="font-semibold text-zinc-900 dark:text-white">YM Automation</strong>, combining deep full-stack architecture with cross-functional technical leadership.
+								Senior Software Engineer with 4+ years of experience building enterprise SaaS, ERP (12+ modules, 300+ APIs), and 24×7 IIoT applications. Promoted from Software Development Engineer to Software Manager at <strong className="font-semibold text-zinc-900 dark:text-white">YM Automation Pvt Ltd</strong>, combining hands-on engineering with technical leadership and end-to-end delivery.
 							</p>
 						</motion.div>
 
@@ -257,22 +257,22 @@ export default function Hero() {
 											<div className="pl-4 space-y-1">
 												<div>
 													<span className="text-zinc-400">role:</span>{" "}
-													<span className="text-emerald-600 dark:text-emerald-400">"Senior Software Engineer | Software Manager"</span>,
+													<span className="text-emerald-600 dark:text-emerald-400">"Senior Software Engineer | Full Stack"</span>,
 												</div>
 												<div>
 													<span className="text-zinc-400">company:</span>{" "}
 													<span className="text-emerald-600 dark:text-emerald-400">"YM Automation Pvt Ltd"</span>,
 												</div>
 												<div>
-													<span className="text-zinc-400">track:</span>{" "}
-													<span className="text-amber-600 dark:text-amber-400">"Promoted: SDE -> Software Manager"</span>,
+													<span className="text-zinc-400">timeline:</span>{" "}
+													<span className="text-amber-600 dark:text-amber-400">{"\"SDE -> Software Manager\""}</span>,
 												</div>
 												<div>
 													<span className="text-zinc-400">scale:</span> &#123;
 													<div className="pl-4 text-zinc-600 dark:text-zinc-400">
-														modules: <span className="text-amber-500">"12+ ERP/SaaS modules"</span>,<br />
-														apis: <span className="text-amber-500">"300+ REST APIs (100+ Tables)"</span>,<br />
-														iot: <span className="text-amber-500">"~65 machines @ ~1s polling"</span>
+														modules: <span className="text-amber-500">"12+ ERP/SaaS modules (300+ APIs)"</span>,<br />
+														projects: <span className="text-amber-500">"12 production projects"</span>,<br />
+														iiot: <span className="text-amber-500">"~65 machines @ ~1s polling"</span>
 													</div>
 													&#125;,
 												</div>
@@ -290,7 +290,7 @@ export default function Hero() {
 										</motion.div>
 									)}
 
-									{/* Tab 2: Live IoT Telemetry Logs */}
+									{/* Tab 2: Live IIoT Telemetry Logs */}
 									{activeTab === "telemetry" && (
 										<motion.div
 											key="telemetry"
@@ -351,7 +351,7 @@ export default function Hero() {
 												</div>
 												<div className="flex items-center gap-2">
 													<span className="text-amber-500 font-bold">88c1b90</span>
-													<span>perf(iot): optimize Modbus RTU polling cycle to 80ms</span>
+													<span>perf(iiot): optimize Modbus RTU polling cycle to 80ms</span>
 												</div>
 												<div className="flex items-center gap-2">
 													<span className="text-amber-500 font-bold">3a17e04</span>
@@ -392,7 +392,7 @@ export default function Hero() {
 							key={idx}
 							className="p-4 sm:p-5 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/60 shadow-xs flex flex-col justify-between"
 						>
-							<div className="text-2xl sm:text-3xl font-extrabold text-zinc-900 dark:text-white tracking-tight">
+							<div className={`font-extrabold text-zinc-900 dark:text-white tracking-tight ${stat.value.length > 14 ? 'text-lg sm:text-xl' : 'text-2xl sm:text-3xl'}`}>
 								{stat.value}
 							</div>
 							<div className="text-xs font-bold text-zinc-800 dark:text-zinc-200 mt-1">

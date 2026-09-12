@@ -21,7 +21,7 @@ export function ThemeProvider({ children }) {
 
   const [colorTheme, setColorTheme] = useState(() => {
     const savedColor = localStorage.getItem('prakhar_portfolio_color');
-    return savedColor || 'navy';
+    return savedColor || 'slate';
   });
 
   // Listen for live OS dark/light mode switches if the user hasn't explicitly set a preference

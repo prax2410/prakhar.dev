@@ -44,46 +44,46 @@ export default function ParallaxBanner() {
 				},
 			],
 			metrics: [
-				{ label: "Data Latency", value: "<100ms" },
+				{ label: "Polling Interval", value: "~1s Live Telemetry" },
+				{ label: "Industrial Scale", value: "Up to ~65 Machines" },
 				{ label: "Protocols", value: "MQTT / Modbus / TCP" },
-				{ label: "Process Daemon", value: "PM2 Active" },
 			],
 		},
 		erp: {
-			title: "Multi-Module Enterprise SaaS Platform",
+			title: "12+ Module Enterprise SaaS & ERP Platform",
 			tag: "Centralized Business Operations",
 			description:
-				"Evolving an internal monolithic ERP into a scalable, multi-module SaaS architecture with reusable service boundaries.",
+				"Full-stack architecture covering HRMS, projects, attendance, payroll, inventory, purchase, sales, CRM, with 300+ APIs and 100+ relational tables.",
 			steps: [
 				{
 					label: "01. Client Interface",
 					title: "React Web Application",
-					detail: "Responsive operational views for HRMS, Attendance, Projects, and Inventory.",
+					detail: "Responsive operational views for HRMS, Attendance, Projects, CRM, and Inventory.",
 					protocol: "HTTPS / Client SPA",
 				},
 				{
 					label: "02. API Gateway",
 					title: "Express.js Routing & RBAC",
-					detail: "JWT authentication, role-based permissions, and request validation.",
+					detail: "300+ RESTful APIs with JWT authentication, role-based permissions, and input validation.",
 					protocol: "RESTful JSON APIs",
 				},
 				{
 					label: "03. Service Modules",
-					title: "Modular Business Services",
-					detail: "Decoupled logic for Payroll calculation, Sales, Purchase orders & Stock.",
+					title: "Modular Business Workflows",
+					detail: "Decoupled logic for Payroll calculation, stage workflows, purchase orders, and stock.",
 					protocol: "Node Service Handlers",
 				},
 				{
 					label: "04. Cloud Database",
 					title: "PostgreSQL on Azure/AWS",
-					detail: "Optimized relational schemas, query indexing, and automated backups.",
+					detail: "100+ relational tables, JSONB structures, transactions, indexing, and automated backups.",
 					protocol: "SQL & Cloud DB",
 				},
 			],
 			metrics: [
-				{ label: "Modules Covered", value: "8+ Integrated Modules" },
-				{ label: "Cloud Hosting", value: "Azure & AWS EC2" },
-				{ label: "Security", value: "JWT & Role-Based RBAC" },
+				{ label: "Platform Scope", value: "12+ Integrated Modules" },
+				{ label: "API & Data Scale", value: "300+ APIs / 100+ Tables" },
+				{ label: "Multi-Company", value: "4 Onboarded / 100+ Capacity" },
 			],
 		},
 		reporting: {

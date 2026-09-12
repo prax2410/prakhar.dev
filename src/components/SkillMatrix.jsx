@@ -1,14 +1,15 @@
 import React from 'react';
 import { skillsData, engineeringCompetencies, languages } from '../data/portfolioData';
-import { CheckCircle2, Globe2, Server, Database, Layers, Cpu, Terminal } from 'lucide-react';
+import { CheckCircle2, Globe2, Server, Database, Layers, Cpu, Terminal, Cloud } from 'lucide-react';
 
 export default function SkillMatrix() {
   const iconMap = {
-    Backend: Server,
     Frontend: Layers,
-    "Database & Cloud": Database,
-    "IoT & Automation": Cpu,
-    Tools: Terminal,
+    Backend: Server,
+    Database: Database,
+    "Cloud & Deployment": Cloud,
+    "Industrial IoT": Cpu,
+    "Engineering Competencies": Terminal,
   };
 
   return (

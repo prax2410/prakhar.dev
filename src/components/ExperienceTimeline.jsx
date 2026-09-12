@@ -121,7 +121,7 @@ export default function ExperienceTimeline() {
                 {educationData.institution}
               </div>
               <div className="text-xs text-zinc-600 dark:text-zinc-400">
-                {educationData.degree} • <strong className="font-semibold text-zinc-800 dark:text-zinc-200">CGPA {educationData.cgpa}</strong>
+                {educationData.degree} • <strong className="font-semibold text-zinc-800 dark:text-zinc-200">CGPA {educationData.cgpa}</strong> • {educationData.period}
               </div>
             </div>
           </div>

@@ -1,52 +1,72 @@
-# Prakhar — Software Manager & Full Stack Engineer
+# Prakhar — Senior Software Engineer | Software Manager
 
 [![Portfolio Live](https://img.shields.io/badge/Live_Portfolio-Online-emerald?style=for-the-badge&logo=vercel)](https://prax2410.github.io/portfolio/)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin)](https://linkedin.com/in/prakhar-prakhar-b1b052106)
 [![GitHub](https://img.shields.io/badge/GitHub-Profile-181717?style=for-the-badge&logo=github)](https://github.com/prax2410)
 [![Tech Stack](https://img.shields.io/badge/Stack-Node.js_•_React_•_PostgreSQL_•_Azure-blue?style=for-the-badge)](https://github.com/prax2410)
 
-> **Software Manager with 4+ years of experience** building enterprise ERPs, scalable SaaS platforms, and industrial IoT solutions. Hands-on engineering leader managing cross-functional teams of 7 (UI/UX, Web, Mobile, and Interns), driving architecture, code reviews, and cloud production deployments on Microsoft Azure and AWS.
+> **Senior Software Engineer with 4+ years of experience** building enterprise SaaS, ERP, and Industrial IoT applications across the full software development lifecycle. Hands-on experience with Node.js, Express.js, React, JavaScript, and PostgreSQL, with ownership spanning frontend development, backend services, REST APIs, database design, integrations, deployment, and production support. **Promoted from Software Development Engineer to Software Manager at YM Automation**, combining deep hands-on engineering with technical leadership and end-to-end delivery.
 
 ---
 
-## 📌 Featured Architectural Focus
+## 📌 Featured Production Systems
 
-### 1. Multi-Module Enterprise SaaS Platform
-* **Scope**: Ground-up architecture covering HRMS, Projects, Inventory, Purchasing, Sales, Attendance, and Payroll.
-* **Impact**: Centralized enterprise workflows and evolved monolithic internal tools into a multi-module SaaS platform.
-* **Stack**: Node.js, Express.js, React.js, PostgreSQL, AWS EC2, Microsoft Azure.
+### 1. Enterprise ERP & SaaS Platform
+* **Scope**: Designed and developed a **12+ module ERP/SaaS platform** covering HRMS, projects, attendance, payroll, inventory, purchase, sales, CRM, and other operations.
+* **Architecture**: **300+ REST APIs** and PostgreSQL data model with **100+ tables** (transactions, JSONB, indexing).
+* **Scale**: Built to support **100+ companies**, with 4 companies onboarded and 300–400 active employees represented.
+* **Stack**: React.js, Node.js, Express.js, PostgreSQL, REST APIs, RBAC, JSONB.
 
-### 2. Industrial IoT Telemetry & Automation Suite
-* **Scope**: Connecting shopfloor machinery and industrial PLCs to real-time browser analytics.
-* **Protocols**: MQTT, Modbus RTU/TCP, TCP/IP, WebSockets.
-* **Impact**: Sub-second telemetry ingestion and threshold alert dispatch for manufacturing environments.
+### 2. Production Tracking & Workflow System
+* **Scope**: Full-stack production tracking system supporting **12-stage production workflows with branching routes**.
+* **Impact**: Managed stage transitions, routing, production status, quantities, and real-time operational visibility.
+* **Stack**: React.js, Node.js, Express.js, PostgreSQL, REST APIs, Workflow Engine.
 
-### 3. Automated Reporting & Visualization Engine
-* **Scope**: Scheduled background analytics compilation and PDF dispatch.
-* **Impact**: Saved 50% manual reporting time for plant managers and enterprise leadership.
-* **Stack**: Node.js, PostgreSQL, Nodemailer, CRON, PM2.
+### 3. Industrial IoT Monitoring Platform
+* **Scope**: 24×7 real-time monitoring of industrial machinery and automation equipment across multiple client plants.
+* **Protocols & Polling**: **MQTT, Modbus TCP/RTU, TCP/IP, and TCP sockets** with **~1-second polling intervals**.
+* **Scale**: High-throughput telemetry pipelines supporting systems with **up to ~65 machines/devices**.
+* **Stack**: Node.js, React.js, MQTT, Modbus, TCP Sockets, PostgreSQL, PM2.
+
+### 4. Production & Energy Monitoring System
+* **Scope**: Real-time and historical production, energy, machine, alarm, and event monitoring dashboards.
+* **Database Optimization**: Optimized SQL queries, indexing, and transactions for high-frequency time-series telemetry.
+* **Stack**: React.js, Node.js, PostgreSQL, SQL Optimization, REST APIs.
 
 ---
 
 ## 🛠️ Technical Toolkit
 
-| Category | Technologies & Tools |
+| Category | Technologies & Competencies |
 | :--- | :--- |
-| **Backend** | Node.js, Express.js, RESTful APIs, WebSockets (Socket.io), PM2, Nodemailer |
-| **Frontend** | React 18, JavaScript (ES6+), Tailwind CSS, Framer Motion, HTML5, CSS3 |
-| **Databases & Cloud** | PostgreSQL, MongoDB, Microsoft Azure, AWS EC2, Docker/Linux |
-| **Industrial IoT** | MQTT Broker, Modbus RTU/TCP, RS-485 / Ethernet, TCP/IP Sockets |
-| **Leadership & Workflow** | Architecture Reviews, Sprint Planning, Figma Handoff, Mentorship, Git/GitHub |
+| **Frontend** | React.js, HTML5, CSS3, Axios, State Management, Responsive UI, JavaScript |
+| **Backend** | Node.js, Express.js, JavaScript, REST APIs, WebSockets, Authentication, RBAC, API Development, Business Logic |
+| **Database** | PostgreSQL, SQL, Database Design, Query Optimization, Indexing, Transactions, JSONB, MongoDB |
+| **Cloud & Deployment** | Microsoft Azure, AWS EC2, Linux, Nginx, PM2, GitHub Actions, SSL, DNS |
+| **Industrial IoT** | MQTT, Modbus TCP/RTU, TCP/IP, TCP Sockets, PLC Integration, Real-time Data Processing |
+| **Engineering** | Full-Stack Development, System Architecture, Database Architecture, Performance Optimization, Code Review, Debugging |
+
+---
+
+## 💼 Career Progression (YM Automation Pvt Ltd)
+
+* **Software Manager** *(Oct 2024 - Present)*:
+  * Leading cross-functional team (backend, frontend, mobile, UI/UX) while remaining hands-on with system architecture, development, debugging, and production support.
+  * Led 7–8 client projects across ~10 customer companies, managing multi-site industrial deployments and 24×7 IoT systems.
+* **Software Development Engineer** *(Jul 2022 - Oct 2024)*:
+  * Independently designed, developed, deployed, and supported 12 production software projects across full stack and database layers.
+
+---
+
+## 🎓 Education
+
+* **Bachelor of Engineering in Computer Science and Engineering** (2011 - 2018)
+* **Siddaganga Institute of Technology, Tumakuru, Karnataka** | **CGPA: 6.62**
 
 ---
 
 ## 🚀 Running Locally
 
-### Prerequisites
-* [Node.js](https://nodejs.org/) (v18 or higher recommended)
-* `npm` (bundled with Node)
-
-### Quick Start
 ```bash
 # 1. Clone the repository
 git clone https://github.com/prax2410/portfolio.git
@@ -60,33 +80,17 @@ npm install
 # 4. Start local development server
 npm run dev
 ```
-The portfolio will launch locally at `http://localhost:3000`.
+The portfolio launches at `http://localhost:3000`.
 
 ### Production Build
 ```bash
-# Build optimized production bundle to /dist
 npm run build
-
-# Preview production build locally
 npm run preview
 ```
 
 ---
 
-## 📦 Deployment to GitHub Pages
-
-This project is pre-configured with relative asset resolution (`base: './'`) in `vite.config.js`.
-
-### Option A: Manual GitHub Pages Deployment via Git Branch
-1. Run `npm run build`.
-2. Push the contents of `dist/` to a `gh-pages` branch or configure GitHub Pages in **Settings > Pages** to deploy from GitHub Actions.
-
-### Option B: Automated Deployment via GitHub Actions
-A workflow is configured in `.github/workflows/deploy.yml` which automatically builds and deploys the portfolio on every push to the `main` branch.
-
----
-
-## 📬 Contact & Channels
+## 📬 Contact Channels
 
 * **Email**: [prakhar2410kr@gmail.com](mailto:prakhar2410kr@gmail.com)
 * **Phone**: [+91 7019954505](tel:+917019954505)

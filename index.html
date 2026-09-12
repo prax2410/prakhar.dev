@@ -1,34 +1,53 @@
 <!DOCTYPE html>
-<html lang="en" class="dark theme-navy scroll-smooth">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
+    <script>
+      (function() {
+        try {
+          var saved = localStorage.getItem('prakhar_portfolio_theme');
+          var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+          var isDark = saved !== null ? saved === 'dark' : prefersDark;
+          var root = document.documentElement;
+          if (isDark) {
+            root.classList.add('dark');
+            root.classList.remove('light');
+          } else {
+            root.classList.remove('dark');
+            root.classList.add('light');
+          }
+          var savedColor = localStorage.getItem('prakhar_portfolio_color') || 'navy';
+          root.classList.add('theme-' + savedColor);
+        } catch (e) {}
+      })();
+    </script>
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <link rel="apple-touch-icon" href="./favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Prakhar | Software Manager & Full Stack Engineer</title>
-    <meta name="description" content="Portfolio of Prakhar — Software Manager & Full Stack Engineer with 4+ years of experience in enterprise ERP and SaaS development, Node.js, React, PostgreSQL, AWS, Azure, and Industrial IoT." />
+    <title>Prakhar | Senior Software Engineer & Software Manager</title>
+    <meta name="description" content="Portfolio of Prakhar — Senior Software Engineer & Software Manager with 4+ years of experience building enterprise SaaS, 12+ module ERP platforms (300+ APIs), and 24×7 Industrial IoT systems (~65 devices)." />
     <meta name="author" content="Prakhar" />
     <meta name="theme-color" content="#0b132b" />
-    <meta name="keywords" content="Prakhar, Software Manager, Full Stack Engineer, Engineering Manager, Node.js, React, PostgreSQL, Azure, AWS EC2, Industrial IoT, MQTT, Modbus, Enterprise ERP, SaaS Platform, Bengaluru, Coimbatore" />
+    <meta name="keywords" content="Prakhar, Senior Software Engineer, Software Manager, Full Stack Engineer, Node.js, Express.js, React, PostgreSQL, Azure, AWS EC2, Industrial IoT, MQTT, Modbus, Enterprise ERP, SaaS Platform, Bengaluru, Coimbatore" />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <link rel="canonical" href="https://prax2410.github.io/portfolio/" />
 
     <!-- Open Graph / Facebook / LinkedIn / WhatsApp -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://prax2410.github.io/portfolio/" />
-    <meta property="og:title" content="Prakhar | Software Manager & Full Stack Engineer" />
-    <meta property="og:description" content="Software Manager & Full Stack Engineer with 4+ years of experience in enterprise ERP, SaaS platforms, and industrial IoT integrations. Leading cross-functional teams and building high-performance systems." />
+    <meta property="og:title" content="Prakhar | Senior Software Engineer & Software Manager" />
+    <meta property="og:description" content="Senior Software Engineer & Software Manager with 4+ years of experience building enterprise SaaS, 12+ module ERP platforms (300+ APIs), and 24×7 Industrial IoT systems (~65 devices)." />
     <meta property="og:site_name" content="Prakhar Portfolio" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:image" content="https://prax2410.github.io/portfolio/og-image.svg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Prakhar - Software Manager & Full Stack Engineer Portfolio" />
+    <meta property="og:image:alt" content="Prakhar - Senior Software Engineer & Software Manager Portfolio" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Prakhar | Software Manager & Full Stack Engineer" />
-    <meta name="twitter:description" content="Software Manager & Full Stack Engineer with 4+ years of experience in enterprise ERP, SaaS platforms, and industrial IoT integrations." />
+    <meta name="twitter:title" content="Prakhar | Senior Software Engineer & Software Manager" />
+    <meta name="twitter:description" content="Senior Software Engineer & Software Manager with 4+ years of experience building enterprise SaaS, 12+ module ERP platforms (300+ APIs), and 24×7 Industrial IoT systems." />
     <meta name="twitter:image" content="https://prax2410.github.io/portfolio/og-image.svg" />
 
     <!-- Structured Data (JSON-LD) for Search Engines / Google Rich Snippets -->
@@ -40,7 +59,7 @@
           "@type": "Person",
           "@id": "https://prax2410.github.io/portfolio/#person",
           "name": "Prakhar",
-          "jobTitle": "Software Manager & Full Stack Engineer",
+          "jobTitle": "Senior Software Engineer | Software Manager",
           "worksFor": {
             "@type": "Organization",
             "name": "YM Automation Pvt Ltd"
@@ -75,7 +94,7 @@
           "@id": "https://prax2410.github.io/portfolio/#website",
           "url": "https://prax2410.github.io/portfolio/",
           "name": "Prakhar Portfolio",
-          "description": "Portfolio of Prakhar — Software Manager & Full Stack Engineer with 4+ years of experience in enterprise ERP, SaaS platforms, and industrial IoT integrations.",
+          "description": "Portfolio of Prakhar — Senior Software Engineer & Software Manager with 4+ years of experience building enterprise SaaS, 12+ module ERP systems, and 24×7 Industrial IoT applications.",
           "publisher": {
             "@id": "https://prax2410.github.io/portfolio/#person"
           }

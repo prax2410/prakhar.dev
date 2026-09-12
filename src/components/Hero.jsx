@@ -41,9 +41,10 @@ export default function Hero() {
 				name: personalInfo.name,
 				title: personalInfo.title,
 				company: personalInfo.company,
-				experience: "4+ years",
-				teamSize: 7,
-				stack: ["Node.js", "Express.js", "React", "PostgreSQL", "Azure", "AWS EC2", "MQTT", "Modbus"],
+				experience: "4+ years (Jul 2022 - Present)",
+				progression: "Promoted from SDE to Software Manager",
+				scale: "12+ ERP/SaaS modules, 300+ REST APIs, ~65 IoT machines",
+				stack: ["Node.js", "Express.js", "React", "PostgreSQL", "MQTT", "Modbus", "Azure", "AWS EC2"],
 				location: personalInfo.location,
 			},
 			null,
@@ -76,7 +77,7 @@ export default function Hero() {
 							className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-xs font-mono text-zinc-700 dark:text-zinc-300 shadow-sm"
 						>
 							<span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-							<span>Software Manager & Full Stack Builder</span>
+							<span>Senior Software Engineer • Promoted to Software Manager</span>
 						</motion.div>
 
 						{/* Personal Name & Human Hook */}
@@ -89,11 +90,11 @@ export default function Hero() {
 							<h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight text-zinc-900 dark:text-white leading-[1.1]">
 								Hey, I'm Prakhar. <br />
 								<span className="text-zinc-500 dark:text-zinc-400 font-bold text-3xl sm:text-5xl">
-									I lead teams and build systems that work.
+									Full Stack Engineer & Software Manager.
 								</span>
 							</h1>
 							<p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed max-w-xl font-normal pt-1">
-								I'm a hands-on engineering leader at <strong className="font-semibold text-zinc-900 dark:text-white">YM Automation</strong>. Over the past 4+ years, I've designed enterprise SaaS platforms from scratch, connected industrial machines to the web via IoT, and mentored a talented team of 7 across design, web, and mobile.
+								With 4+ years of hands-on experience building enterprise SaaS platforms, 12+ module ERP systems, and 24×7 Industrial IoT applications. Promoted from SDE to Software Manager at <strong className="font-semibold text-zinc-900 dark:text-white">YM Automation</strong>, combining deep full-stack architecture with cross-functional technical leadership.
 							</p>
 						</motion.div>
 
@@ -256,32 +257,32 @@ export default function Hero() {
 											<div className="pl-4 space-y-1">
 												<div>
 													<span className="text-zinc-400">role:</span>{" "}
-													<span className="text-emerald-600 dark:text-emerald-400">"Software Manager & Full Stack Lead"</span>,
+													<span className="text-emerald-600 dark:text-emerald-400">"Senior Software Engineer | Software Manager"</span>,
 												</div>
 												<div>
 													<span className="text-zinc-400">company:</span>{" "}
 													<span className="text-emerald-600 dark:text-emerald-400">"YM Automation Pvt Ltd"</span>,
 												</div>
 												<div>
-													<span className="text-zinc-400">experience:</span>{" "}
-													<span className="text-amber-600 dark:text-amber-400">"4+ years (Jul 2022 - Present)"</span>,
+													<span className="text-zinc-400">track:</span>{" "}
+													<span className="text-amber-600 dark:text-amber-400">"Promoted: SDE -> Software Manager"</span>,
 												</div>
 												<div>
-													<span className="text-zinc-400">teamManaged:</span>{" "}
-													<span className="text-amber-600 dark:text-amber-400">7 engineers & designers</span>,
-												</div>
-												<div>
-													<span className="text-zinc-400">ships:</span> [
-													<div className="pl-4 text-emerald-600 dark:text-emerald-400">
-														"Custom ERP to Multi-Module SaaS",<br />
-														"Industrial IoT (MQTT, Modbus)",<br />
-														"Cloud Deployments (Azure, AWS)"
+													<span className="text-zinc-400">scale:</span> &#123;
+													<div className="pl-4 text-zinc-600 dark:text-zinc-400">
+														modules: <span className="text-amber-500">"12+ ERP/SaaS modules"</span>,<br />
+														apis: <span className="text-amber-500">"300+ REST APIs (100+ Tables)"</span>,<br />
+														iot: <span className="text-amber-500">"~65 machines @ ~1s polling"</span>
 													</div>
-													],
+													&#125;,
 												</div>
 												<div>
-													<span className="text-zinc-400">location:</span>{" "}
-													<span className="text-emerald-600 dark:text-emerald-400">"Bengaluru, Karnataka, India"</span>
+													<span className="text-zinc-400">stack:</span> [
+													<div className="pl-4 text-emerald-600 dark:text-emerald-400">
+														"Node.js", "Express", "React", "PostgreSQL",<br />
+														"MQTT", "Modbus", "Azure", "AWS EC2"
+													</div>
+													]
 												</div>
 											</div>
 
@@ -378,6 +379,31 @@ export default function Hero() {
 					</div>
 
 				</div>
+
+				{/* Key CV Metrics Strip */}
+				<motion.div
+					initial={{ opacity: 0, y: 16 }}
+					animate={{ opacity: 1, y: 0 }}
+					transition={{ duration: 0.5, delay: 0.4 }}
+					className="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-12 pt-8 border-t border-zinc-200/80 dark:border-zinc-800/80"
+				>
+					{personalInfo.stats.map((stat, idx) => (
+						<div
+							key={idx}
+							className="p-4 sm:p-5 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/60 shadow-xs flex flex-col justify-between"
+						>
+							<div className="text-2xl sm:text-3xl font-extrabold text-zinc-900 dark:text-white tracking-tight">
+								{stat.value}
+							</div>
+							<div className="text-xs font-bold text-zinc-800 dark:text-zinc-200 mt-1">
+								{stat.label}
+							</div>
+							<div className="text-[11px] font-mono text-zinc-500 dark:text-zinc-400 mt-0.5">
+								{stat.sub}
+							</div>
+						</div>
+					))}
+				</motion.div>
 			</div>
 		</section>
 	);

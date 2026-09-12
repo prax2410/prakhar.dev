@@ -10,9 +10,8 @@ export default function ProjectsShowcase() {
 	const categories = [
 		"All",
 		"Enterprise SaaS & ERP",
-		"IoT & Automation",
 		"Enterprise System",
-		"Full Stack Web App",
+		"IoT & Automation",
 	];
 
 	const filteredProjects =

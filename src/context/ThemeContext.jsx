@@ -16,13 +16,34 @@ export function ThemeProvider({ children }) {
     if (saved !== null) {
       return saved === 'dark';
     }
-    return window.matchMedia('(prefers-color-scheme: dark)').matches;
+    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
   });
 
   const [colorTheme, setColorTheme] = useState(() => {
     const savedColor = localStorage.getItem('prakhar_portfolio_color');
-    return savedColor || 'navy'; // Default to Navy (IoT & Automation Leader)
+    return savedColor || 'navy';
   });
+
+  // Listen for live OS dark/light mode switches if the user hasn't explicitly set a preference
+  useEffect(() => {
+    if (!window.matchMedia) return;
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    
+    const handleSystemChange = (e) => {
+      const saved = localStorage.getItem('prakhar_portfolio_theme');
+      if (saved === null) {
+        setIsDark(e.matches);
+      }
+    };
+
+    if (mediaQuery.addEventListener) {
+      mediaQuery.addEventListener('change', handleSystemChange);
+      return () => mediaQuery.removeEventListener('change', handleSystemChange);
+    } else if (mediaQuery.addListener) {
+      mediaQuery.addListener(handleSystemChange);
+      return () => mediaQuery.removeListener(handleSystemChange);
+    }
+  }, []);
 
   useEffect(() => {
     const root = document.documentElement;
@@ -31,11 +52,9 @@ export function ThemeProvider({ children }) {
     if (isDark) {
       root.classList.add('dark');
       root.classList.remove('light');
-      localStorage.setItem('prakhar_portfolio_theme', 'dark');
     } else {
       root.classList.remove('dark');
       root.classList.add('light');
-      localStorage.setItem('prakhar_portfolio_theme', 'light');
     }
 
     // Manage color theme class
@@ -46,7 +65,11 @@ export function ThemeProvider({ children }) {
   }, [isDark, colorTheme]);
 
   const toggleTheme = () => {
-    setIsDark(prev => !prev);
+    setIsDark(prev => {
+      const next = !prev;
+      localStorage.setItem('prakhar_portfolio_theme', next ? 'dark' : 'light');
+      return next;
+    });
   };
 
   const changeColorTheme = (themeId) => {

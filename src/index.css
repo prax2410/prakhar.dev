@@ -38,13 +38,13 @@
     --theme-accent-light: rgba(2, 132, 199, 0.12);
   }
   .dark.theme-navy, .theme-navy.dark {
-    --theme-bg: #0b132b;
-    --theme-card: #152238;
-    --theme-border: #1e3a8a;
-    --theme-text: #f8fafc;
-    --theme-subtext: #94a3b8;
+    --theme-bg: #0c0d11;
+    --theme-card: #14151b;
+    --theme-border: #22232c;
+    --theme-text: #ededf2;
+    --theme-subtext: #9293a0;
     --theme-accent: #38bdf8;
-    --theme-accent-light: rgba(56, 189, 248, 0.18);
+    --theme-accent-light: rgba(56, 189, 248, 0.14);
   }
 
   /* ===================================================

@@ -21,6 +21,10 @@ export function ThemeProvider({ children }) {
 
   const [colorTheme, setColorTheme] = useState(() => {
     const savedColor = localStorage.getItem('prakhar_portfolio_color');
+    if (savedColor === 'navy') {
+      localStorage.setItem('prakhar_portfolio_color', 'slate');
+      return 'slate';
+    }
     return savedColor || 'slate';
   });
 

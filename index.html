@@ -5,6 +5,13 @@
     <script>
       (function() {
         try {
+          var savedColor = localStorage.getItem('prakhar_portfolio_color');
+          if (savedColor === 'navy') {
+            localStorage.setItem('prakhar_portfolio_color', 'slate');
+            savedColor = 'slate';
+          } else if (!savedColor) {
+            savedColor = 'slate';
+          }
           var saved = localStorage.getItem('prakhar_portfolio_theme');
           var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
           var isDark = saved !== null ? saved === 'dark' : prefersDark;
@@ -16,7 +23,6 @@
             root.classList.remove('dark');
             root.classList.add('light');
           }
-          var savedColor = localStorage.getItem('prakhar_portfolio_color') || 'slate';
           root.classList.add('theme-' + savedColor);
         } catch (e) {}
       })();

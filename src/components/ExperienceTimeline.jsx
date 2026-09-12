@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { experienceData, educationData, personalInfo, teamStructure } from '../data/portfolioData';
-import { Briefcase, GraduationCap, MapPin, FileText, Users } from 'lucide-react';
+import { Briefcase, GraduationCap, MapPin, FileText, Users, Code2 } from 'lucide-react';
 
 export default function ExperienceTimeline() {
   return (
@@ -77,15 +77,51 @@ export default function ExperienceTimeline() {
 
               {/* Team Scope Callout for Software Manager Role */}
               {index === 0 && (
-                <div className="p-3.5 rounded-xl bg-zinc-50 dark:bg-zinc-800/40 border border-zinc-200/60 dark:border-zinc-700/60 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs">
-                  <div className="flex items-center gap-2 font-medium text-zinc-800 dark:text-zinc-200">
-                    <Users className="w-4 h-4 text-emerald-500" />
-                    <span>Technical Leadership & Hands-on Delivery:</span>
-                    <span className="text-zinc-600 dark:text-zinc-400 font-normal">
-                      Cross-functional software team (backend, frontend, mobile, UI/UX) • 7–8 client projects across ~10 companies
+                <div className="p-4 rounded-xl bg-zinc-50 dark:bg-zinc-800/40 border border-zinc-200/70 dark:border-zinc-700/60 flex flex-col lg:flex-row lg:items-center justify-between gap-3 text-xs">
+                  <div className="flex items-start gap-3 min-w-0">
+                    <div className="p-1.5 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5">
+                      <Users className="w-4 h-4" />
+                    </div>
+                    <div className="space-y-0.5 min-w-0">
+                      <div className="font-semibold text-zinc-900 dark:text-white">
+                        Technical Leadership & Hands-on Delivery
+                      </div>
+                      <p className="text-zinc-600 dark:text-zinc-400 font-normal leading-relaxed">
+                        Cross-functional software team (backend, frontend, mobile, UI/UX) • 7–8 client projects across ~10 companies
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="shrink-0 self-start lg:self-center">
+                    <span className="inline-flex items-center px-2.5 py-1 rounded-md bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-[11px] font-mono text-zinc-600 dark:text-zinc-300">
+                      Architecture, code reviews & delivery
                     </span>
                   </div>
-                  <span className="text-[11px] font-mono text-zinc-400">Architecture, code reviews & delivery</span>
+                </div>
+              )}
+
+              {/* Engineering Scope Callout for Software Development Engineer Role */}
+              {index === 1 && (
+                <div className="p-4 rounded-xl bg-zinc-50 dark:bg-zinc-800/40 border border-zinc-200/70 dark:border-zinc-700/60 flex flex-col lg:flex-row lg:items-center justify-between gap-3 text-xs">
+                  <div className="flex items-start gap-3 min-w-0">
+                    <div className="p-1.5 rounded-lg bg-sky-500/10 text-sky-600 dark:text-sky-400 shrink-0 mt-0.5">
+                      <Code2 className="w-4 h-4" />
+                    </div>
+                    <div className="space-y-0.5 min-w-0">
+                      <div className="font-semibold text-zinc-900 dark:text-white">
+                        Full-Stack Development & IIoT Integrations
+                      </div>
+                      <p className="text-zinc-600 dark:text-zinc-400 font-normal leading-relaxed">
+                        12 production projects independently designed & deployed across frontend, REST APIs, PostgreSQL & hardware protocols
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="shrink-0 self-start lg:self-center">
+                    <span className="inline-flex items-center px-2.5 py-1 rounded-md bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 text-[11px] font-mono text-zinc-600 dark:text-zinc-300">
+                      12 Production Projects • ~65 Devices
+                    </span>
+                  </div>
                 </div>
               )}
 

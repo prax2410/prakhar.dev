@@ -187,10 +187,12 @@ export const projectsData = [
 		architectureDecisions: [
 			"Selected relational PostgreSQL over NoSQL to enforce strict ACID transactional consistency across interdependent inventory, financial, and payroll ledgers.",
 			"Architected 100+ normalized tables paired with JSONB columns for polymorphic company attributes, eliminating recurring schema migrations per onboarded tenant.",
-			"Built centralized RBAC middleware with granular role-permission mapping, ensuring strict data boundary isolation across multi-tenant organizations."
+			"Built centralized RBAC middleware with granular role-permission mapping, ensuring strict data boundary isolation across multi-tenant organizations.",
 		],
-		keyChallenges: "Managing high schema normalization without sacrificing latency across cross-module queries (e.g. correlating biometric attendance with automated payroll deductions).",
-		engineeringOutcomes: "Delivered sub-100ms API response times across core transactional modules; safely scaled to 4 active onboarded companies with capacity for 100+.",
+		keyChallenges:
+			"Managing high schema normalization without sacrificing latency across cross-module queries (e.g. correlating biometric attendance with automated payroll deductions).",
+		engineeringOutcomes:
+			"Delivered sub-100ms API response times across core transactional modules; safely scaled to 4 active onboarded companies with capacity for 100+.",
 		tech: [
 			"React.js",
 			"Node.js",
@@ -220,10 +222,12 @@ export const projectsData = [
 		architectureDecisions: [
 			"Engineered a deterministic finite-state engine governing 12 stages to prevent illegal state jumps and race conditions during simultaneous operator entries.",
 			"Applied database row-level locking (SELECT FOR UPDATE) during batch status transitions to prevent duplicate inventory deduction under concurrent operator requests.",
-			"Decoupled workflow topology definitions from execution instances, enabling zero-downtime routing modifications for custom plant lines."
+			"Decoupled workflow topology definitions from execution instances, enabling zero-downtime routing modifications for custom plant lines.",
 		],
-		keyChallenges: "Handling non-linear branching routes (rework, bypass, scrap) while maintaining accurate work-in-progress (WIP) quantities and complete audit traceability.",
-		engineeringOutcomes: "Eliminated manual shopfloor paperwork delays across 12 stages, providing instant bottleneck visibility for plant supervisors.",
+		keyChallenges:
+			"Handling non-linear branching routes (rework, bypass, scrap) while maintaining accurate work-in-progress (WIP) quantities and complete audit traceability.",
+		engineeringOutcomes:
+			"Eliminated manual shopfloor paperwork delays across 12 stages, providing instant bottleneck visibility for plant supervisors.",
 		tech: [
 			"React.js",
 			"Node.js",
@@ -251,10 +255,12 @@ export const projectsData = [
 		architectureDecisions: [
 			"Selected MQTT (QoS 1) and Modbus TCP/RTU over HTTP polling to minimize packet overhead and survive noisy factory Wi-Fi/Ethernet environments.",
 			"Engineered an in-memory buffer with backoff reconnection logic in the Node.js daemon to prevent telemetry data loss during edge gateway disconnects.",
-			"Optimized PostgreSQL connection pooling (pg-pool) and composite indexing on (device_id, timestamp) for high-frequency sub-second inserts."
+			"Optimized PostgreSQL connection pooling (pg-pool) and composite indexing on (device_id, timestamp) for high-frequency sub-second inserts.",
 		],
-		keyChallenges: "Preventing event-loop starvation and memory leaks in a 24×7 Node.js daemon polling up to ~65 industrial machine controllers every second.",
-		engineeringOutcomes: "Maintained 24×7 real-time telemetry uptime across multi-site industrial deployments with sub-second dashboard updates.",
+		keyChallenges:
+			"Preventing event-loop starvation and memory leaks in a 24×7 Node.js daemon polling up to ~65 industrial machine controllers every second.",
+		engineeringOutcomes:
+			"Maintained 24×7 real-time telemetry uptime across multi-site industrial deployments with sub-second dashboard updates.",
 		tech: [
 			"MQTT",
 			"Modbus TCP/RTU",
@@ -283,10 +289,12 @@ export const projectsData = [
 		architectureDecisions: [
 			"Designed automated aggregation workers running via cron to downsample raw telemetry into hourly and daily summary tables, preventing dashboard latency degrade.",
 			"Implemented transactional database rollbacks and read/write query separation to isolate intensive analytics queries from live machine ingestion.",
-			"Structured reusable React SVG gauge and trend chart components that render efficiently without re-rendering the entire dashboard on incoming socket events."
+			"Structured reusable React SVG gauge and trend chart components that render efficiently without re-rendering the entire dashboard on incoming socket events.",
 		],
-		keyChallenges: "Executing multi-million row historical energy trend queries without impacting concurrent live shopfloor sensor streaming.",
-		engineeringOutcomes: "Reduced management reporting generation from manual hours to automated real-time dispatch with zero database deadlocks.",
+		keyChallenges:
+			"Executing multi-million row historical energy trend queries without impacting concurrent live shopfloor sensor streaming.",
+		engineeringOutcomes:
+			"Reduced management reporting generation from manual hours to automated real-time dispatch with zero database deadlocks.",
 		tech: [
 			"React.js",
 			"Node.js",
@@ -303,22 +311,26 @@ export const projectsData = [
 export const seniorEngineeringPrinciples = [
 	{
 		title: "Pragmatic Architecture over Resume-Driven Tech",
-		principle: "Choose proven, robust primitives (PostgreSQL, Node.js, React) and master them deeply. System simplicity, reliability, and business ROI always trump unneeded complexity.",
+		principle:
+			"Choose proven, robust primitives (PostgreSQL, Node.js, React) and master them deeply. System simplicity, reliability, and business ROI always trump unneeded complexity.",
 		tag: "System Design",
 	},
 	{
 		title: "Contract-First & Defensive Boundaries",
-		principle: "Validate early at the system edge. Strict DTO schemas, idempotent mutations, atomic transactions, and predictable error contracts ensure systems fail safely.",
+		principle:
+			"Validate early at the system edge. Strict DTO schemas, idempotent mutations, atomic transactions, and predictable error contracts ensure systems fail safely.",
 		tag: "Reliability",
 	},
 	{
 		title: "Observability Built-in from Day 1",
-		principle: "If you cannot monitor or trace it in production, it is not production-ready. Structured logging, health checks, and daemon metrics must be engineered alongside features.",
+		principle:
+			"If you cannot monitor or trace it in production, it is not production-ready. Structured logging, health checks, and daemon metrics must be engineered alongside features.",
 		tag: "Operations",
 	},
 	{
 		title: "Mentorship as an Engineering Multiplier",
-		principle: "Seniority is defined by how much you elevate your team. Thorough code reviews, architecture documentation, and pairing turn junior engineers into confident owners.",
+		principle:
+			"Seniority is defined by how much you elevate your team. Thorough code reviews, architecture documentation, and pairing turn junior engineers into confident owners.",
 		tag: "Leadership",
 	},
 ];
@@ -421,7 +433,7 @@ export const languages = [
 export const educationData = {
 	institution: "Siddaganga Institute of Technology, Tumakuru",
 	degree: "Bachelor of Engineering in Computer Science and Engineering",
-	cgpa: "6.62",
-	period: "2011 - 2018",
+	// cgpa: "6.62",
+	// period: "2011 - 2018",
 	location: "Tumakuru, Karnataka",
 };

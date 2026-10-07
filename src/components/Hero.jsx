@@ -1,424 +1,506 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowDown, FileText, Github, Linkedin, Mail, Terminal, Copy, Check, Radio, GitCommit, Code2 } from "lucide-react";
+import {
+	ArrowDownRight,
+	ArrowUpRight,
+	FileText,
+	Github,
+	Linkedin,
+	Mail,
+	Phone,
+	MessageSquare,
+	Terminal,
+	Copy,
+	Check,
+	Radio,
+	Activity,
+	Cpu,
+	Layers,
+	Clock,
+	MapPin,
+	ShieldCheck,
+} from "lucide-react";
 import { personalInfo } from "../data/portfolioData";
 import Tooltip from "./Tooltip";
 
 export default function Hero() {
-	const [activeTab, setActiveTab] = useState("profile");
 	const [copied, setCopied] = useState(false);
+	const [copiedEmail, setCopiedEmail] = useState(false);
 	const [logs, setLogs] = useState([
-		{ id: 1, time: "11:24:02", tag: "MQTT", msg: "Machine_04 register polled -> RPM: 1420, Temp: 42°C [OK]" },
-		{ id: 2, time: "11:24:05", tag: "MODBUS", msg: "PLC_Line_A TCP socket connected: 192.168.1.120:502" },
-		{ id: 3, time: "11:24:08", tag: "REST-API", msg: "POST /api/v1/erp/payroll/calculate [200 OK in 18ms]" },
-		{ id: 4, time: "11:24:11", tag: "SOCKET", msg: "Telemetry payload broadcast to 14 active operator clients" },
+		{
+			id: 1,
+			time: "11:24:02.108",
+			proto: "MQTT",
+			metric: "CNC_04.RPM",
+			val: "1420 rpm",
+			status: "ACK",
+		},
+		{
+			id: 2,
+			time: "11:24:03.450",
+			proto: "MODBUS",
+			metric: "PLC_LINE_A.HOLD_REG",
+			val: "32 regs @ 80ms",
+			status: "SYNC",
+		},
+		{
+			id: 3,
+			time: "11:24:05.812",
+			proto: "REST",
+			metric: "ERP.PAYROLL_CALC",
+			val: "200 OK [14ms]",
+			status: "ACID",
+		},
+		{
+			id: 4,
+			time: "11:24:07.004",
+			proto: "SOCKET",
+			metric: "STREAM.BROADCAST",
+			val: "14 active clients",
+			status: "LIVE",
+		},
 	]);
 
-	// Subtle live telemetry pulse animation
 	useEffect(() => {
-		if (activeTab !== "telemetry") return;
 		const interval = setInterval(() => {
 			const now = new Date();
-			const timeStr = now.toTimeString().split(" ")[0];
-			const newEvents = [
-				{ tag: "MQTT", msg: `Sensor_P${Math.floor(Math.random() * 8 + 1)} stream synced: pressure 4.${Math.floor(Math.random() * 9)} bar` },
-				{ tag: "PG-POOL", msg: `PostgreSQL connection pool healthy: 24 active clients, 0 idle wait` },
-				{ tag: "MODBUS", msg: `Modbus RTU cycle complete across 32 registers -> 0 packet loss` },
-				{ tag: "AUTH", msg: `JWT verified for user prakhar@ymautomation [role: ENG_LEAD]` },
+			const timeStr =
+				now.toTimeString().split(" ")[0] +
+				"." +
+				Math.floor(Math.random() * 900 + 100);
+			const samples = [
+				{
+					proto: "MQTT",
+					metric: `SENSOR_P${Math.floor(Math.random() * 8 + 1)}.PRESSURE`,
+					val: `4.${Math.floor(Math.random() * 9)} bar`,
+					status: "ACK",
+				},
+				{
+					proto: "POSTGRES",
+					metric: "POOL.CLIENTS_ACTIVE",
+					val: "28 conn / 0 wait",
+					status: "HEALTHY",
+				},
+				{
+					proto: "MODBUS",
+					metric: "RTU.CYCLE_COMPLETE",
+					val: "32 regs / 0 loss",
+					status: "SYNC",
+				},
+				{
+					proto: "AUTH",
+					metric: "JWT.VERIFY_RBAC",
+					val: "ROLE: ENG_LEAD",
+					status: "AUTH_OK",
+				},
 			];
-			const randomEvent = newEvents[Math.floor(Math.random() * newEvents.length)];
+			const pick = samples[Math.floor(Math.random() * samples.length)];
 			setLogs((prev) => [
 				...prev.slice(1),
-				{ id: Date.now(), time: timeStr, tag: randomEvent.tag, msg: randomEvent.msg },
+				{
+					id: Date.now(),
+					time: timeStr,
+					proto: pick.proto,
+					metric: pick.metric,
+					val: pick.val,
+					status: pick.status,
+				},
 			]);
-		}, 2400);
-
+		}, 2600);
 		return () => clearInterval(interval);
-	}, [activeTab]);
+	}, []);
 
-	const handleCopy = () => {
-		const profileText = JSON.stringify(
-			{
-				name: personalInfo.name,
-				title: "Senior Software Engineer | Full Stack",
-				company: personalInfo.company,
-				experience: "4+ years (Jul 2022 - Present)",
-				timeline: "SDE -> Software Manager",
-				scale: "12+ ERP/SaaS modules, 300+ REST APIs, ~65 IIoT machines, 12 production projects",
-				stack: ["Node.js", "Express.js", "React", "PostgreSQL", "MQTT", "Modbus", "Azure", "AWS EC2"],
-				location: personalInfo.location,
-			},
-			null,
-			2
-		);
-		navigator.clipboard.writeText(profileText);
+	const handleCopySpec = () => {
+		const spec = `PRAKHAR // SENIOR SOFTWARE ENGINEER (FULL STACK)
+Notice Period: Currently Serving · Immediate / Quick Joiner
+Experience: 4+ Years · Promoted SDE -> Software Manager @ YM Automation
+Scale: 12+ ERP Modules (300+ APIs), ~65 IIoT Machines, 12 Production Projects
+Core Stack: Node.js, Express.js, React.js, PostgreSQL, MQTT, Modbus, Azure, AWS
+Email: ${personalInfo.email} | Phone: ${personalInfo.phone}`;
+		navigator.clipboard.writeText(spec);
 		setCopied(true);
 		setTimeout(() => setCopied(false), 2000);
+	};
+
+	const handleCopyEmail = () => {
+		navigator.clipboard.writeText(personalInfo.email);
+		setCopiedEmail(true);
+		setTimeout(() => setCopiedEmail(false), 2000);
 	};
 
 	return (
 		<section
 			id="about"
-			className="relative min-h-[90vh] pt-28 pb-16 flex items-center justify-center overflow-hidden"
+			className="relative pt-24 sm:pt-28 pb-16 border-b border-zinc-200 dark:border-zinc-800"
 		>
-			{/* Subtle Ambient Background Grid */}
-			<div className="absolute inset-0 pointer-events-none opacity-[0.025] dark:opacity-[0.05] bg-[linear-gradient(to_right,#80808020_1px,transparent_1px),linear-gradient(to_bottom,#80808020_1px,transparent_1px)] bg-[size:28px_28px]" />
-
-			<div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-				<div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-					
-					{/* Left Column: Personal, Human Introduction */}
-					<div className="lg:col-span-7 space-y-6">
-						
-						{/* Friendly Personal Tag */}
-						<motion.div
-							initial={{ opacity: 0, y: 8 }}
-							animate={{ opacity: 1, y: 0 }}
-							transition={{ duration: 0.4 }}
-							className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 text-xs font-mono text-zinc-700 dark:text-zinc-300 shadow-sm"
-						>
-							<span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-							<span>Senior Software Engineer • Full Stack</span>
-						</motion.div>
-
-						{/* Personal Name & Human Hook */}
-						<motion.div
-							initial={{ opacity: 0, y: 12 }}
-							animate={{ opacity: 1, y: 0 }}
-							transition={{ duration: 0.5, delay: 0.1 }}
-							className="space-y-3"
-						>
-							<h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight text-zinc-900 dark:text-white leading-[1.1]">
-								Hey, I'm Prakhar. <br />
-								<span className="text-zinc-500 dark:text-zinc-400 font-bold text-3xl sm:text-5xl">
-									Senior Software Engineer | Full Stack
-								</span>
-							</h1>
-							<p className="text-base sm:text-lg text-zinc-600 dark:text-zinc-400 leading-relaxed max-w-xl font-normal pt-1">
-								Senior Software Engineer with 4+ years of experience building enterprise SaaS, ERP (12+ modules, 300+ APIs), and 24×7 IIoT applications. Promoted from Software Development Engineer to Software Manager at <strong className="font-semibold text-zinc-900 dark:text-white">YM Automation Pvt Ltd</strong>, combining hands-on engineering with technical leadership and end-to-end delivery.
-							</p>
-						</motion.div>
-
-						{/* Stack Pills */}
-						<motion.div
-							initial={{ opacity: 0, y: 12 }}
-							animate={{ opacity: 1, y: 0 }}
-							transition={{ duration: 0.5, delay: 0.2 }}
-							className="flex flex-wrap items-center gap-1.5 font-mono text-xs text-zinc-600 dark:text-zinc-400"
-						>
-							<span className="text-zinc-400 dark:text-zinc-500 font-sans mr-1 text-xs">Primary toolkit:</span>
-							{["Node.js", "Express", "React", "PostgreSQL", "Azure", "AWS", "MQTT / Modbus"].map((tech) => (
-								<span
-									key={tech}
-									className="px-2.5 py-1 rounded-md border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900 text-zinc-700 dark:text-zinc-300 font-medium"
-								>
-									{tech}
-								</span>
-							))}
-						</motion.div>
-
-						{/* Direct Actions */}
-						<motion.div
-							initial={{ opacity: 0, y: 12 }}
-							animate={{ opacity: 1, y: 0 }}
-							transition={{ duration: 0.5, delay: 0.3 }}
-							className="flex flex-wrap items-center gap-3 pt-2"
-						>
-							<a
-								href="#projects"
-								className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 font-semibold text-xs hover:opacity-90 transition-opacity shadow-sm"
-							>
-								<span>See What I've Built</span>
-								<ArrowDown className="w-3.5 h-3.5" />
-							</a>
-
-							<a
-								href={personalInfo.resumeUrl}
-								target="_blank"
-								rel="noreferrer"
-								download="Prakhar_CV_2026.pdf"
-								className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl border border-zinc-300 dark:border-zinc-700 text-zinc-800 dark:text-zinc-200 font-semibold text-xs hover:border-zinc-900 dark:hover:border-white transition-colors"
-							>
-								<FileText className="w-3.5 h-3.5" />
-								<span>Download CV</span>
-							</a>
-
-							<div className="flex items-center gap-1.5 pl-1">
-								<Tooltip text="GitHub (@prax2410)" position="top">
-									<a
-										href={personalInfo.github}
-										target="_blank"
-										rel="noreferrer"
-										aria-label="GitHub"
-										className="p-2.5 rounded-xl border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
-									>
-										<Github className="w-4 h-4" />
-									</a>
-								</Tooltip>
-
-								<Tooltip text="LinkedIn Profile" position="top">
-									<a
-										href={personalInfo.linkedin}
-										target="_blank"
-										rel="noreferrer"
-										aria-label="LinkedIn"
-										className="p-2.5 rounded-xl border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
-									>
-										<Linkedin className="w-4 h-4" />
-									</a>
-								</Tooltip>
-
-								<Tooltip text="Send an Email" position="top">
-									<a
-										href={`mailto:${personalInfo.email}`}
-										aria-label="Email"
-										className="p-2.5 rounded-xl border border-zinc-200 dark:border-zinc-800 text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white transition-colors"
-									>
-										<Mail className="w-4 h-4" />
-									</a>
-								</Tooltip>
-							</div>
-						</motion.div>
+			<div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+				{/* Recruiter Priority Notice Period & Hiring Status Bar */}
+				<div className="py-3 px-4 mb-8 border border-zinc-200 dark:border-zinc-800 bg-zinc-50/80 dark:bg-zinc-900/50 flex flex-col md:flex-row md:items-center justify-between gap-2.5 text-xs font-mono">
+					<div className="flex flex-wrap items-center gap-2">
+						<span className="relative flex h-2 w-2">
+							<span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+							<span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+						</span>
+						<span className="font-bold text-zinc-950 dark:text-white uppercase tracking-wider">
+							SERVING NOTICE PERIOD // IMMEDIATE JOINER
+						</span>
+						<span className="text-zinc-400 hidden xs:inline">
+							·
+						</span>
+						<span className="text-emerald-700 dark:text-emerald-400 font-semibold">
+							Bengaluru [Hybrid / Remote]
+						</span>
 					</div>
 
-					{/* Right Column: Interactive Developer Terminal */}
-					<div className="lg:col-span-5">
-						<motion.div
-							initial={{ opacity: 0, scale: 0.97 }}
-							animate={{ opacity: 1, scale: 1 }}
-							transition={{ duration: 0.6, delay: 0.2 }}
-							className="rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900/90 shadow-xl overflow-hidden font-mono text-xs"
-						>
-							{/* Window Header with Clickable Tabs */}
-							<div className="px-4 py-2.5 bg-zinc-100 dark:bg-zinc-800/80 border-b border-zinc-200 dark:border-zinc-800 flex items-center justify-between">
-								<div className="flex items-center gap-2">
-									<div className="w-3 h-3 rounded-full bg-rose-500/80" />
-									<div className="w-3 h-3 rounded-full bg-amber-500/80" />
-									<div className="w-3 h-3 rounded-full bg-emerald-500/80" />
-								</div>
-
-								{/* Terminal Tab Switcher */}
-								<div className="flex items-center gap-1 text-[11px]">
-									<button
-										onClick={() => setActiveTab("profile")}
-										className={`px-2.5 py-1 rounded-md transition-colors flex items-center gap-1 ${
-											activeTab === "profile"
-												? "bg-white dark:bg-zinc-900 text-zinc-900 dark:text-white font-semibold shadow-xs"
-												: "text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200"
-										}`}
-									>
-										<Code2 className="w-3 h-3" />
-										<span>profile.json</span>
-									</button>
-
-									<button
-										onClick={() => setActiveTab("telemetry")}
-										className={`px-2.5 py-1 rounded-md transition-colors flex items-center gap-1 ${
-											activeTab === "telemetry"
-												? "bg-white dark:bg-zinc-900 text-zinc-900 dark:text-white font-semibold shadow-xs"
-												: "text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200"
-										}`}
-									>
-										<Radio className="w-3 h-3 text-emerald-500 animate-pulse" />
-										<span>telemetry.log</span>
-									</button>
-
-									<button
-										onClick={() => setActiveTab("git")}
-										className={`px-2.5 py-1 rounded-md transition-colors flex items-center gap-1 ${
-											activeTab === "git"
-												? "bg-white dark:bg-zinc-900 text-zinc-900 dark:text-white font-semibold shadow-xs"
-												: "text-zinc-500 hover:text-zinc-800 dark:hover:text-zinc-200"
-										}`}
-									>
-										<GitCommit className="w-3 h-3 text-indigo-500" />
-										<span>git_log</span>
-									</button>
-								</div>
-
-								<Tooltip text={copied ? "Copied to clipboard!" : "Copy snippet"} position="left">
-									<button
-										onClick={handleCopy}
-										aria-label="Copy snippet"
-										className="p-1 rounded text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-200 transition-colors"
-									>
-										{copied ? <Check className="w-3.5 h-3.5 text-emerald-500" /> : <Copy className="w-3.5 h-3.5" />}
-									</button>
-								</Tooltip>
-							</div>
-
-							{/* Terminal Body with Animated Transitions */}
-							<div className="p-5 sm:p-6 min-h-[310px] flex flex-col justify-between">
-								<AnimatePresence mode="wait">
-									{/* Tab 1: Profile JSON */}
-									{activeTab === "profile" && (
-										<motion.div
-											key="profile"
-											initial={{ opacity: 0, y: 4 }}
-											animate={{ opacity: 1, y: 0 }}
-											exit={{ opacity: 0, y: -4 }}
-											transition={{ duration: 0.2 }}
-											className="space-y-2 text-zinc-700 dark:text-zinc-300 font-mono text-[11px] sm:text-xs"
-										>
-											<div>
-												<span className="text-indigo-600 dark:text-indigo-400">const</span>{" "}
-												<span className="text-amber-600 dark:text-amber-300">prakhar</span> = &#123;
-											</div>
-
-											<div className="pl-4 space-y-1">
-												<div>
-													<span className="text-zinc-400">role:</span>{" "}
-													<span className="text-emerald-600 dark:text-emerald-400">"Senior Software Engineer | Full Stack"</span>,
-												</div>
-												<div>
-													<span className="text-zinc-400">company:</span>{" "}
-													<span className="text-emerald-600 dark:text-emerald-400">"YM Automation Pvt Ltd"</span>,
-												</div>
-												<div>
-													<span className="text-zinc-400">timeline:</span>{" "}
-													<span className="text-amber-600 dark:text-amber-400">{"\"SDE -> Software Manager\""}</span>,
-												</div>
-												<div>
-													<span className="text-zinc-400">scale:</span> &#123;
-													<div className="pl-4 text-zinc-600 dark:text-zinc-400">
-														modules: <span className="text-amber-500">"12+ ERP/SaaS modules (300+ APIs)"</span>,<br />
-														projects: <span className="text-amber-500">"12 production projects"</span>,<br />
-														iiot: <span className="text-amber-500">"~65 machines @ ~1s polling"</span>
-													</div>
-													&#125;,
-												</div>
-												<div>
-													<span className="text-zinc-400">stack:</span> [
-													<div className="pl-4 text-emerald-600 dark:text-emerald-400">
-														"Node.js", "Express.js", "React.js", "PostgreSQL",<br />
-														"MQTT", "Modbus", "Azure", "AWS EC2"
-													</div>
-													],
-												</div>
-												<div>
-													<span className="text-zinc-400">focus:</span>{" "}
-													<span className="text-indigo-600 dark:text-indigo-400">"ACID Consistency • High-Frequency IIoT • Multi-Tenant RBAC"</span>
-												</div>
-											</div>
-
-											<div>&#125;;<span className="animate-pulse text-emerald-500 font-bold ml-1">_</span></div>
-										</motion.div>
-									)}
-
-									{/* Tab 2: Live IIoT Telemetry Logs */}
-									{activeTab === "telemetry" && (
-										<motion.div
-											key="telemetry"
-											initial={{ opacity: 0, y: 4 }}
-											animate={{ opacity: 1, y: 0 }}
-											exit={{ opacity: 0, y: -4 }}
-											transition={{ duration: 0.2 }}
-											className="space-y-2.5 font-mono text-[11px]"
-										>
-											<div className="flex items-center justify-between pb-2 border-b border-zinc-100 dark:border-zinc-800 text-[10px] text-zinc-400">
-												<span className="flex items-center gap-1.5">
-													<span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping" />
-													LIVE SHOPFLOOR TELEMETRY DAEMON
-												</span>
-												<span>SUB-SECOND</span>
-											</div>
-
-											<div className="space-y-2">
-												{logs.map((log) => (
-													<motion.div
-														key={log.id}
-														initial={{ opacity: 0, x: -4 }}
-														animate={{ opacity: 1, x: 0 }}
-														className="flex items-start gap-2 leading-relaxed"
-													>
-														<span className="text-zinc-400 shrink-0">[{log.time}]</span>
-														<span className="px-1.5 py-0.2 rounded bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-300 text-[10px] shrink-0">
-															{log.tag}
-														</span>
-														<span className="text-zinc-700 dark:text-zinc-300 truncate">
-															{log.msg}
-														</span>
-													</motion.div>
-												))}
-											</div>
-										</motion.div>
-									)}
-
-									{/* Tab 3: Git Architecture Activity */}
-									{activeTab === "git" && (
-										<motion.div
-											key="git"
-											initial={{ opacity: 0, y: 4 }}
-											animate={{ opacity: 1, y: 0 }}
-											exit={{ opacity: 0, y: -4 }}
-											transition={{ duration: 0.2 }}
-											className="space-y-2.5 font-mono text-[11px]"
-										>
-											<div className="pb-2 border-b border-zinc-100 dark:border-zinc-800 text-[10px] text-zinc-400 flex items-center justify-between">
-												<span>$ git log --oneline -n 4</span>
-												<span className="text-emerald-500">branch: main</span>
-											</div>
-
-											<div className="space-y-2 text-zinc-700 dark:text-zinc-300">
-												<div className="flex items-center gap-2">
-													<span className="text-amber-500 font-bold">d4f9a21</span>
-													<span>feat(erp): evolve monolithic services to multi-tenant SaaS</span>
-												</div>
-												<div className="flex items-center gap-2">
-													<span className="text-amber-500 font-bold">88c1b90</span>
-													<span>perf(iiot): optimize Modbus RTU polling cycle to 80ms</span>
-												</div>
-												<div className="flex items-center gap-2">
-													<span className="text-amber-500 font-bold">3a17e04</span>
-													<span>feat(reports): automate scheduled PDF dispatch via cron</span>
-												</div>
-												<div className="flex items-center gap-2">
-													<span className="text-amber-500 font-bold">c901e12</span>
-													<span>chore(team): establish code review SLA & onboarding docs</span>
-												</div>
-											</div>
-										</motion.div>
-									)}
-								</AnimatePresence>
-
-								{/* Bottom Status Ticker */}
-								<div className="pt-3 border-t border-zinc-200 dark:border-zinc-800 flex items-center justify-between text-[11px] text-zinc-500">
-									<div className="flex items-center gap-1.5">
-										<span className="w-2 h-2 rounded-full bg-emerald-500" />
-										<span>process status: production ready</span>
-									</div>
-									<span className="font-semibold text-zinc-800 dark:text-zinc-200">PORT 8080</span>
-								</div>
-							</div>
-						</motion.div>
+					<div className="flex items-center gap-3 text-zinc-600 dark:text-zinc-400 pt-1 md:pt-0 border-t md:border-t-0 border-zinc-200 dark:border-zinc-800 text-[11px] sm:text-xs">
+						<span className="uppercase font-semibold">
+							TARGET: SENIOR SDE · FULL STACK LEAD
+						</span>
+						<span className="text-zinc-300 dark:text-zinc-700">
+							|
+						</span>
+						<span className="text-zinc-950 dark:text-white font-bold bg-zinc-200/70 dark:bg-zinc-800 px-1.5 py-0.5 rounded-sm">
+							4+ YRS EXP
+						</span>
 					</div>
-
 				</div>
 
-				{/* Key CV Metrics Strip */}
-				<motion.div
-					initial={{ opacity: 0, y: 16 }}
-					animate={{ opacity: 1, y: 0 }}
-					transition={{ duration: 0.5, delay: 0.4 }}
-					className="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-12 pt-8 border-t border-zinc-200/80 dark:border-zinc-800/80"
-				>
-					{personalInfo.stats.map((stat, idx) => (
-						<div
-							key={idx}
-							className="p-4 sm:p-5 rounded-2xl border border-zinc-200 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/60 shadow-xs flex flex-col justify-between"
+				{/* Authoritative Recruiter Master Headline */}
+				<div className="space-y-4 mb-10">
+					<div className="flex flex-col lg:flex-row lg:items-baseline justify-between gap-3">
+						<h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tighter text-zinc-950 dark:text-white uppercase leading-none">
+							PRAKHAR
+						</h1>
+						<div className="text-xs sm:text-sm font-mono uppercase tracking-widest text-zinc-700 dark:text-zinc-300 font-bold">
+							[SENIOR SOFTWARE ENGINEER · FULL STACK]
+						</div>
+					</div>
+
+					<p className="text-lg sm:text-xl lg:text-2xl font-normal tracking-tight text-zinc-700 dark:text-zinc-300 max-w-3xl leading-relaxed">
+						Full-stack architect & technical manager. 4+ years
+						engineering multi-tenant SaaS platforms (
+						<strong className="text-zinc-950 dark:text-white font-bold">
+							12+ ERP modules, 300+ APIs, PostgreSQL
+						</strong>
+						) and{" "}
+						<strong className="text-zinc-950 dark:text-white font-bold">
+							24×7 sub-second IIoT telemetry streaming
+						</strong>
+						. Accelerated track from SDE to Software Manager at YM
+						Automation, leading a 7-person software engineering
+						team.
+					</p>
+				</div>
+
+				{/* Recruiter Fast-Action Bar (Primary Conversion Suite) */}
+				<div className="p-4 sm:p-5 mb-12 border border-zinc-300 dark:border-zinc-700 bg-white dark:bg-zinc-950 flex flex-col md:flex-row md:items-center justify-between gap-4 font-mono text-xs">
+					{/* Primary Fast Actions */}
+					<div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5">
+						{/* Direct CV Download - High Prominence */}
+						<a
+							href={personalInfo.resumeUrl}
+							target="_blank"
+							rel="noreferrer"
+							download="Prakhar_CV_2026.pdf"
+							className="px-5 py-3 bg-zinc-950 dark:bg-white text-white dark:text-zinc-950 font-bold uppercase tracking-wider hover:bg-zinc-800 dark:hover:bg-zinc-100 transition-colors flex items-center justify-center gap-2 shadow-sm text-center"
 						>
-							<div className={`font-extrabold text-zinc-900 dark:text-white tracking-tight ${stat.value.length > 14 ? 'text-lg sm:text-xl' : 'text-2xl sm:text-3xl'}`}>
-								{stat.value}
+							<FileText className="w-4 h-4 shrink-0" />
+							<span>Download Official CV (PDF)</span>
+							<ArrowUpRight className="w-3.5 h-3.5 shrink-0" />
+						</a>
+
+						{/* Direct Email Action & Copy Email */}
+						<div className="flex items-center gap-2">
+							<a
+								href={`mailto:${personalInfo.email}`}
+								className="flex-1 sm:flex-initial px-4 py-3 border border-zinc-300 dark:border-zinc-700 hover:border-zinc-900 dark:hover:border-white text-zinc-900 dark:text-white font-bold uppercase tracking-wider transition-colors flex items-center justify-center gap-2"
+							>
+								<Mail className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
+								<span>Email Me Directly</span>
+							</a>
+
+							<Tooltip
+								text={
+									copiedEmail ?
+										"Copied to clipboard!"
+									:	"Copy email address"
+								}
+								position="top"
+							>
+								<button
+									onClick={handleCopyEmail}
+									aria-label="Copy email address"
+									className="p-3 border border-zinc-200 dark:border-zinc-800 hover:border-zinc-400 dark:hover:border-zinc-600 text-zinc-600 dark:text-zinc-400 transition-colors"
+								>
+									{copiedEmail ?
+										<Check className="w-4 h-4 text-emerald-500" />
+									:	<Copy className="w-4 h-4" />}
+								</button>
+							</Tooltip>
+						</div>
+					</div>
+
+					{/* Fast Recruiter Direct Channels */}
+					<div className="flex items-center flex-wrap gap-x-4 gap-y-2 pt-2 md:pt-0 border-t md:border-t-0 border-zinc-200 dark:border-zinc-800 text-xs font-mono">
+						<a
+							href={`https://wa.me/917019954505?text=${encodeURIComponent("Hi Prakhar, I reviewed your Senior Software Engineer portfolio and would like to connect regarding an immediate opening.")}`}
+							target="_blank"
+							rel="noreferrer"
+							className="text-emerald-700 dark:text-emerald-400 hover:underline font-bold flex items-center gap-1.5"
+						>
+							<MessageSquare className="w-3.5 h-3.5 shrink-0" />
+							<span>WhatsApp Chat ↗</span>
+						</a>
+
+						<span className="text-zinc-300 dark:text-zinc-700 hidden sm:inline">
+							|
+						</span>
+
+						<a
+							href={`tel:${personalInfo.phoneRaw}`}
+							className="text-zinc-700 dark:text-zinc-300 hover:text-zinc-950 dark:hover:text-white font-bold flex items-center gap-1.5"
+						>
+							<Phone className="w-3.5 h-3.5 shrink-0" />
+							<span>+91 7019954505</span>
+						</a>
+
+						<span className="text-zinc-300 dark:text-zinc-700 hidden sm:inline">
+							|
+						</span>
+
+						<a
+							href={personalInfo.linkedin}
+							target="_blank"
+							rel="noreferrer"
+							className="text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white font-bold"
+						>
+							LinkedIn ↗
+						</a>
+					</div>
+				</div>
+
+				{/* 3-Column Engineering Dossier Grid (Unified Architectural Enclosure) */}
+				<div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+					{/* Column 1: Core Technical DNA & Architectural Stack (4 Cols) */}
+					<div className="lg:col-span-4 border border-zinc-200 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/40 p-5 sm:p-6 flex flex-col justify-between h-full">
+						<div>
+							<div className="text-xs font-mono text-zinc-600 dark:text-zinc-400 font-bold uppercase tracking-widest pb-3 mb-4 border-b border-zinc-200 dark:border-zinc-800 flex items-center justify-between">
+								<span>01 // TECHNICAL SPECIALIZATION</span>
+								<span className="text-emerald-600 dark:text-emerald-400">
+									[FULL STACK]
+								</span>
 							</div>
-							<div className="text-xs font-bold text-zinc-800 dark:text-zinc-200 mt-1">
-								{stat.label}
-							</div>
-							<div className="text-[11px] font-mono text-zinc-500 dark:text-zinc-400 mt-0.5">
-								{stat.sub}
+
+							<div className="space-y-3 font-mono text-xs">
+								<div className="pb-2.5 border-b border-zinc-100 dark:border-zinc-800/80">
+									<span className="text-zinc-600 dark:text-zinc-400 uppercase font-bold block text-[11px] mb-0.5">
+										BACKEND SERVICES & APIS:
+									</span>
+									<span className="text-zinc-950 dark:text-zinc-100 font-semibold leading-relaxed block">
+										Node.js · Express.js · RESTful APIs ·
+										Microservices · JWT & RBAC Middleware
+									</span>
+								</div>
+
+								<div className="pb-2.5 border-b border-zinc-100 dark:border-zinc-800/80">
+									<span className="text-zinc-600 dark:text-zinc-400 uppercase font-bold block text-[11px] mb-0.5">
+										DATABASE & STORAGE ARCHITECTURE:
+									</span>
+									<span className="text-zinc-950 dark:text-zinc-100 font-semibold leading-relaxed block">
+										PostgreSQL · 100+ Tables · JSONB
+										Polymorphism · Schema Indexing · ACID
+										Consistency
+									</span>
+								</div>
+
+								<div className="pb-2.5 border-b border-zinc-100 dark:border-zinc-800/80">
+									<span className="text-zinc-600 dark:text-zinc-400 uppercase font-bold block text-[11px] mb-0.5">
+										FRONTEND & INTERFACE DESIGN:
+									</span>
+									<span className="text-zinc-950 dark:text-zinc-100 font-semibold leading-relaxed block">
+										React.js · JavaScript (ES6+) · State
+										Management · Reusable UI Components
+									</span>
+								</div>
+
+								<div className="pb-2.5 border-b border-zinc-100 dark:border-zinc-800/80">
+									<span className="text-zinc-600 dark:text-zinc-400 uppercase font-bold block text-[11px] mb-0.5">
+										EDGE, HARDWARE & REAL-TIME IIOT:
+									</span>
+									<span className="text-zinc-950 dark:text-zinc-100 font-semibold leading-relaxed block">
+										MQTT Protocol · Modbus RTU/TCP ·
+										WebSockets · RS-485 / Ethernet (~65
+										Devices)
+									</span>
+								</div>
+
+								<div>
+									<span className="text-zinc-600 dark:text-zinc-400 uppercase font-bold block text-[11px] mb-0.5">
+										CLOUD & PRODUCTION DEPLOYMENTS:
+									</span>
+									<span className="text-zinc-950 dark:text-zinc-100 font-semibold leading-relaxed block">
+										Microsoft Azure · AWS EC2 · Docker · PM2
+										Daemon · Linux Shell
+									</span>
+								</div>
 							</div>
 						</div>
-					))}
-				</motion.div>
+					</div>
+
+					{/* Column 2: Verified Production Scale & Career Velocity (4 Cols) */}
+					<div className="lg:col-span-4 border border-zinc-200 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/40 p-5 sm:p-6 flex flex-col justify-between h-full">
+						<div>
+							<div className="text-xs font-mono text-zinc-600 dark:text-zinc-400 font-bold uppercase tracking-widest pb-3 mb-4 border-b border-zinc-200 dark:border-zinc-800 flex items-center justify-between">
+								<span>02 // VERIFIED PRODUCTION PROOF</span>
+								<Tooltip
+									text={
+										copied ?
+											"Copied text summary!"
+										:	"Copy text summary"
+									}
+									position="left"
+								>
+									<button
+										onClick={handleCopySpec}
+										className="text-zinc-600 dark:text-zinc-400 hover:text-zinc-950 dark:hover:text-white flex items-center gap-1 text-[11px] font-bold"
+									>
+										{copied ?
+											<Check className="w-3 h-3 text-emerald-500" />
+										:	<Copy className="w-3 h-3" />}
+										<span>SUMMARY</span>
+									</button>
+								</Tooltip>
+							</div>
+
+							<div className="space-y-4 font-mono text-xs">
+								<div className="pb-3 border-b border-zinc-100 dark:border-zinc-800/80">
+									<div className="text-xl sm:text-2xl font-black text-zinc-950 dark:text-white tracking-tight">
+										12+ ERP Modules
+									</div>
+									<div className="text-xs font-bold text-zinc-800 dark:text-zinc-200 mt-0.5 uppercase">
+										300+ REST APIs & 100+ PostgreSQL Tables
+									</div>
+									<div className="text-[11px] text-zinc-600 dark:text-zinc-400 mt-0.5">
+										Single-handedly architected & delivered
+										multi-tenant platform for 4 onboarded
+										companies.
+									</div>
+								</div>
+
+								<div className="pb-3 border-b border-zinc-100 dark:border-zinc-800/80">
+									<div className="text-xl sm:text-2xl font-black text-zinc-950 dark:text-white tracking-tight">
+										~65 IIoT Devices
+									</div>
+									<div className="text-xs font-bold text-zinc-800 dark:text-zinc-200 mt-0.5 uppercase">
+										24×7 Sub-Second Real-Time Polling
+									</div>
+									<div className="text-[11px] text-zinc-600 dark:text-zinc-400 mt-0.5">
+										Integrated shopfloor machinery, CNCs,
+										and PLCs with sub-80ms protocol latency.
+									</div>
+								</div>
+
+								<div className="pb-3 border-b border-zinc-100 dark:border-zinc-800/80">
+									<div className="text-xl sm:text-2xl font-black text-zinc-950 dark:text-white tracking-tight">
+										SDE → Software Manager
+									</div>
+									<div className="text-xs font-bold text-zinc-800 dark:text-zinc-200 mt-0.5 uppercase">
+										Leadership Promotion at YM Automation
+									</div>
+									<div className="text-[11px] text-zinc-600 dark:text-zinc-400 mt-0.5">
+										Grew from hands-on developer to managing
+										7 cross-functional engineers and
+										designers.
+									</div>
+								</div>
+
+								<div>
+									<div className="text-xl sm:text-2xl font-black text-zinc-950 dark:text-white tracking-tight">
+										12 Production Projects
+									</div>
+									<div className="text-xs font-bold text-zinc-800 dark:text-zinc-200 mt-0.5 uppercase">
+										Full Lifecycle Client Delivery
+									</div>
+									<div className="text-[11px] text-zinc-600 dark:text-zinc-400 mt-0.5">
+										Deployed across ~10 client companies
+										with continuous production maintenance.
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					{/* Column 3: Sleek Minimal Industrial Telemetry Indicator (4 Cols) */}
+					<div className="lg:col-span-4 border border-zinc-200 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/40 p-5 sm:p-6 flex flex-col justify-between h-full font-mono text-xs">
+						<div>
+							<div className="flex items-center justify-between pb-3 mb-4 border-b border-zinc-200 dark:border-zinc-800 text-[11px]">
+								<div className="flex items-center gap-2">
+									<Activity className="w-3.5 h-3.5 text-emerald-500" />
+									<span className="font-bold text-zinc-950 dark:text-white uppercase tracking-wider">
+										TELEMETRY DAEMON
+									</span>
+								</div>
+								<div className="flex items-center gap-1.5 text-[10px] font-bold text-emerald-600 dark:text-emerald-400">
+									<span className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-ping" />
+									<span>LIVE PULSE</span>
+								</div>
+							</div>
+
+							{/* Telemetry Stream Lines */}
+							<div className="space-y-2.5 min-h-[170px]">
+								{logs.map((log) => (
+									<div
+										key={log.id}
+										className="text-[11px] leading-relaxed border-b border-zinc-100 dark:border-zinc-800/80 pb-2"
+									>
+										<div className="flex items-center justify-between text-zinc-500 text-[10px]">
+											<span>{log.time}</span>
+											<span className="text-emerald-600 dark:text-emerald-400 font-bold">
+												{log.status}
+											</span>
+										</div>
+										<div className="flex items-baseline justify-between gap-2 mt-0.5">
+											<span className="text-zinc-700 dark:text-zinc-300 truncate font-semibold">
+												[{log.proto}] {log.metric}
+											</span>
+											<span className="text-zinc-950 dark:text-white font-bold shrink-0">
+												{log.val}
+											</span>
+										</div>
+									</div>
+								))}
+							</div>
+						</div>
+
+						{/* Hardware Specifications Snapshot */}
+						<div className="mt-4 pt-3 border-t border-zinc-200 dark:border-zinc-800 text-[11px] space-y-1.5">
+							<div className="flex justify-between">
+								<span className="text-zinc-600 dark:text-zinc-400 font-bold uppercase">
+									POLLING JITTER:
+								</span>
+								<span className="text-zinc-950 dark:text-zinc-100 font-bold">
+									&lt; 80ms
+								</span>
+							</div>
+							<div className="flex justify-between">
+								<span className="text-zinc-600 dark:text-zinc-400 font-bold uppercase">
+									CONNECTED EDGE:
+								</span>
+								<span className="text-zinc-950 dark:text-zinc-100 font-bold">
+									~65 Industrial Nodes
+								</span>
+							</div>
+							<div className="flex justify-between">
+								<span className="text-zinc-600 dark:text-zinc-400 font-bold uppercase">
+									PROTOCOL STACK:
+								</span>
+								<span className="text-zinc-950 dark:text-zinc-100 font-bold">
+									Modbus RTU/TCP · MQTT
+								</span>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</section>
 	);

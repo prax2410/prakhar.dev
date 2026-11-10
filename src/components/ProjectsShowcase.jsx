@@ -1,238 +1,214 @@
 import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Github, Lock, ChevronDown, ChevronUp, Layers, Check, ExternalLink } from "lucide-react";
+import { ChevronDown, ChevronUp, Code2, Sliders, Monitor } from "lucide-react";
 import { projectsData } from "../data/portfolioData";
+import { ErpDashboardMockup, IiotTelemetryMockup, CodeContractViewer } from "./ProjectMockups";
 
 export default function ProjectsShowcase() {
-	const [filter, setFilter] = useState("All");
-	const [expandedProject, setExpandedProject] = useState("enterprise-erp-saas"); // First one expanded by default for instant architectural depth
-
-	const categories = [
-		{ label: "All", count: projectsData.length },
-		{ label: "Enterprise SaaS & ERP", count: projectsData.filter(p => p.category === "Enterprise SaaS & ERP").length },
-		{ label: "Enterprise System", count: projectsData.filter(p => p.category === "Enterprise System").length },
-		{ label: "IIoT & Automation", count: projectsData.filter(p => p.category === "IIoT & Automation").length },
-	];
-
-	const filteredProjects =
-		filter === "All" ? projectsData : projectsData.filter((p) => p.category === filter);
+	const [expandedProject, setExpandedProject] = useState(null);
+	const [specTabs, setSpecTabs] = useState({});
 
 	const toggleExpand = (id) => {
 		setExpandedProject(expandedProject === id ? null : id);
+		if (!specTabs[id]) {
+			setSpecTabs((prev) => ({ ...prev, [id]: "code" }));
+		}
+	};
+
+	const setProjectTab = (id, tab) => {
+		setSpecTabs((prev) => ({ ...prev, [id]: tab }));
 	};
 
 	return (
 		<section
 			id="projects"
-			className="py-20 sm:py-24 border-b border-zinc-200 dark:border-zinc-800"
+			className="py-14 sm:py-16 border-b border-slate-200 dark:border-slate-800"
 		>
-			<div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-				
-				{/* Section Technical Header */}
-				<div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 mb-8 border-b border-zinc-200 dark:border-zinc-800">
+			<div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+				{/* Section Header */}
+				<div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3">
 					<div>
-						<div className="text-xs font-mono tracking-wider text-zinc-600 dark:text-zinc-400 font-bold uppercase mb-2">
-							02 // ARCHITECTURAL DOSSIER & SYSTEMS REGISTER
-						</div>
-						<h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-extrabold tracking-tight text-zinc-950 dark:text-white uppercase leading-none">
-							PRODUCTION SYSTEMS
+						<p className="text-xs font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400 mb-1">
+							02 · Production Systems
+						</p>
+						<h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 dark:text-white">
+							Key Projects &amp; Engineering Ownership
 						</h2>
 					</div>
-					<p className="text-xs sm:text-sm font-mono text-zinc-600 dark:text-zinc-400 max-w-md leading-relaxed">
-						Full lifecycle architectures engineered for high transactional integrity, multi-tenant isolation, and sub-second shopfloor streaming.
+					<p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400">
+						Click any system to inspect SQL, API &amp; concurrency code.
 					</p>
 				</div>
 
-				{/* Architectural Filter Index (Clear active states) */}
-				<div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-10 text-xs font-mono">
-					<span className="text-zinc-600 dark:text-zinc-400 font-bold uppercase mr-1">FILTER:</span>
-					{categories.map((cat) => {
-						const isActive = filter === cat.label;
-						return (
-							<button
-								key={cat.label}
-								onClick={() => setFilter(cat.label)}
-								className={`px-3 py-1.5 uppercase transition-all border ${
-									isActive
-										? "bg-zinc-950 text-white dark:bg-white dark:text-zinc-950 font-bold border-zinc-950 dark:border-white shadow-sm"
-										: "bg-transparent text-zinc-600 dark:text-zinc-400 border-zinc-200 dark:border-zinc-800 hover:border-zinc-400 dark:hover:border-zinc-600 hover:text-zinc-950 dark:hover:text-white"
-								}`}
-							>
-								{cat.label} ({cat.count})
-							</button>
-						);
-					})}
-				</div>
-
-				{/* The Systems Ledger: Ruled Architectural Rows (No Cards) */}
-				<div className="space-y-0 divide-y divide-zinc-200 dark:divide-zinc-800 border-t border-b border-zinc-200 dark:border-zinc-800">
-					{filteredProjects.map((project, idx) => {
+				{/* Compact 2x2 Keyword Grid */}
+				<div className="grid grid-cols-1 xl:grid-cols-2 gap-4">
+					{projectsData.map((project) => {
 						const isExpanded = expandedProject === project.id;
-						const indexNumber = `0${idx + 1}`.slice(-2);
+						const currentTab = specTabs[project.id] || "code";
 
 						return (
 							<div
 								key={project.id}
-								className={`py-8 sm:py-10 transition-colors ${
-									isExpanded ? "bg-zinc-50/50 dark:bg-zinc-900/30" : "hover:bg-zinc-50/30 dark:hover:bg-zinc-900/10"
+								className={`rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#11141d] p-5 flex flex-col justify-between transition-colors ${
+									isExpanded ? "xl:col-span-2 ring-1 ring-blue-500/30" : "hover:border-slate-300 dark:hover:border-slate-700"
 								}`}
 							>
-								{/* Summary Row */}
-								<div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-									
-									{/* Index & Classification (3 cols) */}
-									<div className="lg:col-span-3 space-y-1.5 font-mono text-xs">
-										<div className="flex items-center gap-2">
-											<span className="font-bold text-zinc-950 dark:text-white text-sm">
-												SYS.{indexNumber} //
-											</span>
-											<span className="text-zinc-600 dark:text-zinc-400 uppercase truncate font-medium">
-												{project.category}
-											</span>
-										</div>
-										<div className="text-zinc-600 dark:text-zinc-400">
-											{project.isProprietary ? (
-												<span className="flex items-center gap-1.5 text-zinc-700 dark:text-zinc-300 font-medium">
-													<Lock className="w-3 h-3 text-amber-500" />
-													<span>{project.organization}</span>
-												</span>
-											) : (
-												<span className="text-emerald-700 dark:text-emerald-400 font-semibold">
-													OPEN SPEC // PUBLIC REPO
-												</span>
-											)}
-										</div>
-										<div className="pt-2 text-zinc-950 dark:text-zinc-50 font-bold">
-											[{project.badge}]
-										</div>
+								<div className="space-y-4">
+									{/* Card Top Meta */}
+									<div className="flex flex-wrap items-center justify-between gap-2">
+										<span className="text-xs font-medium px-2.5 py-0.5 rounded-full bg-blue-50 dark:bg-blue-950/50 text-blue-700 dark:text-blue-300 border border-blue-200/70 dark:border-blue-800/60">
+											{project.category}
+										</span>
+										<span className="text-xs font-mono font-medium text-slate-500 dark:text-slate-400">
+											{project.badge}
+										</span>
 									</div>
 
-									{/* Main System Overview (6 cols) */}
-									<div className="lg:col-span-6 space-y-3">
-										<h3 className="text-2xl sm:text-3xl font-extrabold text-zinc-950 dark:text-white tracking-tight uppercase">
+									{/* Title & 1-Line Tagline */}
+									<div>
+										<h3 className="text-lg font-bold text-slate-900 dark:text-white">
 											{project.title}
 										</h3>
-										
-										<p className="text-xs sm:text-sm font-mono text-emerald-700 dark:text-emerald-400 font-semibold">
-											// {project.tagline}
+										<p className="text-sm text-slate-600 dark:text-slate-400 mt-0.5">
+											{project.tagline}
 										</p>
+									</div>
 
-										<p className="text-sm sm:text-base text-zinc-700 dark:text-zinc-300 leading-relaxed font-normal">
-											{project.description}
-										</p>
-
-										{/* Inline Stack Ledger (No pills) */}
-										<div className="pt-2 text-xs font-mono text-zinc-600 dark:text-zinc-400 flex flex-wrap gap-x-2 gap-y-1">
-											<span className="text-zinc-600 dark:text-zinc-400 font-bold uppercase">STACK:</span>
-											<span className="text-zinc-950 dark:text-zinc-100 font-medium">
-												{project.tech.join(" · ")}
-											</span>
+									{/* Keyword-Centric Facts */}
+									<dl className="space-y-1.5 text-xs sm:text-[13px] border-t border-slate-100 dark:border-slate-800/80 pt-3">
+										<div className="flex gap-2">
+											<dt className="font-semibold text-slate-900 dark:text-slate-200 shrink-0 w-24">Problem:</dt>
+											<dd className="text-slate-600 dark:text-slate-400">{project.businessProblem}</dd>
 										</div>
-									</div>
-
-									{/* Action & Inspection Trigger (3 cols) */}
-									<div className="lg:col-span-3 flex lg:flex-col items-center lg:items-end justify-between gap-3 pt-2">
-										<button
-											onClick={() => toggleExpand(project.id)}
-											className={`px-4 py-2.5 text-xs font-mono font-bold uppercase tracking-wider transition-colors flex items-center gap-2 border ${
-												isExpanded
-													? "bg-zinc-950 dark:bg-white text-white dark:text-zinc-950 border-zinc-950 dark:border-white"
-													: "bg-transparent text-zinc-900 dark:text-white border-zinc-300 dark:border-zinc-700 hover:border-zinc-900 dark:hover:border-white"
-											}`}
-										>
-											<span>{isExpanded ? "Close Spec" : "Inspect Spec"}</span>
-											{isExpanded ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
-										</button>
-
-										{!project.isProprietary && project.links?.github && (
-											<a
-												href={project.links.github}
-												target="_blank"
-												rel="noreferrer"
-												className="text-xs font-mono text-zinc-500 hover:text-zinc-900 dark:hover:text-white flex items-center gap-1.5"
-											>
-												<Github className="w-3.5 h-3.5" />
-												<span>Source Code ↗</span>
-											</a>
-										)}
-									</div>
-
+										<div className="flex gap-2">
+											<dt className="font-semibold text-slate-900 dark:text-slate-200 shrink-0 w-24">Architecture:</dt>
+											<dd className="text-slate-600 dark:text-slate-400">{project.architecture}</dd>
+										</div>
+										<div className="flex gap-2">
+											<dt className="font-semibold text-blue-700 dark:text-blue-400 shrink-0 w-24">SQL / Perf:</dt>
+											<dd className="text-slate-700 dark:text-slate-300">{project.sqlAndPerformance}</dd>
+										</div>
+										<div className="flex gap-2">
+											<dt className="font-semibold text-slate-900 dark:text-slate-200 shrink-0 w-24">Ownership:</dt>
+											<dd className="text-slate-600 dark:text-slate-400">{project.ownership}</dd>
+										</div>
+									</dl>
 								</div>
 
-								{/* Expanded Architectural Dossier */}
-								<AnimatePresence>
-									{isExpanded && (
-										<motion.div
-											initial={{ opacity: 0, height: 0 }}
-											animate={{ opacity: 1, height: "auto" }}
-											exit={{ opacity: 0, height: 0 }}
-											transition={{ duration: 0.3 }}
-											className="overflow-hidden mt-6 pt-6 border-t border-zinc-200 dark:border-zinc-800"
-										>
-											<div className="grid grid-cols-1 lg:grid-cols-12 gap-8 text-xs font-mono">
-												
-												{/* Left: Key Architecture Decisions */}
-												<div className="lg:col-span-7 space-y-3">
-													<div className="font-bold text-zinc-900 dark:text-white uppercase tracking-wider flex items-center gap-2">
-														<span className="w-1.5 h-1.5 bg-emerald-500" />
-														<span>Architectural Trade-Offs & Decisions</span>
+								{/* Tech Chips & Expand Trigger */}
+								<div className="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800/80 flex flex-wrap items-center justify-between gap-3">
+									<div className="flex flex-wrap gap-1.5">
+										{project.tech.map((t) => (
+											<span
+												key={t}
+												className="px-2 py-0.5 rounded text-[11px] font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300"
+											>
+												{t}
+											</span>
+										))}
+									</div>
+
+									<button
+										type="button"
+										onClick={() => toggleExpand(project.id)}
+										aria-expanded={isExpanded}
+										className="inline-flex items-center gap-1.5 text-xs font-semibold text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 shrink-0"
+									>
+										<span>{isExpanded ? "Hide Details" : "Code & Decisions"}</span>
+										{isExpanded ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
+									</button>
+								</div>
+
+								{/* Optional Expandable Technical Drawer */}
+								{isExpanded && (
+									<div className="mt-5 pt-5 border-t border-slate-200 dark:border-slate-800 space-y-4">
+										<div className="flex flex-wrap items-center gap-2 text-xs">
+											{[
+												{ id: "code", label: "SQL / API / Concurrency Code", icon: Code2 },
+												{ id: "architecture", label: "Decisions & Outcomes", icon: Sliders },
+												{ id: "mockup", label: "Concept Preview", icon: Monitor },
+											].map((t) => {
+												const Icon = t.icon;
+												const isActive = currentTab === t.id;
+												return (
+													<button
+														type="button"
+														key={t.id}
+														onClick={() => setProjectTab(project.id, t.id)}
+														aria-pressed={isActive}
+														className={`px-3 py-1.5 rounded-lg font-medium flex items-center gap-1.5 border transition-colors ${
+															isActive
+																? "bg-slate-900 dark:bg-blue-600 text-white border-slate-900 dark:border-blue-600"
+																: "bg-slate-50 dark:bg-slate-900 text-slate-600 dark:text-slate-400 border-slate-200 dark:border-slate-800 hover:border-slate-300"
+														}`}
+													>
+														<Icon className="w-3.5 h-3.5" />
+														<span>{t.label}</span>
+													</button>
+												);
+											})}
+										</div>
+
+										{currentTab === "code" && (
+											<CodeContractViewer projectId={project.id} />
+										)}
+
+										{currentTab === "architecture" && (
+											<div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
+												<div className="md:col-span-2 p-4 rounded-lg bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 space-y-2">
+													<div className="font-semibold text-slate-900 dark:text-white">
+														Key Decisions
 													</div>
-													
-													{project.architectureDecisions && (
-														<div className="space-y-2.5 pl-3 border-l-2 border-zinc-300 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 text-xs sm:text-[13px] leading-relaxed">
-															{project.architectureDecisions.map((decision, dIdx) => (
-																<div key={dIdx} className="flex items-start gap-2">
-																	<span className="text-emerald-500 font-bold shrink-0 mt-0.5">✓</span>
-																	<span>{decision}</span>
-																</div>
+													{project.architectureDecisions.map((d, i) => (
+														<div key={i} className="flex items-start gap-2 text-slate-700 dark:text-slate-300">
+															<span className="text-blue-600 dark:text-blue-400 font-bold">•</span>
+															<span>{d}</span>
+														</div>
+													))}
+												</div>
+												<div className="p-4 rounded-lg bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 space-y-3">
+													<div>
+														<div className="font-semibold text-slate-900 dark:text-white mb-1">Technical Hurdle</div>
+														<p className="text-slate-600 dark:text-slate-400 leading-relaxed">{project.keyChallenges}</p>
+													</div>
+													<div>
+														<div className="font-semibold text-emerald-700 dark:text-emerald-400 mb-1">Outcome</div>
+														<p className="text-slate-600 dark:text-slate-400 leading-relaxed">{project.engineeringOutcomes}</p>
+													</div>
+												</div>
+											</div>
+										)}
+
+										{currentTab === "mockup" && (
+											<div>
+												{project.id === "enterprise-erp-saas" ? (
+													<ErpDashboardMockup />
+												) : project.category.includes("IIoT") ? (
+													<IiotTelemetryMockup />
+												) : (
+													<div className="p-4 rounded-lg border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900/50 text-xs space-y-2">
+														<div className="font-semibold text-slate-900 dark:text-white">
+															12-Stage Branching Workflow
+														</div>
+														<div className="flex flex-wrap items-center gap-2">
+															{["RAW MATERIAL", "CNC MILLING", "QA INSPECT", "ASSEMBLY", "HEAT TREAT", "DISPATCH"].map((st, i) => (
+																<React.Fragment key={st}>
+																	<span className="px-2.5 py-1 rounded bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 font-mono text-[11px]">
+																		0{i + 1}. {st}
+																	</span>
+																	{i < 5 && <span className="text-slate-400">→</span>}
+																</React.Fragment>
 															))}
 														</div>
-													)}
-
-													{project.impact && (
-														<div className="pt-3">
-															<span className="text-zinc-400 block mb-1">IMPACT & MEASUREMENT:</span>
-															<p className="text-zinc-800 dark:text-zinc-200 leading-relaxed text-xs sm:text-[13px]">
-																{project.impact}
-															</p>
-														</div>
-													)}
-												</div>
-
-												{/* Right: Technical Hurdle & Outcome */}
-												<div className="lg:col-span-5 space-y-4">
-													{project.keyChallenges && (
-														<div className="border border-zinc-200 dark:border-zinc-800 p-4 bg-white/60 dark:bg-zinc-900/60 space-y-1.5">
-															<span className="text-zinc-400 uppercase tracking-wider font-bold block text-[11px]">
-																Core Technical Hurdle
-															</span>
-															<p className="text-zinc-700 dark:text-zinc-300 text-xs leading-relaxed">
-																{project.keyChallenges}
-															</p>
-														</div>
-													)}
-
-													{project.engineeringOutcomes && (
-														<div className="border border-zinc-200 dark:border-zinc-800 p-4 bg-white/60 dark:bg-zinc-900/60 space-y-1.5">
-															<span className="text-emerald-600 dark:text-emerald-400 uppercase tracking-wider font-bold block text-[11px]">
-																Engineering Outcome
-															</span>
-															<p className="text-zinc-700 dark:text-zinc-300 text-xs leading-relaxed">
-																{project.engineeringOutcomes}
-															</p>
-														</div>
-													)}
-												</div>
-
+													</div>
+												)}
 											</div>
-										</motion.div>
-									)}
-								</AnimatePresence>
+										)}
+									</div>
+								)}
 							</div>
 						);
 					})}
 				</div>
-
 			</div>
 		</section>
 	);

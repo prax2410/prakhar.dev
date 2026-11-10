@@ -1,279 +1,117 @@
 import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import {
-	Activity,
-	ArrowRight,
-	Cpu,
-	Database,
-	Layers,
-	Server,
-} from "lucide-react";
+import { ArrowRight } from "lucide-react";
+
+const ARCHITECTURES = {
+	erp: {
+		tab: "ERP Multi-Tenancy",
+		title: "Per-Company Database Isolation",
+		summary: "12+ Modules · 300+ APIs · Separate PostgreSQL DB per Tenant",
+		steps: [
+			{ num: "01", label: "React SPA", proto: "HTTPS", detail: "Modular HRMS, Payroll, Inventory & CRM views" },
+			{ num: "02", label: "Express Gateway", proto: "JWT + RBAC", detail: "Auth, role permissions & input validation" },
+			{ num: "03", label: "Tenant Pool Router", proto: "pg-pool", detail: "Resolves isolated DB pool from verified JWT" },
+			{ num: "04", label: "PostgreSQL / Tenant", proto: "ACID + JSONB", detail: "100+ tables/DB across 5 onboarded companies" },
+		],
+	},
+	iot: {
+		tab: "IIoT Ingestion",
+		title: "24×7 Shopfloor Telemetry Pipeline",
+		summary: "Up to 65 Devices · ~1s Polling · MQTT & Modbus TCP/RTU",
+		steps: [
+			{ num: "01", label: "Factory PLCs", proto: "RS-485 / LAN", detail: "Industrial controllers & CNC registers" },
+			{ num: "02", label: "Node.js Poller", proto: "Modbus / MQTT", detail: "In-flight device lock + reconnect backoff" },
+			{ num: "03", label: "Stream & Batcher", proto: "WebSockets", detail: "Live alarm push + queued batch inserts" },
+			{ num: "04", label: "PostgreSQL & UI", proto: "Composite Index", detail: "Time-series persistence & live plant dashboards" },
+		],
+	},
+	rollup: {
+		tab: "SQL & Rollups",
+		title: "BOM Pagination & Energy Rollups",
+		summary: "Keyset Cursor SQL · Pessimistic Row Locks · Idempotent Upserts",
+		steps: [
+			{ num: "01", label: "Raw Telemetry / BOM", proto: "Indexed Read", detail: "Filtered queries avoiding slow OFFSET scans" },
+			{ num: "02", label: "Stage / Cron Worker", proto: "FOR UPDATE", detail: "Row-locked transitions & scheduled rollups" },
+			{ num: "03", label: "Summary Upsert", proto: "ON CONFLICT", detail: "Transactional hourly/daily kWh buckets" },
+			{ num: "04", label: "Analytics API", proto: "REST JSON", detail: "Fast trend charts & 1,000+ row BOM exports" },
+		],
+	},
+};
 
 export default function ParallaxBanner() {
-	const [activeTab, setActiveTab] = useState("iot");
-
-	const architectures = {
-		iot: {
-			title: "IIoT Telemetry & Edge Polling Pipeline",
-			tag: "HARDWARE-TO-CLOUD SUB-SECOND STREAM",
-			description:
-				"Connecting shopfloor PLCs and automated factory machines to real-time operator interfaces with sub-second polling jitter.",
-			steps: [
-				{
-					num: "01",
-					phase: "EQUIPMENT LAYER",
-					title: "Factory PLCs & Machinery",
-					detail: "Industrial automation controllers, sensors, and machine registers.",
-					protocol: "RS-485 / Ethernet",
-				},
-				{
-					num: "02",
-					phase: "GATEWAY / EDGE",
-					title: "Protocol Translation Daemon",
-					detail: "Modbus RTU/TCP polling daemon & MQTT Broker gateway.",
-					protocol: "Modbus & MQTT",
-				},
-				{
-					num: "03",
-					phase: "STREAM INGESTION",
-					title: "Node.js & WebSockets Bus",
-					detail: "High-frequency telemetry stream ingestion and alert threshold triggers.",
-					protocol: "Socket.io & TCP/IP",
-				},
-				{
-					num: "04",
-					phase: "STORAGE & CLIENT",
-					title: "PostgreSQL & Live React UI",
-					detail: "Live SVG gauge visualization and historical trend reporting.",
-					protocol: "REST & WebSockets",
-				},
-			],
-			metrics: [
-				{ label: "POLLING INTERVAL", value: "~1s Live Telemetry" },
-				{ label: "INDUSTRIAL SCALE", value: "Up to ~65 Machines" },
-				{ label: "PROTOCOLS", value: "MQTT / Modbus / TCP-IP" },
-			],
-		},
-		erp: {
-			title: "12+ Module Enterprise SaaS & ERP Platform",
-			tag: "CENTRALIZED BUSINESS OPERATIONS & MULTI-TENANCY",
-			description:
-				"Full-stack architecture covering HRMS, projects, attendance, payroll, inventory, purchase, sales, and CRM with 300+ APIs and 100+ relational tables.",
-			steps: [
-				{
-					num: "01",
-					phase: "CLIENT INTERFACE",
-					title: "React Web Application",
-					detail: "Responsive operational views for HRMS, Attendance, Projects, CRM, and Inventory.",
-					protocol: "HTTPS / Client SPA",
-				},
-				{
-					num: "02",
-					phase: "API GATEWAY & RBAC",
-					title: "Express.js Routing Middleware",
-					detail: "300+ RESTful APIs with JWT authentication, role-based permissions, and input validation.",
-					protocol: "RESTful JSON APIs",
-				},
-				{
-					num: "03",
-					phase: "CORE SERVICES",
-					title: "Modular Business Handlers",
-					detail: "Decoupled logic for Payroll calculation, stage workflows, purchase orders, and stock.",
-					protocol: "Node Service Handlers",
-				},
-				{
-					num: "04",
-					phase: "CLOUD DATA LAYER",
-					title: "PostgreSQL on Azure/AWS",
-					detail: "100+ relational tables, JSONB polymorphic fields, transactions, and automated backups.",
-					protocol: "SQL & Cloud DB",
-				},
-			],
-			metrics: [
-				{ label: "PLATFORM SCOPE", value: "12+ Integrated Modules" },
-				{ label: "API & DATA SCALE", value: "300+ APIs / 100+ Tables" },
-				{ label: "MULTI-TENANCY", value: "4 Onboarded / 100+ Capacity" },
-			],
-		},
-		reporting: {
-			title: "Automated Reporting & Analytics Worker",
-			tag: "SCHEDULED DATA VISUALIZATION & KPI COMPILATION",
-			description:
-				"Background cron microservice processing production KPIs and compiling automated PDF and email reports for executive management.",
-			steps: [
-				{
-					num: "01",
-					phase: "SCHEDULER ENGINE",
-					title: "Node CRON Job Trigger",
-					detail: "Time-based workers running daily and weekly operational triggers.",
-					protocol: "Node CRON / Timer",
-				},
-				{
-					num: "02",
-					phase: "AGGREGATION",
-					title: "PostgreSQL Analytics Queries",
-					detail: "Complex queries aggregating machine output, attendance, and sales figures.",
-					protocol: "Indexed DB Queries",
-				},
-				{
-					num: "03",
-					phase: "DOCUMENT RENDER",
-					title: "PDF & Chart Generation",
-					detail: "Visual data chart rendering and structured HTML/PDF templating.",
-					protocol: "Server-side Renderer",
-				},
-				{
-					num: "04",
-					phase: "DISPATCH BUS",
-					title: "SMTP & Notification Worker",
-					detail: "Automated distribution of plant production metrics, alarms, and analytics reports.",
-					protocol: "Nodemailer / SMTP",
-				},
-			],
-			metrics: [
-				{ label: "TIME SAVED", value: "50% Manual Effort Reduced" },
-				{ label: "FREQUENCY", value: "Daily & Weekly Automated" },
-				{ label: "FORMATS", value: "PDF Documents & Email" },
-			],
-		},
-	};
-
-	const current = architectures[activeTab];
+	const [activeTab, setActiveTab] = useState("erp");
+	const current = ARCHITECTURES[activeTab];
 
 	return (
 		<section
 			id="architecture"
-			className="py-20 sm:py-24 border-b border-zinc-200 dark:border-zinc-800"
+			className="py-14 sm:py-16 border-b border-slate-200 dark:border-slate-800"
 		>
-			<div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-				
-				{/* Section Header */}
-				<div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 mb-8 border-b border-zinc-200 dark:border-zinc-800">
+			<div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+				<div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
 					<div>
-						<div className="text-xs font-mono tracking-wider text-zinc-600 dark:text-zinc-400 font-bold uppercase mb-2">
-							04 // ARCHITECTURAL SCHEMATICS & PROTOCOL FLOWS
-						</div>
-						<h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] font-extrabold tracking-tight text-zinc-950 dark:text-white uppercase leading-none">
-							SYSTEM TOPOLOGY
+						<p className="text-xs font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400 mb-1">
+							04 · System Architecture
+						</p>
+						<h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 dark:text-white">
+							Production Data Flows
 						</h2>
 					</div>
-					<p className="text-xs sm:text-sm font-mono text-zinc-600 dark:text-zinc-400 max-w-md leading-relaxed">
-						Interactive schematics tracing data flow from shopfloor registers up to cloud database tables and client browser SPAs.
-					</p>
-				</div>
 
-				{/* Architectural Tab Selector (High contrast buttons) */}
-				<div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-10 text-xs font-mono">
-					<span className="text-zinc-600 dark:text-zinc-400 font-bold uppercase mr-1">SELECT BLUEPRINT:</span>
-					{Object.keys(architectures).map((key) => {
-						const arch = architectures[key];
-						const isActive = activeTab === key;
-						return (
-							<button
-								key={key}
-								onClick={() => setActiveTab(key)}
-								className={`px-3 py-1.5 uppercase transition-all border ${
-									isActive
-										? "bg-zinc-950 text-white dark:bg-white dark:text-zinc-950 font-bold border-zinc-950 dark:border-white shadow-sm"
-										: "bg-transparent text-zinc-600 dark:text-zinc-400 border-zinc-200 dark:border-zinc-800 hover:border-zinc-400 dark:hover:border-zinc-600 hover:text-zinc-950 dark:hover:text-white"
-								}`}
-							>
-								{arch.title.split(" ")[0]} // {key.toUpperCase()}
-							</button>
-						);
-					})}
-				</div>
-
-				{/* Blueprint Canvas (No Cards) */}
-				<AnimatePresence mode="wait">
-					<motion.div
-						key={activeTab}
-						initial={{ opacity: 0, y: 6 }}
-						animate={{ opacity: 1, y: 0 }}
-						exit={{ opacity: 0, y: -6 }}
-						transition={{ duration: 0.2 }}
-						className="space-y-8"
-					>
-						{/* Schematic Meta */}
-						<div className="flex flex-col md:flex-row md:items-baseline justify-between gap-4 pb-4 border-b border-zinc-200 dark:border-zinc-800">
-							<div>
-								<div className="text-xs font-mono text-emerald-700 dark:text-emerald-400 font-bold uppercase">
-									// {current.tag}
-								</div>
-								<h3 className="text-2xl sm:text-3xl font-extrabold text-zinc-950 dark:text-white uppercase tracking-tight mt-1">
-									{current.title}
-								</h3>
-							</div>
-							<p className="text-sm text-zinc-700 dark:text-zinc-300 font-normal max-w-xl leading-relaxed">
-								{current.description}
-							</p>
-						</div>
-
-						{/* 4-Stage Sequential Dataflow Grid (Hairline Grid System, No Cards) */}
-						<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-zinc-200 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-800">
-							{current.steps.map((step, idx) => (
-								<div
-									key={idx}
-									className="p-6 bg-white dark:bg-zinc-950 flex flex-col justify-between hover:bg-zinc-50 dark:hover:bg-zinc-900/50 transition-colors"
+					<div className="flex flex-wrap gap-2 text-xs">
+						{Object.entries(ARCHITECTURES).map(([key, item]) => {
+							const isActive = activeTab === key;
+							return (
+								<button
+									type="button"
+									key={key}
+									onClick={() => setActiveTab(key)}
+									aria-pressed={isActive}
+									className={`px-3 py-1.5 rounded-lg font-medium border transition-colors ${
+										isActive
+											? "bg-slate-900 dark:bg-blue-600 text-white border-slate-900 dark:border-blue-600"
+											: "bg-white dark:bg-[#11141d] text-slate-600 dark:text-slate-400 border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700"
+									}`}
 								>
-									<div className="space-y-3">
-										<div className="flex items-center justify-between text-xs font-mono">
-											<span className="font-bold text-zinc-950 dark:text-white text-base">
-												{step.num} /
-											</span>
-											<span className="uppercase text-[11px] font-bold text-zinc-600 dark:text-zinc-400">
-												{step.phase}
-											</span>
-										</div>
+									{item.tab}
+								</button>
+							);
+						})}
+					</div>
+				</div>
 
-										<div>
-											<h4 className="text-base font-bold text-zinc-950 dark:text-white">
-												{step.title}
-											</h4>
-											<div className="text-xs font-mono text-emerald-700 dark:text-emerald-400 font-semibold mt-0.5">
-												[{step.protocol}]
-											</div>
-										</div>
+				<div className="p-5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#11141d] space-y-5">
+					<div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 border-b border-slate-100 dark:border-slate-800/80">
+						<h3 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
+							{current.title}
+						</h3>
+						<span className="text-xs font-mono text-slate-500 dark:text-slate-400">
+							{current.summary}
+						</span>
+					</div>
 
-										<p className="text-xs sm:text-sm text-zinc-700 dark:text-zinc-300 leading-relaxed font-normal">
-											{step.detail}
-										</p>
-									</div>
-
-									<div className="pt-4 mt-6 border-t border-zinc-100 dark:border-zinc-800 flex items-center justify-between text-[11px] font-mono">
-										<span className="flex items-center gap-1.5 text-zinc-600 dark:text-zinc-400 font-medium">
-											<span className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse" />
-											STREAM ACTIVE
-										</span>
-										{idx < 3 ? (
-											<span className="flex items-center gap-1 text-zinc-600 dark:text-zinc-400 font-bold hidden lg:flex">
-												<span>PIPELINE</span>
-												<ArrowRight className="w-3.5 h-3.5 text-zinc-500" />
-											</span>
-										) : (
-											<span className="text-emerald-700 dark:text-emerald-400 font-bold flex items-center gap-1">
-												<span className="w-1.5 h-1.5 bg-emerald-500 rounded-full" />
-												<span>TERMINAL</span>
-											</span>
-										)}
-									</div>
+					<div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-3">
+						{current.steps.map((step, idx) => (
+							<div
+								key={step.num}
+								className="relative p-4 rounded-lg bg-slate-50 dark:bg-slate-900/60 border border-slate-200/80 dark:border-slate-800 space-y-2"
+							>
+								<div className="flex items-center justify-between text-xs">
+									<span className="font-mono font-bold text-slate-400">{step.num}</span>
+									<span className="px-2 py-0.5 rounded bg-blue-50 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300 font-mono text-[11px] font-medium">
+										{step.proto}
+									</span>
 								</div>
-							))}
-						</div>
-
-						{/* Tabular Performance Specs */}
-						<div className="grid grid-cols-1 sm:grid-cols-3 border-t border-b border-zinc-200 dark:border-zinc-800 py-4 font-mono text-xs gap-4">
-							{current.metrics.map((m, idx) => (
-								<div key={idx} className="flex justify-between sm:flex-col gap-1">
-									<span className="text-zinc-600 dark:text-zinc-400 font-bold uppercase">{m.label}:</span>
-									<span className="text-zinc-950 dark:text-zinc-100 font-bold text-sm">{m.value}</span>
+								<div className="text-sm font-bold text-slate-900 dark:text-white flex items-center justify-between gap-2">
+									<span>{step.label}</span>
+									{idx < 3 && <ArrowRight className="w-3.5 h-3.5 text-slate-400 hidden xl:inline shrink-0" />}
 								</div>
-							))}
-						</div>
-
-					</motion.div>
-				</AnimatePresence>
-
+								<p className="text-xs text-slate-600 dark:text-slate-400 leading-snug">
+									{step.detail}
+								</p>
+							</div>
+						))}
+					</div>
+				</div>
 			</div>
 		</section>
 	);

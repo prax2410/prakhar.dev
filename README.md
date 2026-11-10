@@ -13,19 +13,19 @@
 
 ### 1. Enterprise ERP & SaaS Platform
 * **Scope**: Designed and developed a **12+ module ERP/SaaS platform** covering HRMS, projects, attendance, payroll, inventory, purchase, sales, CRM, and other operations.
-* **Architecture**: **300+ REST APIs** and PostgreSQL data model with **100+ tables** (transactions, JSONB, indexing).
-* **Scale**: Built to support **100+ companies**, with 4 companies onboarded and 300–400 active employees represented.
+* **Architecture**: **300+ REST APIs** and PostgreSQL data model with **100+ tables** (transactions, JSONB, indexing) using separate PostgreSQL databases per company.
+* **Scale**: Supporting **5 onboarded companies** (including YM Automation) and **~300–400 employees** represented in the system.
 * **Stack**: React.js, Node.js, Express.js, PostgreSQL, REST APIs, RBAC, JSONB.
 
 ### 2. Production Tracking & Workflow System
 * **Scope**: Full-stack production tracking system supporting **12-stage production workflows with branching routes**.
-* **Impact**: Managed stage transitions, routing, production status, quantities, and real-time operational visibility.
+* **Impact**: Managed stage transitions, routing, production status, quantities, and optimized BOM reporting via dynamic filtering and cursor-based pagination (1,000+ rows per project).
 * **Stack**: React.js, Node.js, Express.js, PostgreSQL, REST APIs, Workflow Engine.
 
 ### 3. IIoT Monitoring Platform
 * **Scope**: 24×7 real-time monitoring of industrial machinery and automation equipment across multiple client plants.
 * **Protocols & Polling**: **MQTT, Modbus TCP/RTU, TCP/IP, and TCP sockets** with **~1-second polling intervals**.
-* **Scale**: High-throughput telemetry pipelines supporting systems with **up to ~65 machines/devices**.
+* **Scale**: Telemetry pipelines integrating PLCs and **up to 65 machines/devices**.
 * **Stack**: Node.js, React.js, MQTT, Modbus, TCP Sockets, PostgreSQL, PM2.
 
 ### 4. Production & Energy Monitoring System
@@ -50,18 +50,18 @@
 
 ## 💼 Career Track: SDE → Software Manager (YM Automation Pvt Ltd)
 
-* **Software Manager** *(Oct 2024 - Present)*:
-  * Leading cross-functional team (backend, frontend, mobile, UI/UX) while remaining hands-on with system architecture, development, debugging, and production support.
-  * Led 7–8 client projects across ~10 customer companies, managing multi-site industrial deployments and 24×7 IIoT systems.
-* **Software Development Engineer** *(Jul 2022 - Oct 2024)*:
-  * Independently designed, developed, deployed, and supported 12 production software projects across full stack and database layers.
+* **Software Manager** *(Oct 2024 - Oct 2026 · Coimbatore, Tamil Nadu)*:
+  * Led cross-functional engineering execution across backend, frontend, mobile, and UI/UX while remaining hands-on with system architecture, development, debugging, and production support.
+  * Owned end-to-end delivery of 7–8 client projects across ~10 customer organizations, including multi-site industrial deployments and 24×7 IIoT systems.
+* **Software Development Engineer** *(Jul 2022 - Oct 2024 · Remote, Bengaluru, Karnataka)*:
+  * Independently designed, developed, deployed, and supported 12+ production software projects across full stack and database layers.
 
 ---
 
 ## 🎓 Education
 
-* **Bachelor of Engineering in Computer Science and Engineering** (2011 - 2018)
-* **Siddaganga Institute of Technology, Tumakuru, Karnataka** | **CGPA: 6.62**
+* **Bachelor of Engineering in Computer Science and Engineering**
+* **Siddaganga Institute of Technology, Tumakuru, Karnataka**
 
 ---
 

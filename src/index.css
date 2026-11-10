@@ -3,9 +3,7 @@
 @tailwind utilities;
 
 @layer base {
-  /* ===================================================
-     1. MATTE OBSIDIAN SLATE (Engineered Pro Finish)
-     =================================================== */
+  /* Executive Light & Obsidian Dark Surfaces (Slate + Cobalt Blue) */
   :root, .theme-slate {
     --theme-bg: #f8fafc;
     --theme-card: #ffffff;
@@ -15,112 +13,33 @@
     --theme-accent: #2563eb;
     --theme-accent-light: rgba(37, 99, 235, 0.1);
   }
+
   .dark, .dark.theme-slate, .theme-slate.dark {
-    --theme-bg: #0c0d11;
-    --theme-card: #14151b;
-    --theme-border: #22232c;
-    --theme-text: #ededf2;
-    --theme-subtext: #9293a0;
-    --theme-accent: #38bdf8;
-    --theme-accent-light: rgba(56, 189, 248, 0.14);
+    --theme-bg: #090b10;
+    --theme-card: #11141d;
+    --theme-border: #1e293b;
+    --theme-text: #f1f5f9;
+    --theme-subtext: #94a3b8;
+    --theme-accent: #3b82f6;
+    --theme-accent-light: rgba(59, 130, 246, 0.14);
   }
 
-   /* -------------------------------------------------------------
-   THEME PALETTE OVERRIDES
-   1. SLATE / OBSIDIAN (Default)
-   2. MIDNIGHT NAVY THEME (IIoT & Automation Leader)
-   ------------------------------------------------------------- */
-  .theme-navy {
-    --theme-bg: #f0f6ff;
-    --theme-card: #ffffff;
-    --theme-border: #cbd5e1;
-    --theme-text: #0f172a;
-    --theme-subtext: #334155;
-    --theme-accent: #0284c7;
-    --theme-accent-light: rgba(2, 132, 199, 0.12);
-  }
-  .dark.theme-navy, .theme-navy.dark {
-    --theme-bg: #0c0d11;
-    --theme-card: #14151b;
-    --theme-border: #22232c;
-    --theme-text: #ededf2;
-    --theme-subtext: #9293a0;
-    --theme-accent: #38bdf8;
-    --theme-accent-light: rgba(56, 189, 248, 0.14);
+  html {
+    scroll-padding-top: 4rem;
   }
 
-  /* ===================================================
-     3. OBSIDIAN EMERALD THEME (Architecture & Growth)
-     =================================================== */
-  .theme-emerald {
-    --theme-bg: #f2f9f6;
-    --theme-card: #ffffff;
-    --theme-border: #d1fae5;
-    --theme-text: #064e3b;
-    --theme-subtext: #166534;
-    --theme-accent: #059669;
-    --theme-accent-light: rgba(5, 150, 105, 0.12);
-  }
-  .dark.theme-emerald, .theme-emerald.dark {
-    --theme-bg: #061412;
-    --theme-card: #0e2722;
-    --theme-border: #064e3b;
-    --theme-text: #ecfdf5;
-    --theme-subtext: #a7f3d0;
-    --theme-accent: #10b981;
-    --theme-accent-light: rgba(16, 185, 129, 0.18);
-  }
-
-  /* ===================================================
-     4. ROYAL VIOLET THEME (UI/UX & Design-Dev Handoff)
-     =================================================== */
-  .theme-violet {
-    --theme-bg: #f5f3ff;
-    --theme-card: #ffffff;
-    --theme-border: #ddd6fe;
-    --theme-text: #2e1065;
-    --theme-subtext: #5b21b6;
-    --theme-accent: #7c3aed;
-    --theme-accent-light: rgba(124, 58, 237, 0.12);
-  }
-  .dark.theme-violet, .theme-violet.dark {
-    --theme-bg: #0f0e17;
-    --theme-card: #1c192b;
-    --theme-border: #4c1d95;
-    --theme-text: #f5f3ff;
-    --theme-subtext: #c4b5fd;
-    --theme-accent: #a78bfa;
-    --theme-accent-light: rgba(167, 139, 250, 0.18);
-  }
-
-  /* ===================================================
-     5. INDUSTRIAL AMBER THEME (Machine Engineering)
-     =================================================== */
-  .theme-amber {
-    --theme-bg: #fffbeb;
-    --theme-card: #ffffff;
-    --theme-border: #fde68a;
-    --theme-text: #451a03;
-    --theme-subtext: #78350f;
-    --theme-accent: #d97706;
-    --theme-accent-light: rgba(217, 119, 6, 0.12);
-  }
-  .dark.theme-amber, .theme-amber.dark {
-    --theme-bg: #121016;
-    --theme-card: #241e24;
-    --theme-border: #78350f;
-    --theme-text: #fffbeb;
-    --theme-subtext: #fde68a;
-    --theme-accent: #f59e0b;
-    --theme-accent-light: rgba(245, 158, 11, 0.18);
+  @media (min-width: 1024px) {
+    html {
+      scroll-padding-top: 1.5rem;
+    }
   }
 
   html, body {
     background-color: var(--theme-bg) !important;
     color: var(--theme-text) !important;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     letter-spacing: -0.01em;
-    transition: background-color 0.4s ease, color 0.4s ease;
+    transition: background-color 0.25s ease, color 0.25s ease;
     overflow-x: hidden;
     max-width: 100%;
     width: 100%;
@@ -135,26 +54,27 @@
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--theme-accent);
+  background: #94a3b8;
   border-radius: 3px;
 }
+.dark ::-webkit-scrollbar-thumb {
+  background: #334155;
+}
 
-/* Architectural Ledger Lines & Dividers */
 .dark {
   color-scheme: dark;
 }
 
-.dark body {
-  background-color: var(--theme-bg) !important;
-}
-
-/* Precision Hairline Focus & Transitions */
 button, a {
   transition: all 0.15s ease-in-out;
+}
+
+button:focus-visible, a:focus-visible {
+  outline: 2px solid var(--theme-accent);
+  outline-offset: 2px;
 }
 
 ::selection {
   background-color: var(--theme-accent);
   color: #ffffff;
 }
-

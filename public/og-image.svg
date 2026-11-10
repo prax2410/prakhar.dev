@@ -20,22 +20,22 @@
     <text x="70" y="34" fill="#38bdf8" font-family="'Fira Code', monospace" font-size="16" font-weight="600" letter-spacing="2">SENIOR SOFTWARE ENGINEER</text>
   </g>
 
-  <!-- Notice Period Pill (Top Right) -->
-  <g transform="translate(660, 85)">
-    <rect width="460" height="42" rx="8" fill="#042f2e" stroke="#10b981" stroke-width="1.5"/>
+  <!-- Availability Pill (Top Right) -->
+  <g transform="translate(740, 85)">
+    <rect width="380" height="42" rx="8" fill="#042f2e" stroke="#10b981" stroke-width="1.5"/>
     <circle cx="24" cy="21" r="5" fill="#34d399"/>
-    <text x="40" y="26" fill="#ecfdf5" font-family="'Fira Code', monospace" font-size="13" font-weight="700">SERVING NOTICE PERIOD // IMMEDIATE JOINER</text>
+    <text x="40" y="26" fill="#ecfdf5" font-family="'Fira Code', monospace" font-size="13" font-weight="700">IMMEDIATE JOINER // AVAILABLE NOW</text>
   </g>
 
   <!-- Main Headline -->
   <text x="80" y="225" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="64" font-weight="800" letter-spacing="-1">
     Prakhar
   </text>
-  <text x="80" y="275" fill="#38bdf8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="28" font-weight="700">
-    Full Stack Architect &amp; Technical Manager
+  <text x="80" y="275" fill="#38bdf8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="26" font-weight="700">
+    Senior Full Stack &amp; Backend Engineer · Hands-On Tech Lead
   </text>
-  <text x="80" y="315" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="20" font-weight="500">
-    12+ ERP Modules (300+ APIs) • 24×7 IIoT Streaming (~65 Machines) • SDE → Manager
+  <text x="80" y="315" fill="#94a3b8" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="19" font-weight="500">
+    12+ ERP Modules (5 Companies) • 24×7 IIoT (Up to 65 Devices) • SDE → Manager
   </text>
 
   <!-- Tag Pills -->
@@ -60,7 +60,7 @@
   <!-- Bottom Details -->
   <g transform="translate(80, 520)">
     <circle cx="6" cy="-6" r="5" fill="#10b981"/>
-    <text x="24" y="-2" fill="#cbd5e1" font-family="'Fira Code', monospace" font-size="15">4+ Years Exp • Ex-YM Automation Software Manager • Bengaluru [Hybrid/Remote]</text>
+    <text x="24" y="-2" fill="#cbd5e1" font-family="'Fira Code', monospace" font-size="15">4+ Yrs (Jul 2022–Oct 2026) • Ex-YM Automation Software Manager • Bengaluru</text>
     <text x="1040" y="-2" fill="#64748b" font-family="'Fira Code', monospace" font-size="15" text-anchor="end">prax2410.github.io/portfolio</text>
   </g>
 </svg>

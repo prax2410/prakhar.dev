@@ -9,126 +9,288 @@ import {
   Github,
   Linkedin,
   ArrowUpRight,
+  Clock,
+  MapPin,
+  Briefcase,
+  Layers,
+  Sparkles,
 } from 'lucide-react';
 import { personalInfo } from '../data/portfolioData';
 import { useCopyFeedback } from '../hooks/useCopyFeedback';
+import Tooltip from './Tooltip';
+import prakharImg from '../assets/Prakhar.png';
 
 export default function ContactSection() {
   const { copy, isCopied } = useCopyFeedback();
 
-  return (
-    <section id="contact" className="py-14 sm:py-16 border-b border-slate-200 dark:border-slate-800">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400 mb-1">
-              06 · Contact
-            </p>
-            <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 dark:text-white">
-              Get in Touch
-            </h2>
-            <p className="text-sm text-slate-600 dark:text-slate-400 mt-1">
-              {personalInfo.noticeStatus} · {personalInfo.availability} · {personalInfo.targetRoles}
-            </p>
-          </div>
+  const mailtoUrl = `mailto:${personalInfo.email}?subject=${encodeURIComponent(
+    'Engineering Opportunity — Senior Software Engineer / Full Stack Role'
+  )}`;
 
-          <a
-            href={personalInfo.resumeUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            download="Prakhar_CV_2026.pdf"
-            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm font-semibold self-start sm:self-auto"
-          >
-            <FileText className="w-4 h-4" />
-            <span>Download Resume (PDF)</span>
-            <ArrowUpRight className="w-3.5 h-3.5" />
-          </a>
+  return (
+    <section
+      id="contact"
+      className="py-[70px] sm:py-[85px] border-b border-[#e5e7eb] dark:border-[#2d2d2f] bg-white dark:bg-black transition-colors"
+    >
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+        {/* Apple Section Header */}
+        <div>
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#0071e3]/10 text-[#0071e3] dark:text-[#2997ff] text-[12px] font-semibold uppercase tracking-wider mb-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#34c759] animate-pulse" />
+            06 · Contact · {personalInfo.noticeStatus}
+          </div>
+          <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-[#1d1d1f] dark:text-white">
+            Let’s connect.
+          </h2>
+          <p className="text-[16px] sm:text-[17px] text-[#86868b] mt-2 font-normal max-w-2xl">
+            Available immediately for Senior Software Engineer, Full Stack, and Technical Lead roles. Open to On-site, Hybrid, or Remote opportunities.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {/* Email */}
-          <div className="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#11141d] flex items-center justify-between gap-3">
-            <div className="min-w-0">
-              <div className="text-xs font-medium text-slate-500 dark:text-slate-400">Email</div>
-              <a
-                href={`mailto:${personalInfo.email}`}
-                className="text-sm font-semibold text-slate-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 truncate block mt-0.5"
-              >
-                {personalInfo.email}
-              </a>
+        {/* 2-Column Apple Bento Showcase */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5">
+          {/* Left Column: Direct Recruiter Gateway (7 cols) */}
+          <div className="lg:col-span-7 p-6 sm:p-8 rounded-2xl border border-[#e5e7eb] dark:border-[#2d2d2f] bg-[#f5f5f7] dark:bg-[#161617] flex flex-col justify-between transition-colors">
+            <div className="space-y-4">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 pb-2 border-b border-[#e5e7eb] dark:border-[#2d2d2f]">
+                <img
+                  src={prakharImg}
+                  alt="Prakhar — Senior Software Engineer"
+                  className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl object-cover object-top border-2 border-[#0071e3]/40 shadow-md shrink-0"
+                />
+                <div className="space-y-1">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white dark:bg-[#202022] border border-[#e5e7eb] dark:border-[#2d2d2f] text-[11px] font-medium text-[#34c759]">
+                      <span className="w-2 h-2 rounded-full bg-[#34c759]" />
+                      Available Immediately · Immediate Joiner
+                    </span>
+                    <span className="text-[12px] font-mono font-medium text-[#86868b]">
+                      {personalInfo.experienceYears}
+                    </span>
+                  </div>
+                  <h3 className="text-xl sm:text-2xl font-bold text-[#1d1d1f] dark:text-white tracking-tight">
+                    Direct Conversation with Prakhar
+                  </h3>
+                  <p className="text-[13px] text-[#0071e3] dark:text-[#2997ff] font-medium font-mono">
+                    Senior Software Engineer · Full Stack &amp; Tech Lead
+                  </p>
+                </div>
+              </div>
+
+              <div>
+                <p className="text-[14px] sm:text-[15px] text-[#86868b] leading-relaxed">
+                  Whether you have an immediate opening, require multi-tenant architecture expertise, or want to discuss scaling shopfloor telemetry, reach out directly.
+                </p>
+              </div>
+
+              {/* Apple 44px Pill CTA Group */}
+              <div className="pt-2 flex flex-wrap items-center gap-3">
+                <a
+                  href={mailtoUrl}
+                  className="inline-flex items-center justify-center gap-2 px-6 h-[44px] rounded-full bg-[#0071e3] hover:bg-[#2997ff] text-white text-[14px] sm:text-[15px] font-medium shadow-sm hover:shadow transition-all"
+                >
+                  <Mail className="w-4 h-4" />
+                  <span>Send an Email</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 opacity-80" />
+                </a>
+
+                <a
+                  href={personalInfo.getWhatsAppUrl()}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 px-5 h-[44px] rounded-full border border-[#e5e7eb] dark:border-[#2d2d2f] bg-white dark:bg-[#202022] hover:border-[#34c759] text-[#1d1d1f] dark:text-white text-[14px] sm:text-[15px] font-medium transition-colors"
+                >
+                  <MessageSquare className="w-4 h-4 text-[#34c759]" />
+                  <span>Chat on WhatsApp</span>
+                </a>
+
+                <a
+                  href={personalInfo.resumeUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  download="Prakhar_CV_2026.pdf"
+                  className="inline-flex items-center justify-center gap-2 px-5 h-[44px] rounded-full border border-[#e5e7eb] dark:border-[#2d2d2f] bg-white dark:bg-[#202022] hover:border-[#0071e3] text-[#1d1d1f] dark:text-white text-[14px] sm:text-[15px] font-medium transition-colors"
+                >
+                  <FileText className="w-4 h-4 text-[#0071e3] dark:text-[#2997ff]" />
+                  <span>Download CV (PDF)</span>
+                </a>
+              </div>
             </div>
-            <button
-              type="button"
-              onClick={() => copy('email', personalInfo.email)}
-              aria-label="Copy email"
-              className="p-2 rounded-lg border border-slate-200 dark:border-slate-800 text-slate-500 hover:text-slate-900 dark:hover:text-white shrink-0"
-            >
-              {isCopied('email') ? <Check className="w-4 h-4 text-emerald-500" /> : <Copy className="w-4 h-4" />}
-            </button>
+
+            {/* Response Time SLA Assurance */}
+            <div className="mt-6 pt-4 border-t border-[#e5e7eb] dark:border-[#2d2d2f] flex flex-wrap items-center justify-between gap-2 text-[12px] text-[#86868b]">
+              <div className="flex items-center gap-2">
+                <Clock className="w-3.5 h-3.5 text-[#0071e3] dark:text-[#2997ff]" />
+                <span>Usually responds within 2 hours</span>
+              </div>
+              <span className="font-mono">IST (UTC+5:30)</span>
+            </div>
           </div>
 
-          {/* Phone & WhatsApp */}
-          <div className="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#11141d] flex items-center justify-between gap-3">
-            <div className="min-w-0">
-              <div className="text-xs font-medium text-slate-500 dark:text-slate-400">Phone / WhatsApp</div>
-              <a
-                href={`tel:+91${personalInfo.phoneRaw}`}
-                className="text-sm font-semibold text-slate-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 block mt-0.5"
-              >
-                {personalInfo.phone}
-              </a>
+          {/* Right Column: Direct Channels (5 cols) */}
+          <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-3.5">
+            {/* Email Channel */}
+            <div className="p-4 rounded-2xl border border-[#e5e7eb] dark:border-[#2d2d2f] bg-white dark:bg-[#161617] flex items-center justify-between gap-3 transition-colors">
+              <div className="flex items-center gap-3 min-w-0">
+                <div className="w-10 h-10 rounded-full bg-[#0071e3]/10 text-[#0071e3] dark:text-[#2997ff] flex items-center justify-center shrink-0">
+                  <Mail className="w-5 h-5" />
+                </div>
+                <div className="min-w-0">
+                  <div className="text-[11px] font-mono uppercase tracking-wider text-[#86868b]">Email</div>
+                  <a
+                    href={mailtoUrl}
+                    className="text-[14px] sm:text-[15px] font-semibold text-[#1d1d1f] dark:text-white hover:text-[#0071e3] dark:hover:text-[#2997ff] truncate block"
+                  >
+                    {personalInfo.email}
+                  </a>
+                </div>
+              </div>
+              <Tooltip text={isCopied('email') ? 'Copied!' : 'Copy email'} position="left">
+                <button
+                  type="button"
+                  onClick={() => copy('email', personalInfo.email)}
+                  aria-label="Copy email"
+                  className="p-2.5 rounded-full border border-[#e5e7eb] dark:border-[#2d2d2f] bg-[#f5f5f7] dark:bg-[#202022] text-[#86868b] hover:text-[#1d1d1f] dark:hover:text-white shrink-0 transition-colors"
+                >
+                  {isCopied('email') ? <Check className="w-4 h-4 text-[#34c759]" /> : <Copy className="w-4 h-4" />}
+                </button>
+              </Tooltip>
             </div>
-            <div className="flex items-center gap-2 shrink-0">
+
+            {/* Phone Channel */}
+            <div className="p-4 rounded-2xl border border-[#e5e7eb] dark:border-[#2d2d2f] bg-white dark:bg-[#161617] flex items-center justify-between gap-3 transition-colors">
+              <div className="flex items-center gap-3 min-w-0">
+                <div className="w-10 h-10 rounded-full bg-[#34c759]/10 text-[#34c759] flex items-center justify-center shrink-0">
+                  <Phone className="w-5 h-5" />
+                </div>
+                <div className="min-w-0">
+                  <div className="text-[11px] font-mono uppercase tracking-wider text-[#86868b]">Direct Line</div>
+                  <a
+                    href={`tel:+91${personalInfo.phoneRaw}`}
+                    className="text-[14px] sm:text-[15px] font-semibold text-[#1d1d1f] dark:text-white hover:text-[#0071e3] dark:hover:text-[#2997ff] block"
+                  >
+                    {personalInfo.phone}
+                  </a>
+                </div>
+              </div>
+              <div className="flex items-center gap-1.5 shrink-0">
+                <Tooltip text={isCopied('phone') ? 'Copied!' : 'Copy phone'} position="top">
+                  <button
+                    type="button"
+                    onClick={() => copy('phone', personalInfo.phone)}
+                    aria-label="Copy phone"
+                    className="p-2.5 rounded-full border border-[#e5e7eb] dark:border-[#2d2d2f] bg-[#f5f5f7] dark:bg-[#202022] text-[#86868b] hover:text-[#1d1d1f] dark:hover:text-white transition-colors"
+                  >
+                    {isCopied('phone') ? <Check className="w-4 h-4 text-[#34c759]" /> : <Copy className="w-4 h-4" />}
+                  </button>
+                </Tooltip>
+                <a
+                  href={`tel:+91${personalInfo.phoneRaw}`}
+                  aria-label="Call phone"
+                  className="p-2.5 rounded-full border border-[#e5e7eb] dark:border-[#2d2d2f] bg-[#f5f5f7] dark:bg-[#202022] text-[#86868b] hover:text-[#1d1d1f] dark:hover:text-white transition-colors"
+                >
+                  <ArrowUpRight className="w-4 h-4" />
+                </a>
+              </div>
+            </div>
+
+            {/* LinkedIn Channel */}
+            <div className="p-4 rounded-2xl border border-[#e5e7eb] dark:border-[#2d2d2f] bg-white dark:bg-[#161617] flex items-center justify-between gap-3 transition-colors">
+              <div className="flex items-center gap-3 min-w-0">
+                <div className="w-10 h-10 rounded-full bg-[#0071e3]/10 text-[#0071e3] dark:text-[#2997ff] flex items-center justify-center shrink-0">
+                  <Linkedin className="w-5 h-5" />
+                </div>
+                <div className="min-w-0">
+                  <div className="text-[11px] font-mono uppercase tracking-wider text-[#86868b]">LinkedIn</div>
+                  <a
+                    href={personalInfo.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[14px] sm:text-[15px] font-semibold text-[#1d1d1f] dark:text-white hover:text-[#0071e3] dark:hover:text-[#2997ff] truncate block"
+                  >
+                    linkedin.com/in/prakhar...
+                  </a>
+                </div>
+              </div>
               <a
-                href={personalInfo.getWhatsAppUrl()}
+                href={personalInfo.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="WhatsApp"
-                className="p-2 rounded-lg border border-slate-200 dark:border-slate-800 text-emerald-600 dark:text-emerald-400 hover:border-slate-300"
+                aria-label="Visit LinkedIn"
+                className="p-2.5 rounded-full border border-[#e5e7eb] dark:border-[#2d2d2f] bg-[#f5f5f7] dark:bg-[#202022] text-[#0071e3] dark:text-[#2997ff] hover:border-[#0071e3] shrink-0 transition-colors"
               >
-                <MessageSquare className="w-4 h-4" />
+                <ArrowUpRight className="w-4 h-4" />
               </a>
+            </div>
+
+            {/* GitHub Channel */}
+            <div className="p-4 rounded-2xl border border-[#e5e7eb] dark:border-[#2d2d2f] bg-white dark:bg-[#161617] flex items-center justify-between gap-3 transition-colors">
+              <div className="flex items-center gap-3 min-w-0">
+                <div className="w-10 h-10 rounded-full bg-[#f5f5f7] dark:bg-[#202022] text-[#1d1d1f] dark:text-white flex items-center justify-center shrink-0">
+                  <Github className="w-5 h-5" />
+                </div>
+                <div className="min-w-0">
+                  <div className="text-[11px] font-mono uppercase tracking-wider text-[#86868b]">GitHub</div>
+                  <a
+                    href={personalInfo.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[14px] sm:text-[15px] font-semibold text-[#1d1d1f] dark:text-white hover:text-[#0071e3] dark:hover:text-[#2997ff] truncate block"
+                  >
+                    github.com/{personalInfo.githubUsername}
+                  </a>
+                </div>
+              </div>
               <a
-                href={`tel:+91${personalInfo.phoneRaw}`}
-                aria-label="Call"
-                className="p-2 rounded-lg border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:border-slate-300"
+                href={personalInfo.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Visit GitHub"
+                className="p-2.5 rounded-full border border-[#e5e7eb] dark:border-[#2d2d2f] bg-[#f5f5f7] dark:bg-[#202022] text-[#86868b] hover:text-[#1d1d1f] dark:hover:text-white shrink-0 transition-colors"
               >
-                <Phone className="w-4 h-4" />
+                <ArrowUpRight className="w-4 h-4" />
               </a>
             </div>
           </div>
+        </div>
 
-          {/* LinkedIn */}
-          <a
-            href={personalInfo.linkedin}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#11141d] flex items-center justify-between gap-3 hover:border-slate-300 dark:hover:border-slate-700"
-          >
-            <div className="min-w-0">
-              <div className="text-xs font-medium text-slate-500 dark:text-slate-400">LinkedIn</div>
-              <div className="text-sm font-semibold text-slate-900 dark:text-white truncate mt-0.5">
-                {personalInfo.linkedin.replace(/^https?:\/\//, '')}
+        {/* Recruiter Fast-Facts Strip */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 pt-2">
+          <div className="p-4 rounded-2xl border border-[#e5e7eb] dark:border-[#2d2d2f] bg-[#f5f5f7] dark:bg-[#161617] flex items-start gap-3 transition-colors">
+            <div className="w-8 h-8 rounded-full bg-white dark:bg-[#202022] border border-[#e5e7eb] dark:border-[#2d2d2f] flex items-center justify-center text-[#0071e3] dark:text-[#2997ff] shrink-0 mt-0.5">
+              <MapPin className="w-4 h-4" />
+            </div>
+            <div>
+              <div className="text-[11px] font-mono uppercase tracking-wider text-[#86868b]">Location &amp; Mobility</div>
+              <div className="text-[13px] font-semibold text-[#1d1d1f] dark:text-white mt-0.5">
+                Bengaluru · On-site / Hybrid / Remote
               </div>
             </div>
-            <Linkedin className="w-4 h-4 text-blue-600 dark:text-blue-400 shrink-0" />
-          </a>
+          </div>
 
-          {/* GitHub */}
-          <a
-            href={personalInfo.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-4 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-[#11141d] flex items-center justify-between gap-3 hover:border-slate-300 dark:hover:border-slate-700"
-          >
-            <div className="min-w-0">
-              <div className="text-xs font-medium text-slate-500 dark:text-slate-400">GitHub</div>
-              <div className="text-sm font-semibold text-slate-900 dark:text-white truncate mt-0.5">
-                github.com/{personalInfo.githubUsername}
+          <div className="p-4 rounded-2xl border border-[#e5e7eb] dark:border-[#2d2d2f] bg-[#f5f5f7] dark:bg-[#161617] flex items-start gap-3 transition-colors">
+            <div className="w-8 h-8 rounded-full bg-white dark:bg-[#202022] border border-[#e5e7eb] dark:border-[#2d2d2f] flex items-center justify-center text-[#34c759] shrink-0 mt-0.5">
+              <Briefcase className="w-4 h-4" />
+            </div>
+            <div>
+              <div className="text-[11px] font-mono uppercase tracking-wider text-[#86868b]">Target Engineering Roles</div>
+              <div className="text-[13px] font-semibold text-[#1d1d1f] dark:text-white mt-0.5">
+                {personalInfo.targetRoles}
               </div>
             </div>
-            <Github className="w-4 h-4 text-slate-700 dark:text-slate-300 shrink-0" />
-          </a>
+          </div>
+
+          <div className="p-4 rounded-2xl border border-[#e5e7eb] dark:border-[#2d2d2f] bg-[#f5f5f7] dark:bg-[#161617] flex items-start gap-3 transition-colors">
+            <div className="w-8 h-8 rounded-full bg-white dark:bg-[#202022] border border-[#e5e7eb] dark:border-[#2d2d2f] flex items-center justify-center text-[#0071e3] dark:text-[#2997ff] shrink-0 mt-0.5">
+              <Layers className="w-4 h-4" />
+            </div>
+            <div>
+              <div className="text-[11px] font-mono uppercase tracking-wider text-[#86868b]">Core Architecture</div>
+              <div className="text-[13px] font-semibold text-[#1d1d1f] dark:text-white mt-0.5">
+                Node.js · React.js · PostgreSQL · IIoT
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

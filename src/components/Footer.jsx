@@ -8,12 +8,12 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-white dark:bg-[#090b10] text-slate-500 dark:text-slate-400 pt-10 pb-24 sm:pb-20 text-xs transition-colors">
+    <footer className="bg-[#f5f5f7] dark:bg-[#161617] text-[#86868b] pt-12 pb-24 sm:pb-20 text-[12px] border-t border-[#e5e7eb] dark:border-[#2d2d2f] transition-colors">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-        <div>
-          <span className="font-semibold text-slate-900 dark:text-white">Prakhar</span>
-          <span className="mx-2">·</span>
-          <span>Senior Full Stack &amp; Backend Engineer · Bengaluru</span>
+        <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-center sm:text-left">
+          <span className="font-semibold text-[#1d1d1f] dark:text-[#f5f5f7]">Prakhar</span>
+          <span>·</span>
+          <span>Senior Software Engineer · Full Stack · Bengaluru</span>
         </div>
 
         <div className="flex items-center gap-2">
@@ -23,7 +23,7 @@ export default function Footer() {
             rel="noopener noreferrer"
             download="Prakhar_CV_2026.pdf"
             aria-label="Download Resume"
-            className="p-2 rounded-lg border border-slate-200 dark:border-slate-800 hover:text-slate-900 dark:hover:text-white transition-colors"
+            className="p-2 rounded-full border border-[#e5e7eb] dark:border-[#2d2d2f] bg-white dark:bg-[#202022] hover:text-[#0071e3] dark:hover:text-[#2997ff] transition-colors"
           >
             <FileText className="w-3.5 h-3.5" />
           </a>
@@ -32,7 +32,7 @@ export default function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub Profile"
-            className="p-2 rounded-lg border border-slate-200 dark:border-slate-800 hover:text-slate-900 dark:hover:text-white transition-colors"
+            className="p-2 rounded-full border border-[#e5e7eb] dark:border-[#2d2d2f] bg-white dark:bg-[#202022] hover:text-[#0071e3] dark:hover:text-[#2997ff] transition-colors"
           >
             <Github className="w-3.5 h-3.5" />
           </a>
@@ -41,7 +41,7 @@ export default function Footer() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn Profile"
-            className="p-2 rounded-lg border border-slate-200 dark:border-slate-800 hover:text-slate-900 dark:hover:text-white transition-colors"
+            className="p-2 rounded-full border border-[#e5e7eb] dark:border-[#2d2d2f] bg-white dark:bg-[#202022] hover:text-[#0071e3] dark:hover:text-[#2997ff] transition-colors"
           >
             <Linkedin className="w-3.5 h-3.5" />
           </a>
@@ -49,7 +49,7 @@ export default function Footer() {
             type="button"
             onClick={scrollToTop}
             aria-label="Back to top"
-            className="p-2 rounded-lg border border-slate-200 dark:border-slate-800 hover:text-slate-900 dark:hover:text-white transition-colors"
+            className="p-2 rounded-full border border-[#e5e7eb] dark:border-[#2d2d2f] bg-white dark:bg-[#202022] hover:text-[#0071e3] dark:hover:text-[#2997ff] transition-colors"
           >
             <ArrowUp className="w-3.5 h-3.5" />
           </button>

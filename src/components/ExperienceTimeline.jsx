@@ -1,7 +1,20 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Zap, ChevronDown, ChevronUp, CheckCircle, Clock, Calendar, Users, Rocket } from "lucide-react";
-import { experienceData, educationData, teamStructure } from "../data/portfolioData";
+import {
+	Zap,
+	ChevronDown,
+	ChevronUp,
+	CheckCircle,
+	Clock,
+	Calendar,
+	Users,
+	Rocket,
+} from "lucide-react";
+import {
+	experienceData,
+	educationData,
+	teamStructure,
+} from "../data/portfolioData";
 
 const SPRINT_DAYS = [
 	{
@@ -50,7 +63,8 @@ export default function ExperienceTimeline() {
 							Professional Experience &amp; Leadership
 						</h2>
 						<p className="text-[15px] sm:text-[16px] text-[#86868b] font-normal">
-							YM Automation Pvt Ltd · SDE → Software Manager (Jul 2022 – Oct 2026)
+							YM Automation Pvt Ltd · SDE → Software Manager (Jul
+							2022 – Oct 2026)
 						</p>
 					</div>
 
@@ -63,7 +77,9 @@ export default function ExperienceTimeline() {
 						>
 							<Rocket className="w-3.5 h-3.5 text-[#0071e3] dark:text-[#2997ff]" />
 							<span>Inspect 5-Day Delivery Sprint Breakdown</span>
-							{showSprintModal ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
+							{showSprintModal ?
+								<ChevronUp className="w-3.5 h-3.5" />
+							:	<ChevronDown className="w-3.5 h-3.5" />}
 						</button>
 					</div>
 				</div>
@@ -82,10 +98,13 @@ export default function ExperienceTimeline() {
 									<div className="flex items-center gap-2">
 										<Zap className="w-4 h-4 text-[#0071e3] dark:text-[#2997ff]" />
 										<span className="font-bold text-[13px] text-[#1d1d1f] dark:text-white uppercase tracking-wider">
-											Rapid Sprint Blueprint: 3 Projects Delivered in 5 Working Days
+											Rapid Sprint Blueprint: 3 Projects
+											Delivered in 5 Working Days
 										</span>
 									</div>
-									<span className="text-[11px] text-[#86868b]">Design to Cloud Production</span>
+									<span className="text-[11px] text-[#86868b]">
+										Design to Cloud Production
+									</span>
 								</div>
 
 								{/* 5-Day Visual Track */}

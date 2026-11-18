@@ -14,46 +14,46 @@ import { useCopyFeedback } from "../hooks/useCopyFeedback";
  */
 const TENANTS = [
 	{
-		id: "ym",
-		name: "YM Automation Pvt. Ltd.",
-		short: "YM Automation",
-		dbName: "tenant_ym_automation_db",
+		id: "industrial",
+		name: "Precision Automation OEM",
+		short: "Precision Auto",
+		dbName: "tenant_precision_auto_db",
 		employees: 148,
 		payrollLakhs: "₹14.85",
 		role: "Super Admin",
 	},
 	{
-		id: "cogent",
-		name: "Cogent Automation Pvt. Ltd.",
-		short: "Cogent Automation",
-		dbName: "tenant_cogent_automation_db",
+		id: "fabrication",
+		name: "Industrial Equipment Fabrication",
+		short: "Equipment Mfg",
+		dbName: "tenant_equipment_mfg_db",
 		employees: 112,
 		payrollLakhs: "₹11.20",
 		role: "Plant Controller",
 	},
 	{
-		id: "medicare",
-		name: "Medicare Enviro System",
-		short: "Medicare Enviro",
-		dbName: "tenant_medicare_enviro_db",
+		id: "healthcare",
+		name: "Healthcare Environmental Systems",
+		short: "Healthcare Enviro",
+		dbName: "tenant_healthcare_enviro_db",
 		employees: 64,
 		payrollLakhs: "₹6.40",
 		role: "Operations Head",
 	},
 	{
-		id: "mwp",
-		name: "MWP Energy Infra Private Limited",
-		short: "MWP Energy",
-		dbName: "tenant_mwp_energy_db",
+		id: "energy",
+		name: "Renewable Energy Infrastructure",
+		short: "Energy Infra",
+		dbName: "tenant_energy_infra_db",
 		employees: 52,
 		payrollLakhs: "₹5.10",
 		role: "General Admin",
 	},
 	{
-		id: "monsoon",
-		name: "Monsoon Ex Brand",
-		short: "Monsoon Ex",
-		dbName: "tenant_monsoon_brand_db",
+		id: "retail",
+		name: "Commercial Retail & Apparel",
+		short: "Retail Brand",
+		dbName: "tenant_retail_apparel_db",
 		employees: 38,
 		payrollLakhs: "₹3.80",
 		role: "Store Manager",
@@ -61,7 +61,7 @@ const TENANTS = [
 ];
 
 export function ErpDashboardMockup() {
-	const [activeTenantId, setActiveTenantId] = useState("ym");
+	const [activeTenantId, setActiveTenantId] = useState("industrial");
 	const [activeModule, setActiveModule] = useState("payroll");
 	const [simulating, setSimulating] = useState(false);
 	const [simulatedCountOffset, setSimulatedCountOffset] = useState(0);

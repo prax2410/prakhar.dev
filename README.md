@@ -15,19 +15,19 @@
 * **Scope**: 12+ ERP modules covering HRMS, payroll, inventory, CRM, project management, accounts, purchase, sales, assets, attendance, and enterprise workflows.
 * **Architecture**: Contributed to 300+ REST APIs and PostgreSQL data model with 100+ tables; authentication, RBAC, transaction-based workflows, and multi-tenant architecture.
 * **Scale**: 5 onboarded companies and approximately 300–400 employees represented in the system.
-* **Clients**: YM Automation Pvt. Ltd., Cogent Automation Pvt. Ltd., Medicare Enviro System, MWP Energy Infra Private Limited, Monsoon Ex Brand.
+* **Industry Verticals**: Precision Automation OEM, Industrial Equipment Fabrication, Healthcare Environmental Systems, Renewable Energy Infrastructure, Commercial Retail & Apparel.
 
 ### 2. Production Tracking & Workflow System *(React.js · Node.js · Express.js · PostgreSQL)*
 * **Scope**: Configurable 12-stage production workflows supporting routing and branching logic.
 * **Architecture**: Stage transitions, production status tracking, quantity management, and workflow management with `SELECT ... FOR UPDATE` row locking.
 * **Performance**: Dynamic filtering and keyset cursor-based pagination for BOM reporting APIs supporting 1,000+ rows per project.
-* **Client**: Cogent Automation Pvt. Ltd.
+* **Deployment**: Tier-1 Discrete Manufacturing Plant
 
 ### 3. Industrial IoT Monitoring Platform *(React.js · Node.js · PostgreSQL · MQTT · Modbus · TCP/IP)*
 * **Scope**: Industrial monitoring applications integrating PLCs and up to 65 machines across multiple sites.
 * **Acquisition**: Machine data acquisition using MQTT, Modbus TCP/RTU, and TCP sockets with ~1-second polling intervals.
 * **Workflows**: Real-time monitoring dashboards, machine monitoring, historical analytics, alarms, and reporting workflows.
-* **Clients**: Salzer Electronics Limited – Unit II, Armor Grandeur Pvt. Ltd., Medicare Enviro System, Cogent Automation Pvt. Ltd., TE Connectivity India Pvt. Ltd. (via Cogent), The Tata Power Company Limited (via Renso).
+* **Industry Verticals**: Electrical Switchgear & Controls OEM, Defense & Heavy Fabrication Facility, Healthcare Environmental Treatment Plant, Discrete Robotics & Machine Lines, Automotive Electrical Connectivity Supplier, Grid Power & Solar Generation Utility.
 
 ---
 

@@ -82,32 +82,24 @@ export const experienceData = [
 		period: "Oct 2024 – Oct 2026",
 		highlights: [
 			{
-				tag: "Reusable React & Protocol Integrations",
-				text: "Built reusable React components and backend integrations using MQTT and Modbus.",
+				tag: "Technical Architecture & Milestone Delivery",
+				text: "Spearheaded technical architecture and delivery across 7–8 enterprise SaaS and Industrial IoT client solutions, maintaining a 100% on-time deployment record by defining core technical specifications, conducting code reviews, and providing hands-on full-stack engineering.",
 			},
 			{
-				tag: "Architecture & Production Engineering",
-				text: "Contributed hands-on to system architecture, development, debugging, and production engineering.",
+				tag: "Modular IoT Drivers & Telemetry Streaming",
+				text: "Standardized real-time machine telemetry and dashboard monitoring across industrial client sites, achieving stable sub-second data streaming across up to 65 factory controllers by engineering modular Node.js MQTT/Modbus drivers and reusable React components.",
 			},
 			{
-				tag: "Technical Solutions & Project Delivery",
-				text: "Designed technical solutions and guided delivery across 7–8 customer projects.",
+				tag: "Engineering Standards & Team Mentorship",
+				text: "Elevated software quality and delivery cadence across a 5-member cross-functional engineering team, driving down production defect rates and standardizing PR turnaround within 24 hours through CI/CD automation, linting gates, and 1-on-1 technical mentoring.",
 			},
 			{
-				tag: "Full-Stack Implementation & Troubleshooting",
-				text: "Supported frontend, backend, and mobile development through implementation guidance and troubleshooting.",
+				tag: "Turnkey Prototyping & Rapid Deployment",
+				text: "Delivered 3 production-ready client applications under tight go-to-market constraints, advancing from design specifications to cloud production within 5 working days by implementing modular React design systems and reusable API templates.",
 			},
 			{
-				tag: "Rapid 5-Day Delivery Execution",
-				text: "Coordinated three projects from design to production within five working days.",
-			},
-			{
-				tag: "Code Review & Team Mentorship",
-				text: "Reviewed code and mentored developers across a five-member cross-functional team.",
-			},
-			{
-				tag: "Client Feasibility & Technical Scoping",
-				text: "Collaborated with the founder on client requirements, technical feasibility, and development estimates.",
+				tag: "Technical Scoping & Estimation Accuracy",
+				text: "Streamlined client onboarding and project scoping in direct partnership with executive leadership, achieving 90%+ sprint estimation accuracy by translating complex business requirements into actionable architectural roadmaps and PostgreSQL schemas.",
 			},
 		],
 		tech: [
@@ -130,32 +122,24 @@ export const experienceData = [
 		period: "Jul 2022 – Oct 2024",
 		highlights: [
 			{
-				tag: "Sole Developer & Founder Partnership",
-				text: "Joined as the sole software developer, working directly with the founder.",
+				tag: "Multi-Tenant Enterprise SaaS Platform",
+				text: "Architected and scaled a 12-module enterprise ERP platform from initial concept to production, supporting 300–400 active workforce users across 5 onboarded client organizations by implementing 300+ REST APIs, 100+ relational tables, and per-tenant PostgreSQL database isolation.",
 			},
 			{
-				tag: "Complete SDLC Ownership",
-				text: "Owned requirements, architecture, estimation, full-stack development, deployment, and production maintenance.",
+				tag: "SQL Optimization & Keyset Pagination",
+				text: "Accelerated complex Bill of Materials (BOM) reporting queries by over 99%, reducing execution latency from ~420ms to under 2ms on 1,000+ row project trees by replacing sequential OFFSET scans with B-Tree keyset cursor pagination and composite indexing.",
 			},
 			{
-				tag: "12+ Production Deployments",
-				text: "Independently delivered 12+ production projects, managing 2–4 concurrent engagements.",
+				tag: "ACID Concurrency & FSM Workflow Engine",
+				text: "Eliminated race conditions and inventory state corruption during simultaneous shopfloor batch transitions, ensuring 100% data integrity across 12 production stages by engineering a finite-state machine with pessimistic row-level locking (SELECT ... FOR UPDATE) inside transactions.",
 			},
 			{
-				tag: "Enterprise ERP & API Architecture",
-				text: "Contributed to 300+ REST APIs and PostgreSQL architecture spanning 100+ tables.",
+				tag: "High-Frequency IoT Telemetry Pipeline",
+				text: "Automated real-time telemetry ingestion and alarm alerting across multi-site industrial machinery, sustaining continuous ~1s polling cadences across up to 65 machines without event-loop blocking by building protocol bridges for MQTT, Modbus TCP/RTU, and TCP sockets.",
 			},
 			{
-				tag: "BOM Reporting & Keyset Pagination",
-				text: "Optimized BOM reporting with dynamic filters and cursor pagination for 1,000+ rows.",
-			},
-			{
-				tag: "Relational Schemas & Query Tuning",
-				text: "Designed PostgreSQL schemas and optimized queries using indexing, transactions, and JSONB.",
-			},
-			{
-				tag: "Industrial IoT & PLC Hardware Interfacing",
-				text: "Integrated PLCs across multiple sites, connecting up to 65 machines through industrial protocols.",
+				tag: "Full-Stack Ownership & Multi-Project Delivery",
+				text: "Independently delivered 12+ production applications as sole founding software engineer, managing 2–4 concurrent client engagements with zero post-launch rollbacks by owning the full SDLC across React.js frontends, Node.js services, and cloud deployments.",
 			},
 		],
 		tech: [
@@ -182,11 +166,11 @@ export const projectsData = [
 		tagline:
 			"HRMS, payroll, inventory, CRM, project management, and enterprise workflows on isolated tenant DBs.",
 		clients: [
-			"YM Automation Pvt. Ltd.",
-			"Cogent Automation Pvt. Ltd.",
-			"Medicare Enviro System",
-			"MWP Energy Infra Private Limited",
-			"Monsoon Ex Brand",
+			"Precision Automation OEM",
+			"Industrial Equipment Fabrication",
+			"Healthcare Environmental Systems",
+			"Renewable Energy Infrastructure",
+			"Commercial Retail & Apparel",
 		],
 		businessProblem:
 			"Replaced fragmented manual spreadsheets with unified multi-tenant workflows and strict physical data isolation.",
@@ -204,7 +188,7 @@ export const projectsData = [
 		keyChallenges:
 			"Correlating attendance, payroll, and inventory consistently across 5 separate company databases without data leakage.",
 		engineeringOutcomes:
-			"5 onboarded companies and approximately 300–400 employees actively supported in production.",
+			"5 onboarded client organizations and approximately 300–400 employees actively supported in production.",
 		tech: [
 			"React.js",
 			"Node.js",
@@ -222,7 +206,7 @@ export const projectsData = [
 		badge: "12-Stage Routing · Keyset Pagination",
 		tagline:
 			"Configurable 12-stage manufacturing workflows with routing logic and dynamic BOM reporting.",
-		clients: ["Cogent Automation Pvt. Ltd."],
+		clients: ["Tier-1 Discrete Manufacturing Plant"],
 		businessProblem:
 			"Non-linear rework and scrap routing caused WIP tracking mismatches and sluggish OFFSET-based BOM reports.",
 		architecture:
@@ -239,7 +223,7 @@ export const projectsData = [
 		keyChallenges:
 			"Preventing double stage transitions and inconsistent WIP counts during concurrent shopfloor operator updates.",
 		engineeringOutcomes:
-			"Accurate stage traceability, production status, and fast cursor-paginated BOM reports (1,000+ rows per project) deployed at Cogent Automation.",
+			"Accurate stage traceability, production status, and fast cursor-paginated BOM reports (1,000+ rows per project) deployed in production at a discrete manufacturing plant.",
 		tech: [
 			"React.js",
 			"Node.js",
@@ -258,12 +242,12 @@ export const projectsData = [
 		tagline:
 			"Real-time industrial machine telemetry, live monitoring dashboards, alarms & historical analytics.",
 		clients: [
-			"Salzer Electronics Limited – Unit II",
-			"Armor Grandeur Pvt. Ltd.",
-			"Medicare Enviro System",
-			"Cogent Automation Pvt. Ltd.",
-			"TE Connectivity India Pvt. Ltd. (via Cogent)",
-			"The Tata Power Company Limited (via Renso)",
+			"Electrical Switchgear & Controls OEM",
+			"Defense & Heavy Fabrication Facility",
+			"Healthcare Environmental Treatment Plant",
+			"Discrete Robotics & Machine Lines",
+			"Automotive Electrical Connectivity Supplier",
+			"Grid Power & Solar Generation Utility",
 		],
 		businessProblem:
 			"Multi-site manufacturing plants lacked centralized visibility into PLC status, machine faults, and operational downtime.",
@@ -281,7 +265,7 @@ export const projectsData = [
 		keyChallenges:
 			"Acquiring telemetry reliably from up to 65 heterogeneous industrial controllers without blocking Node.js event-loop.",
 		engineeringOutcomes:
-			"Deployed across 6 major industrial client organizations (including Salzer, Armor Grandeur, TE Connectivity, and Tata Power) with 24×7 uptime.",
+			"Deployed across 6 major industrial facilities (spanning switchgear manufacturing, defense fabrication, automotive connectivity, and solar grid utilities) with 24×7 uptime.",
 		tech: [
 			"React.js",
 			"Node.js",

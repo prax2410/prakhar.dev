@@ -60,7 +60,7 @@ export default function SqlBenchmarkSimulator() {
 				</div>
 
 				<span className="font-mono text-[11px] text-[#86868b]">
-					BOM REPORTING OPTIMIZATION · COGENT AUTOMATION
+					BOM REPORTING OPTIMIZATION · PRODUCTION BENCHMARK
 				</span>
 			</div>
 

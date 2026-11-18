@@ -71,7 +71,7 @@ export default function WorkflowSimulator() {
 				</div>
 
 				<div className="flex items-center gap-2 font-mono text-[11px] text-[#86868b]">
-					<span>CLIENT: <strong>Cogent Automation Pvt. Ltd.</strong></span>
+					<span>DEPLOYMENT: <strong>Tier-1 Discrete Manufacturing Plant</strong></span>
 				</div>
 			</div>
 

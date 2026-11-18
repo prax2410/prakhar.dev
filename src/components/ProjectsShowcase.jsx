@@ -22,41 +22,41 @@ import { CodeContractViewer } from "./ProjectMockups";
 
 const ERP_TENANTS = [
 	{
-		id: "ym",
-		name: "YM Automation Pvt. Ltd.",
-		dbName: "tenant_ym_automation_db",
+		id: "industrial",
+		name: "Precision Automation OEM",
+		dbName: "tenant_precision_auto_db",
 		workforce: "148 Employees",
 		modules: "12 Modules Active",
 		role: "Super Admin",
 	},
 	{
-		id: "cogent",
-		name: "Cogent Automation Pvt. Ltd.",
-		dbName: "tenant_cogent_automation_db",
+		id: "fabrication",
+		name: "Industrial Equipment Fabrication",
+		dbName: "tenant_equipment_mfg_db",
 		workforce: "112 Employees",
 		modules: "HRMS, Payroll, Inventory, WIP",
 		role: "Plant Controller",
 	},
 	{
-		id: "medicare",
-		name: "Medicare Enviro System",
-		dbName: "tenant_medicare_enviro_db",
+		id: "healthcare",
+		name: "Healthcare Environmental Systems",
+		dbName: "tenant_healthcare_enviro_db",
 		workforce: "64 Employees",
 		modules: "HRMS, Attendance, Billing",
 		role: "Operations Head",
 	},
 	{
-		id: "mwp",
-		name: "MWP Energy Infra Private Limited",
-		dbName: "tenant_mwp_energy_db",
+		id: "energy",
+		name: "Renewable Energy Infrastructure",
+		dbName: "tenant_energy_infra_db",
 		workforce: "52 Employees",
 		modules: "Project Accounting, Ledger",
 		role: "General Admin",
 	},
 	{
-		id: "monsoon",
-		name: "Monsoon Ex Brand",
-		dbName: "tenant_monsoon_brand_db",
+		id: "retail",
+		name: "Commercial Retail & Apparel",
+		dbName: "tenant_retail_apparel_db",
 		workforce: "38 Employees",
 		modules: "Retail Inventory, Payroll",
 		role: "Store Manager",
@@ -73,7 +73,7 @@ const STAGES = [
 ];
 
 export default function ProjectsShowcase() {
-	const [selectedTenantId, setSelectedTenantId] = useState("cogent");
+	const [selectedTenantId, setSelectedTenantId] = useState("fabrication");
 	const [activeProjectTab, setActiveProjectTab] = useState({
 		"enterprise-erp-saas": "architecture",
 		"production-tracking-workflow": "optimization",
@@ -228,7 +228,7 @@ export default function ProjectsShowcase() {
 
 							<div className="space-y-2 pt-2 border-t border-[#e5e7eb] dark:border-[#262628]">
 								<h4 className="text-xs font-mono font-bold uppercase tracking-wider text-[#86868b]">
-									Onboarded Customer Organizations
+									Onboarded Industry Verticals
 								</h4>
 								<div className="flex flex-wrap gap-1.5">
 									{erpProject.clients.map((c) => (
@@ -434,7 +434,7 @@ export default function ProjectsShowcase() {
 									DATA OPTIMIZATION
 								</span>
 								<span className="text-xs text-[#86868b] font-mono">
-									Client: Cogent Automation Pvt. Ltd.
+									Deployment: Tier-1 Discrete Manufacturing Plant
 								</span>
 							</div>
 							<h3 className="text-2xl sm:text-3xl font-bold text-[#1d1d1f] dark:text-white tracking-tight">
@@ -490,12 +490,12 @@ export default function ProjectsShowcase() {
 									The Business Problem
 								</h4>
 								<p className="text-[#1d1d1f]/90 dark:text-[#f5f5f7]/90">
-									Discrete manufacturing lines at Cogent
-									Automation required accurate tracking of
-									parts moving through complex, non-linear
-									shopfloor processes. Work-in-progress (WIP)
-									batches frequently required rework loops,
-									scrap accounting, and dynamic branch
+									Discrete manufacturing lines at a tier-1
+									precision automation OEM required accurate
+									tracking of parts moving through complex,
+									non-linear shopfloor processes. Work-in-progress
+									(WIP) batches frequently required rework
+									loops, scrap accounting, and dynamic branch
 									routing. Furthermore, Bill of Materials
 									(BOM) reporting queries on 1,000+ row
 									project trees were suffering severe latency
@@ -605,11 +605,10 @@ export default function ProjectsShowcase() {
 										<strong className="text-[#1d1d1f] dark:text-white">
 											Outcome:
 										</strong>{" "}
-										Allowed plant managers at Cogent
-										Automation to dynamically filter and
-										export BOM project trees containing
-										1,000+ parts instantly without query
-										timeouts or database locking.
+										Allowed plant operations managers to
+										dynamically filter and export BOM project
+										trees containing 1,000+ parts instantly
+										without query timeouts or database locking.
 									</div>
 								</div>
 							: (
@@ -776,7 +775,7 @@ export default function ProjectsShowcase() {
 
 							<div className="space-y-2 pt-2 border-t border-[#e5e7eb] dark:border-[#262628]">
 								<h4 className="text-xs font-mono font-bold uppercase tracking-wider text-[#86868b]">
-									Deployed Client Organizations
+									Deployed Industry Verticals
 								</h4>
 								<div className="flex flex-wrap gap-1.5">
 									{iiotProject.clients.map((c) => (

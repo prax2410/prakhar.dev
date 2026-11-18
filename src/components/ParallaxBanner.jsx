@@ -37,7 +37,8 @@ const ARCHITECTURES = {
 	workflow: {
 		tab: "Shopfloor Workflow",
 		title: "12-Stage Routing & Keyset Pagination",
-		summary: "Finite-State Engine · Pessimistic Row Locks · Keyset Cursor SQL",
+		summary:
+			"Finite-State Engine · Pessimistic Row Locks · Keyset Cursor SQL",
 		steps: [
 			{
 				num: "01",
@@ -99,7 +100,8 @@ const ARCHITECTURES = {
 	rollup: {
 		tab: "Energy Analytics",
 		title: "Time-Series Rollups & Energy Analytics",
-		summary: "Hourly/Daily Buckets · Idempotent Upserts · Fast Trend Reporting",
+		summary:
+			"Hourly/Daily Buckets · Idempotent Upserts · Fast Trend Reporting",
 		steps: [
 			{
 				num: "01",
@@ -169,36 +171,49 @@ export default function ParallaxBanner() {
 							Production Data Flows
 						</h2>
 						<p className="text-[15px] sm:text-[16px] text-[#86868b] font-normal">
-							Architectural topology across enterprise SaaS and industrial telemetry pipelines.
+							Architectural topology across enterprise SaaS and
+							industrial telemetry pipelines.
 						</p>
 					</div>
 
 					{/* Apple Segmented Pill Tabs with Framer Motion Spring Pill */}
 					<div className="flex items-center">
 						<div className="p-1 rounded-2xl sm:rounded-full bg-[#f5f5f7] dark:bg-[#161617] border border-[#e5e7eb] dark:border-[#2d2d2f] inline-flex flex-wrap items-center gap-1 shadow-sm no-scrollbar">
-							{Object.entries(ARCHITECTURES).map(([key, item]) => {
-								const isActive = activeTab === key;
-								return (
-									<button
-										type="button"
-										key={key}
-										onClick={() => setActiveTab(key)}
-										aria-pressed={isActive}
-										className="relative px-3.5 sm:px-4 py-1.5 rounded-full text-[12px] font-medium transition-colors whitespace-nowrap z-10"
-									>
-										{isActive && (
-											<motion.div
-												layoutId="activeArchTab"
-												className="absolute inset-0 rounded-full bg-[#0071e3] shadow-sm -z-10"
-												transition={{ type: "spring", stiffness: 380, damping: 30 }}
-											/>
-										)}
-										<span className={isActive ? "text-white font-semibold" : "text-[#1d1d1f] dark:text-[#f5f5f7] hover:text-[#0071e3]"}>
-											{item.tab}
-										</span>
-									</button>
-								);
-							})}
+							{Object.entries(ARCHITECTURES).map(
+								([key, item]) => {
+									const isActive = activeTab === key;
+									return (
+										<button
+											type="button"
+											key={key}
+											onClick={() => setActiveTab(key)}
+											aria-pressed={isActive}
+											className="relative px-3.5 sm:px-4 py-1.5 rounded-full text-[12px] font-medium transition-colors whitespace-nowrap z-10"
+										>
+											{isActive && (
+												<motion.div
+													layoutId="activeArchTab"
+													className="absolute inset-0 rounded-full bg-[#0071e3] shadow-sm -z-10"
+													transition={{
+														type: "spring",
+														stiffness: 380,
+														damping: 30,
+													}}
+												/>
+											)}
+											<span
+												className={
+													isActive ?
+														"text-white font-semibold"
+													:	"text-[#1d1d1f] dark:text-[#f5f5f7] hover:text-[#0071e3]"
+												}
+											>
+												{item.tab}
+											</span>
+										</button>
+									);
+								},
+							)}
 						</div>
 					</div>
 				</div>
@@ -222,8 +237,14 @@ export default function ParallaxBanner() {
 							disabled={isTracing}
 							className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0071e3] hover:bg-[#2997ff] text-white text-[12px] font-mono font-semibold shadow-xs transition-colors disabled:opacity-60 self-start sm:self-auto"
 						>
-							<Activity className={`w-3.5 h-3.5 ${isTracing ? "animate-spin" : ""}`} />
-							<span>{isTracing ? `Tracing Step 0${(tracingStep || 0) + 1}...` : "▶ Trace Live Packet Flow"}</span>
+							<Activity
+								className={`w-3.5 h-3.5 ${isTracing ? "animate-spin" : ""}`}
+							/>
+							<span>
+								{isTracing ?
+									`Tracing Step 0${(tracingStep || 0) + 1}...`
+								:	"▶ Trace Live Packet Flow"}
+							</span>
 						</button>
 					</div>
 
@@ -243,9 +264,9 @@ export default function ParallaxBanner() {
 									<React.Fragment key={step.num}>
 										<div
 											className={`flex-1 basis-0 min-w-0 p-5 rounded-2xl border min-h-[195px] flex flex-col justify-between transition-all ${
-												isStepActive
-													? "bg-[#0071e3]/10 dark:bg-[#0071e3]/20 border-[#0071e3] ring-2 ring-[#0071e3]/30 shadow-md"
-													: "bg-[#f5f5f7] dark:bg-[#202022] border-[#e5e7eb] dark:border-[#2d2d2f]"
+												isStepActive ?
+													"bg-[#0071e3]/10 dark:bg-[#0071e3]/20 border-[#0071e3] ring-2 ring-[#0071e3]/30 shadow-md"
+												:	"bg-[#f5f5f7] dark:bg-[#202022] border-[#e5e7eb] dark:border-[#2d2d2f]"
 											}`}
 										>
 											<div className="flex items-center justify-between text-xs mb-3">
@@ -254,9 +275,9 @@ export default function ParallaxBanner() {
 												</span>
 												<span
 													className={`px-2 py-0.5 rounded-full font-mono text-[11px] font-medium whitespace-nowrap ${
-														isStepActive
-															? "bg-[#0071e3] text-white"
-															: "bg-[#0071e3]/10 text-[#0071e3] dark:text-[#2997ff]"
+														isStepActive ?
+															"bg-[#0071e3] text-white"
+														:	"bg-[#0071e3]/10 text-[#0071e3] dark:text-[#2997ff]"
 													}`}
 												>
 													{step.proto}
@@ -282,8 +303,18 @@ export default function ParallaxBanner() {
 												{/* Glowing Data Packet Animation */}
 												<motion.div
 													className="absolute inset-0 bg-[#0071e3]/20 dark:bg-[#2997ff]/20 rounded-full"
-													animate={{ scale: [0.8, 1.4, 0.8], opacity: [0.3, 0.8, 0.3] }}
-													transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut", delay: idx * 0.4 }}
+													animate={{
+														scale: [0.8, 1.4, 0.8],
+														opacity: [
+															0.3, 0.8, 0.3,
+														],
+													}}
+													transition={{
+														duration: 1.8,
+														repeat: Infinity,
+														ease: "easeInOut",
+														delay: idx * 0.4,
+													}}
 												/>
 											</div>
 										)}
@@ -298,15 +329,22 @@ export default function ParallaxBanner() {
 						<motion.div
 							initial={{ opacity: 0, y: 3 }}
 							animate={{ opacity: 1, y: 0 }}
-							className="p-3 rounded-xl bg-[#09090b] border border-[#27272a] font-mono text-xs text-zinc-300 flex items-center justify-between"
+							className="p-3 rounded-xl bg-[#f5f5f7] dark:bg-[#09090b] border border-[#e5e7eb] dark:border-[#27272a] font-mono text-xs text-[#1d1d1f] dark:text-zinc-300 flex items-center justify-between transition-colors"
 						>
 							<div className="flex items-center gap-2">
 								<span className="w-2 h-2 rounded-full bg-[#34c759] animate-ping" />
 								<span>
-									PACKET TRANSIT [{current.steps[tracingStep].num}]: <strong>{current.steps[tracingStep].label}</strong> ({current.steps[tracingStep].proto})
+									PACKET TRANSIT [
+									{current.steps[tracingStep].num}]:{" "}
+									<strong className="text-[#1d1d1f] dark:text-white">
+										{current.steps[tracingStep].label}
+									</strong>{" "}
+									({current.steps[tracingStep].proto})
 								</span>
 							</div>
-							<span className="text-[#34c759] text-[11px] font-bold">VERIFIED [ACTIVE]</span>
+							<span className="text-[#34c759] text-[11px] font-bold">
+								VERIFIED [ACTIVE]
+							</span>
 						</motion.div>
 					)}
 
@@ -335,7 +373,10 @@ export default function ParallaxBanner() {
 								</div>
 
 								{idx < current.steps.length - 1 && (
-									<div className="flex justify-center py-1" aria-hidden="true">
+									<div
+										className="flex justify-center py-1"
+										aria-hidden="true"
+									>
 										<div className="w-7 h-7 rounded-full bg-[#f5f5f7] dark:bg-[#202022] border border-[#e5e7eb] dark:border-[#2d2d2f] flex items-center justify-center text-[#0071e3] dark:text-[#2997ff]">
 											<ArrowDown className="w-3.5 h-3.5" />
 										</div>

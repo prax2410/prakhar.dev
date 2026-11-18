@@ -89,3 +89,29 @@ button:focus-visible, a:focus-visible {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+/* Tabular figures for aligned metrics & telemetry */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Clean Editorial Print Stylesheet */
+@media print {
+  header,
+  footer,
+  aside,
+  [role="region"],
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  section {
+    page-break-inside: avoid;
+    border-bottom: 1px solid #e5e7eb !important;
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+  }
+}

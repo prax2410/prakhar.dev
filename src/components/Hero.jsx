@@ -104,7 +104,7 @@ export default function Hero() {
 						<div className="grid grid-cols-3 gap-2 sm:gap-3 pt-1 w-full max-w-lg">
 							<a
 								href="#projects"
-								className="inline-flex items-center justify-center gap-1.5 px-2 sm:px-4 h-[42px] sm:h-[44px] rounded-full bg-[#0071e3] hover:bg-[#2997ff] text-white text-[12px] sm:text-[14px] font-medium whitespace-nowrap transition-colors shadow-xs"
+								className="inline-flex items-center justify-center gap-1.5 px-2 sm:px-4 h-[42px] sm:h-[44px] rounded-full bg-[#0071e3] hover:bg-[#2997ff] text-white text-[12px] sm:text-[14px] font-medium whitespace-nowrap transition-all shadow-xs hover:shadow hover:-translate-y-0.5 active:translate-y-0"
 							>
 								<span><span className="hidden sm:inline">View </span>Projects</span>
 								<ArrowDown className="w-3.5 h-3.5 shrink-0" />
@@ -115,7 +115,7 @@ export default function Hero() {
 								target="_blank"
 								rel="noopener noreferrer"
 								download="Prakhar_CV_2026.pdf"
-								className="inline-flex items-center justify-center gap-1.5 px-2 sm:px-4 h-[42px] sm:h-[44px] rounded-full border border-[#e5e7eb] dark:border-[#262628] bg-white dark:bg-[#161617] hover:border-[#0071e3] text-[#1d1d1f] dark:text-white text-[12px] sm:text-[14px] font-medium whitespace-nowrap transition-colors"
+								className="inline-flex items-center justify-center gap-1.5 px-2 sm:px-4 h-[42px] sm:h-[44px] rounded-full border border-[#e5e7eb] dark:border-[#262628] bg-white dark:bg-[#161617] hover:border-[#0071e3] text-[#1d1d1f] dark:text-white text-[12px] sm:text-[14px] font-medium whitespace-nowrap transition-all shadow-xs hover:shadow hover:-translate-y-0.5 active:translate-y-0"
 							>
 								<FileText className="w-3.5 h-3.5 shrink-0" />
 								<span><span className="hidden sm:inline">Download </span>Resume</span>
@@ -124,7 +124,7 @@ export default function Hero() {
 
 							<a
 								href="#contact"
-								className="inline-flex items-center justify-center gap-1.5 px-2 sm:px-4 h-[42px] sm:h-[44px] rounded-full border border-[#0071e3]/40 text-[#0071e3] dark:text-[#2997ff] hover:bg-[#0071e3]/5 text-[12px] sm:text-[14px] font-medium whitespace-nowrap transition-colors"
+								className="inline-flex items-center justify-center gap-1.5 px-2 sm:px-4 h-[42px] sm:h-[44px] rounded-full border border-[#0071e3]/40 text-[#0071e3] dark:text-[#2997ff] hover:bg-[#0071e3]/5 text-[12px] sm:text-[14px] font-medium whitespace-nowrap transition-all hover:-translate-y-0.5 active:translate-y-0"
 							>
 								<Mail className="w-3.5 h-3.5 shrink-0" />
 								<span><span className="hidden sm:inline">Contact </span>Me</span>
@@ -223,7 +223,7 @@ export default function Hero() {
 							<span className="text-[11px] font-mono uppercase tracking-wider text-[#86868b] block mb-2">
 								{stat.label}
 							</span>
-							<div className="text-2xl sm:text-[26px] font-bold text-[#1d1d1f] dark:text-white tracking-tight leading-none mb-3">
+							<div className="text-2xl sm:text-[26px] font-bold text-[#1d1d1f] dark:text-white tracking-tight leading-none mb-3 tabular-nums">
 								{stat.value}
 							</div>
 							<p className="text-xs text-[#86868b] leading-relaxed mt-auto pt-2 border-t border-[#e5e7eb]/60 dark:border-[#262628]/60">

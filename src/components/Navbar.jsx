@@ -87,13 +87,16 @@ export default function Navbar() {
                   key={link.id}
                   href={link.href}
                   aria-current={isActive ? 'location' : undefined}
-                  className={`text-[12px] transition-colors ${
+                  className={`relative py-1 text-[12px] transition-colors ${
                     isActive
-                      ? 'text-[#0071e3] dark:text-[#2997ff] font-medium'
+                      ? 'text-[#0071e3] dark:text-[#2997ff] font-semibold'
                       : 'text-[#1d1d1f]/80 dark:text-[#f5f5f7]/80 hover:text-[#0071e3] dark:hover:text-[#2997ff]'
                   }`}
                 >
                   {link.name}
+                  {isActive && (
+                    <span className="absolute -bottom-1 left-0 right-0 h-[2px] bg-[#0071e3] dark:bg-[#2997ff] rounded-full" />
+                  )}
                 </a>
               );
             })}

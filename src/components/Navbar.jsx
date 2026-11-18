@@ -66,7 +66,7 @@ export default function Navbar() {
             <a
               href="#about"
               className="text-[13px] sm:text-[14px] font-semibold tracking-tight text-[#1d1d1f] dark:text-[#f5f5f7] hover:opacity-75 transition-opacity"
-              aria-label="Prakhar — Senior Software Engineer"
+              aria-label="Prakhar — Senior Full Stack Engineer"
             >
               Prakhar
             </a>

@@ -72,7 +72,7 @@ export default function ContactSection() {
                     Direct Conversation with Prakhar
                   </h3>
                   <p className="text-[13px] text-[#0071e3] dark:text-[#2997ff] font-medium font-mono">
-                    Senior Software Engineer · Full Stack &amp; Tech Lead
+                    Senior Full Stack Engineer · Technical Lead
                   </p>
                 </div>
               </div>

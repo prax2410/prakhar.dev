@@ -13,7 +13,7 @@ export default function Footer() {
         <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-center sm:text-left">
           <span className="font-semibold text-[#1d1d1f] dark:text-[#f5f5f7]">Prakhar</span>
           <span>·</span>
-          <span>Senior Software Engineer · Full Stack · Bengaluru</span>
+          <span>Senior Full Stack Engineer · Bengaluru</span>
         </div>
 
         <div className="flex items-center gap-2">

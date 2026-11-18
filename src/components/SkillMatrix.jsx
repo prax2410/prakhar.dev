@@ -15,9 +15,9 @@ const EXPERTISE_DOMAINS = [
 		icon: Code2,
 		skills: ["React.js", "Node.js", "Express.js", "JavaScript (ES6+)", "REST APIs", "WebSockets", "Responsive UI"],
 		description:
-			"End-to-end web architectures connecting responsive, componentized React.js frontends with robust Node.js/Express backends. Designed 300+ secure RESTful endpoints, custom auth middleware, and low-latency WebSocket event streams.",
+			"End-to-end web architectures connecting responsive, componentized React.js frontends with robust Node.js/Express backends. Designed RESTful endpoints, custom auth middleware, and low-latency WebSocket event streams.",
 		highlights: [
-			"300+ REST APIs architected, documented, and deployed",
+			"Contributed to 300+ REST APIs architected & deployed",
 			"Modular React component systems with clean state lifecycles",
 			"Bi-directional WebSocket streaming for live operations",
 		],
@@ -26,7 +26,7 @@ const EXPERTISE_DOMAINS = [
 		id: "database",
 		title: "Database Engineering & Optimization",
 		icon: Database,
-		skills: ["PostgreSQL", "Query Optimization", "B-Tree Indexing", "ACID Transactions", "JSONB", "Keyset Cursors", "MongoDB"],
+		skills: ["PostgreSQL", "MongoDB", "SQL", "B-Tree Indexing", "ACID Transactions", "JSONB", "Keyset Cursors"],
 		description:
 			"Relational architectures scaling past 100+ tables. Specializes in PostgreSQL performance tuning, composite indexing, keyset pagination (420ms to 1.8ms), pessimistic locking (SELECT ... FOR UPDATE), and JSONB semi-structured documents.",
 		highlights: [
@@ -50,9 +50,9 @@ const EXPERTISE_DOMAINS = [
 	},
 	{
 		id: "industrial-iot",
-		title: "Industrial IoT & Hardware Interfacing",
+		title: "Real-Time & Industrial IoT",
 		icon: Radio,
-		skills: ["Modbus TCP/RTU", "MQTT Broker", "TCP Sockets", "PLC Integration", "RS-485 Serial", "Telemetry Pipelines"],
+		skills: ["MQTT", "Modbus TCP/RTU", "TCP/IP", "TCP Sockets", "PLC Integration", "Telemetry Pipelines"],
 		description:
 			"Connecting software platforms directly with factory automation controllers (Siemens, Delta PLCs, CNC machinery). Built protocol drivers over Modbus TCP (Ethernet) and Modbus RTU (RS-485 serial), parsing raw hex registers into telemetry.",
 		highlights: [
@@ -63,22 +63,22 @@ const EXPERTISE_DOMAINS = [
 	},
 	{
 		id: "leadership",
-		title: "Architecture & Engineering Leadership",
+		title: "Architecture & Technical Leadership",
 		icon: GitBranch,
-		skills: ["System Architecture", "Tech Roadmap", "PR Code Reviews", "Sprint Planning", "Team Mentoring", "Production Ops"],
+		skills: ["System Architecture", "Tech Estimation", "PR Code Reviews", "Sprint Planning", "Team Mentoring", "Production Ops"],
 		description:
 			"Hands-on engineering leader promoted to Software Manager. Directed a 5-engineer team (backend, frontend, mobile, UI/UX) and interns while owning architecture blueprints, sprint delivery, code reviews, and production releases.",
 		highlights: [
 			"Led cross-functional team of 5 engineers plus interns",
 			"Rapid turnaround: 3 production systems delivered in 5 days",
-			"12+ solo delivered projects (~20 overall client deliveries)",
+			"12+ solo delivered projects (SDE) · 7–8 guided (Mgr)",
 		],
 	},
 	{
 		id: "cloud-ops",
 		title: "Cloud Infrastructure & Operations",
 		icon: Cloud,
-		skills: ["Microsoft Azure", "AWS EC2", "Ubuntu Linux", "Nginx Reverse Proxy", "PM2 Clustering", "GitHub Actions CI/CD"],
+		skills: ["AWS EC2", "Microsoft Azure", "Ubuntu Linux", "Nginx Reverse Proxy", "PM2 Clustering", "GitHub Actions CI/CD"],
 		description:
 			"Production server administration and continuous delivery pipelines across AWS EC2 and Azure Linux virtual machines. Configured Nginx reverse proxies, automated SSL renewals, PM2 process clustering, and GitHub Actions CI/CD.",
 		highlights: [

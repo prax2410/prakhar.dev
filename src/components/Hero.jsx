@@ -62,13 +62,13 @@ export default function Hero() {
 					<div className="lg:col-span-7 space-y-6">
 						<div className="space-y-3">
 							<div className="text-[12px] font-mono font-semibold uppercase tracking-wider text-[#0071e3] dark:text-[#2997ff]">
-								01 · Overview · Senior Software Engineer
+								01 · Overview · Senior Full Stack Engineer
 							</div>
 							<h1 className="text-3xl sm:text-4xl lg:text-[44px] font-bold tracking-tight text-[#1d1d1f] dark:text-white leading-[1.14]">
-								Senior Software Engineer building scalable web applications and connected industrial systems.
+								Senior Full Stack Engineer building scalable SaaS, ERP &amp; Industrial IoT solutions.
 							</h1>
 							<p className="text-base sm:text-lg text-[#86868b] leading-relaxed pt-1 font-normal">
-								I build full-stack applications, enterprise platforms, and Industrial IoT solutions — from architecture and backend systems to frontend experiences and production deployments.
+								I build full-stack web applications, multi-tenant enterprise platforms, and connected industrial systems — combining hands-on React, Node.js, and PostgreSQL engineering with end-to-end architectural ownership.
 							</p>
 						</div>
 
@@ -77,37 +77,45 @@ export default function Hero() {
 							<div className="flex items-start gap-2">
 								<span className="text-[#0071e3] dark:text-[#2997ff] font-bold">•</span>
 								<span>
-									<strong>4+ years</strong> engineering mission-critical enterprise SaaS, multi-tenant ERP, and Industrial IoT systems.
+									<strong>4+ years</strong> engineering mission-critical enterprise SaaS, multi-tenant ERP, and Industrial IoT systems in startup environments.
 								</span>
 							</div>
 							<div className="flex items-start gap-2">
 								<span className="text-[#0071e3] dark:text-[#2997ff] font-bold">•</span>
 								<span>
-									Progressed from <strong>sole founding engineer</strong> to <strong>Software Manager</strong> at YM Automation, remaining 100% hands-on with architecture and code.
+									Progressed from <strong>founding SDE</strong> to <strong>Software Manager</strong> at YM Automation, balancing ~70% hands-on engineering with ~30% technical leadership.
 								</span>
 							</div>
 							<div className="flex items-start gap-2">
 								<span className="text-[#0071e3] dark:text-[#2997ff] font-bold">•</span>
 								<span>
-									<strong>12+ production platforms independently delivered</strong> (~20 overall) powering daily operations across 10 customer organizations.
+									<strong>12+ production platforms independently delivered</strong> as SDE, and guided delivery of <strong>7–8 client projects</strong> across ~10 customer organizations as Software Manager.
 								</span>
 							</div>
 							<div className="flex items-start gap-2">
 								<span className="text-[#0071e3] dark:text-[#2997ff] font-bold">•</span>
 								<span>
-									End-to-end full-stack ownership: <strong>Node.js, React.js, PostgreSQL (100+ tables, 300+ REST APIs)</strong>, and hardware protocols (MQTT, Modbus).
+									End-to-end full-stack ownership: <strong>Node.js, React.js, PostgreSQL</strong> (contributed to 100+ tables, 300+ REST APIs), and industrial protocols (MQTT, Modbus).
 								</span>
 							</div>
 						</div>
 
-						{/* Primary Action Buttons (Strictly Single Row) */}
+						{/* Primary & Secondary Action Buttons (Strictly Single Row) */}
 						<div className="grid grid-cols-3 gap-2 sm:gap-3 pt-1 w-full max-w-lg">
+							<a
+								href="#projects"
+								className="inline-flex items-center justify-center gap-1.5 px-2 sm:px-4 h-[42px] sm:h-[44px] rounded-full bg-[#0071e3] hover:bg-[#2997ff] text-white text-[12px] sm:text-[14px] font-medium whitespace-nowrap transition-colors shadow-xs"
+							>
+								<span><span className="hidden sm:inline">View </span>Projects</span>
+								<ArrowDown className="w-3.5 h-3.5 shrink-0" />
+							</a>
+
 							<a
 								href={personalInfo.resumeUrl}
 								target="_blank"
 								rel="noopener noreferrer"
 								download="Prakhar_CV_2026.pdf"
-								className="inline-flex items-center justify-center gap-1.5 px-2 sm:px-4 h-[42px] sm:h-[44px] rounded-full bg-[#0071e3] hover:bg-[#2997ff] text-white text-[12px] sm:text-[14px] font-medium whitespace-nowrap transition-colors shadow-xs"
+								className="inline-flex items-center justify-center gap-1.5 px-2 sm:px-4 h-[42px] sm:h-[44px] rounded-full border border-[#e5e7eb] dark:border-[#262628] bg-white dark:bg-[#161617] hover:border-[#0071e3] text-[#1d1d1f] dark:text-white text-[12px] sm:text-[14px] font-medium whitespace-nowrap transition-colors"
 							>
 								<FileText className="w-3.5 h-3.5 shrink-0" />
 								<span><span className="hidden sm:inline">Download </span>Resume</span>
@@ -115,19 +123,11 @@ export default function Hero() {
 							</a>
 
 							<a
-								href="#projects"
-								className="inline-flex items-center justify-center gap-1.5 px-2 sm:px-4 h-[42px] sm:h-[44px] rounded-full border border-[#e5e7eb] dark:border-[#262628] bg-white dark:bg-[#161617] hover:border-[#0071e3] text-[#1d1d1f] dark:text-white text-[12px] sm:text-[14px] font-medium whitespace-nowrap transition-colors"
-							>
-								<span><span className="hidden sm:inline">Explore </span>Projects</span>
-								<ArrowDown className="w-3 h-3 text-[#86868b] shrink-0" />
-							</a>
-
-							<a
 								href="#contact"
 								className="inline-flex items-center justify-center gap-1.5 px-2 sm:px-4 h-[42px] sm:h-[44px] rounded-full border border-[#0071e3]/40 text-[#0071e3] dark:text-[#2997ff] hover:bg-[#0071e3]/5 text-[12px] sm:text-[14px] font-medium whitespace-nowrap transition-colors"
 							>
 								<Mail className="w-3.5 h-3.5 shrink-0" />
-								<span><span className="hidden sm:inline">Get in </span>Touch</span>
+								<span><span className="hidden sm:inline">Contact </span>Me</span>
 							</a>
 						</div>
 
@@ -193,7 +193,7 @@ export default function Hero() {
 							<div className="relative rounded-xl overflow-hidden aspect-[4/5] bg-[#e5e7eb] dark:bg-[#1b1b1d]">
 								<img
 									src={prakharImg}
-									alt="Prakhar — Senior Software Engineer"
+									alt="Prakhar — Senior Full Stack Engineer"
 									className="w-full h-full object-cover object-top"
 								/>
 							</div>
@@ -203,7 +203,7 @@ export default function Hero() {
 									Prakhar
 								</div>
 								<div className="text-xs text-[#86868b] font-mono">
-									Senior Software Engineer &amp; Tech Lead
+									Senior Full Stack Engineer &amp; Tech Lead
 								</div>
 								<div className="text-[11px] text-[#86868b] font-mono pt-0.5">
 									YM Automation · Jul 2022 – Oct 2026

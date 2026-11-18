@@ -2,8 +2,8 @@ import resumePdf from "../assets/Prakhar_CV_2026.pdf";
 
 export const personalInfo = {
 	name: "Prakhar",
-	title: "Senior Software Engineer | Full Stack Developer",
-	roleLine: "Node.js · React.js · PostgreSQL · Enterprise SaaS & IIoT",
+	title: "Senior Full Stack Engineer",
+	roleLine: "Node.js · React.js · PostgreSQL · Enterprise SaaS · Industrial IoT",
 	company: "YM Automation Pvt Ltd",
 	period: "Jul 2022 – Oct 2026",
 	location: "Bengaluru, Karnataka, India",
@@ -14,11 +14,11 @@ export const personalInfo = {
 	githubUsername: "prax2410",
 	linkedin: "https://linkedin.com/in/prakhar-prakhar-b1b052106",
 	resumeUrl: resumePdf,
-	bio: "Senior Software Engineer with 4+ years of experience in early-stage startup environments, building enterprise SaaS, ERP, and Industrial IoT applications. Progressed from sole developer as SDE to Software Manager, combining hands-on engineering, end-to-end project ownership, system architecture, client engagement, and technical leadership. Independently delivered 12+ projects and contributed to approximately 20 projects overall, with experience across Node.js, React, PostgreSQL, and 300+ REST APIs.",
+	bio: "Senior Full Stack Engineer with 4+ years of professional software development experience in early-stage startup environments, building scalable enterprise SaaS, ERP, and Industrial IoT applications. Progressed from sole founding developer as SDE to Software Manager at YM Automation, balancing ~70% hands-on engineering (Node.js, React.js, PostgreSQL, 300+ REST APIs, hardware protocols) with ~30% technical leadership (system architecture, sprint planning, PR reviews, team mentoring). Independently delivered 12+ production projects and guided delivery across 7–8 client projects for approximately 10 customer organizations.",
 	noticeStatus: "Available Immediately",
 	availability: "Bengaluru · On-site / Hybrid / Remote",
 	workModes: "On-site / Hybrid / Remote",
-	targetRoles: "Senior Software Engineer · Full Stack · Tech Lead",
+	targetRoles: "Senior Full Stack Engineer · Senior Software Engineer · Technical Lead",
 	experienceYears: "4+ Years Exp",
 	getWhatsAppUrl: (
 		customText = "Hi Prakhar, reviewed your portfolio and would like to connect regarding an engineering role."
@@ -32,7 +32,7 @@ export const personalInfo = {
 		{
 			label: "ERP Platform",
 			value: "12+ Modules",
-			sub: "300+ REST APIs · 100+ Tables · 5 Companies",
+			sub: "Contributed to 300+ APIs · 100+ Tables · 5 Companies",
 		},
 		{
 			label: "IIoT Scale",
@@ -42,7 +42,7 @@ export const personalInfo = {
 		{
 			label: "Delivery Track",
 			value: "12+ Projects",
-			sub: "Independently Delivered · ~20 Projects Overall",
+			sub: "Independently Delivered · 7–8 Projects Guided",
 		},
 	],
 	coreKeywords: [
@@ -80,24 +80,32 @@ export const experienceData = [
 		period: "Oct 2024 – Oct 2026",
 		highlights: [
 			{
-				tag: "Engineering Leadership & Team",
-				text: "Led a cross-functional team of 5 across backend, frontend, mobile, and UI/UX, along with interns. Owned software architecture, technology selection, technical planning, resource allocation, and engineering execution.",
+				tag: "Reusable React & Protocol Integrations",
+				text: "Built reusable React components and backend integrations using MQTT and Modbus.",
 			},
 			{
-				tag: "Project Delivery & Customer Scope",
-				text: "Led delivery of 7–8 projects across approximately 10 customer organizations, managing requirements, estimation, development, deployment, and maintenance.",
+				tag: "Architecture & Production Engineering",
+				text: "Contributed hands-on to system architecture, development, debugging, and production engineering.",
 			},
 			{
-				tag: "Founder Partnership & Pre-Sales",
-				text: "Collaborated with the founder on business leads, client meetings, technical feasibility, solution proposals, and development cost/timeline estimation.",
+				tag: "Technical Solutions & Project Delivery",
+				text: "Designed technical solutions and guided delivery across 7–8 customer projects.",
 			},
 			{
-				tag: "Hands-On Mentorship & Rapid Rollouts",
-				text: "Conducted code reviews, mentored developers, and remained hands-on with architecture, development, debugging, and production support; coordinated delivery of 3 projects from design to production within 5 working days.",
+				tag: "Full-Stack Implementation & Troubleshooting",
+				text: "Supported frontend, backend, and mobile development through implementation guidance and troubleshooting.",
 			},
 			{
-				tag: "Reusable Components & Protocols",
-				text: "Developed reusable frontend components and backend MQTT/Modbus integration setups, improving consistency across projects.",
+				tag: "Rapid 5-Day Delivery Execution",
+				text: "Coordinated three projects from design to production within five working days.",
+			},
+			{
+				tag: "Code Review & Team Mentorship",
+				text: "Reviewed code and mentored developers across a five-member cross-functional team.",
+			},
+			{
+				tag: "Client Feasibility & Technical Scoping",
+				text: "Collaborated with the founder on client requirements, technical feasibility, and development estimates.",
 			},
 		],
 		tech: ["Node.js", "React.js", "Express.js", "PostgreSQL", "MQTT", "Modbus", "AWS EC2", "Microsoft Azure", "GitHub Actions"],
@@ -106,32 +114,36 @@ export const experienceData = [
 		id: 2,
 		role: "Software Development Engineer",
 		company: "YM Automation Private Limited",
-		location: "Remote, Bengaluru, Karnataka",
+		location: "Bengaluru, Karnataka (Remote)",
 		period: "Jul 2022 – Oct 2024",
 		highlights: [
 			{
-				tag: "Sole Developer & Full SDLC Ownership",
-				text: "Joined as the sole software developer in an early-stage startup, working directly with the founder. Owned the complete SDLC, including client requirements, solution design, architecture, estimation, full-stack development, deployment, and maintenance.",
+				tag: "Sole Developer & Founder Partnership",
+				text: "Joined as the sole software developer, working directly with the founder.",
 			},
 			{
-				tag: "Concurrent Production Delivery",
-				text: "Independently managed client interactions, requirement gathering, technical discussions, and delivered 12+ production projects while managing 2–4 concurrent projects.",
+				tag: "Complete SDLC Ownership",
+				text: "Owned requirements, architecture, estimation, full-stack development, deployment, and production maintenance.",
 			},
 			{
-				tag: "Enterprise ERP Architecture",
-				text: "Contributed to the design and development of 300+ REST APIs and PostgreSQL data architecture comprising 100+ tables for an enterprise ERP platform.",
+				tag: "12+ Production Deployments",
+				text: "Independently delivered 12+ production projects, managing 2–4 concurrent engagements.",
+			},
+			{
+				tag: "Enterprise ERP & API Architecture",
+				text: "Contributed to 300+ REST APIs and PostgreSQL architecture spanning 100+ tables.",
 			},
 			{
 				tag: "BOM Reporting & Keyset Pagination",
-				text: "Optimized BOM reporting APIs using dynamic filtering and cursor-based pagination, supporting 1,000+ rows per project.",
+				text: "Optimized BOM reporting with dynamic filters and cursor pagination for 1,000+ rows.",
 			},
 			{
-				tag: "Relational Database Design",
-				text: "Designed PostgreSQL schemas and optimized queries using indexing, transactions, relationships, and JSONB.",
+				tag: "Relational Schemas & Query Tuning",
+				text: "Designed PostgreSQL schemas and optimized queries using indexing, transactions, and JSONB.",
 			},
 			{
-				tag: "Industrial IoT Integration",
-				text: "Developed Industrial IoT solutions integrating PLCs and up to 65 machines across multiple sites using MQTT, Modbus TCP/RTU, and TCP sockets.",
+				tag: "Industrial IoT & PLC Hardware Interfacing",
+				text: "Integrated PLCs across multiple sites, connecting up to 65 machines through industrial protocols.",
 			},
 		],
 		tech: ["React.js", "Node.js", "Express.js", "PostgreSQL", "MQTT", "Modbus TCP/RTU", "TCP Sockets", "JSONB", "Keyset Pagination"],
@@ -219,28 +231,40 @@ export const projectsData = [
 
 export const skillsData = [
 	{
-		category: "Frontend",
-		skills: ["React.js", "HTML5", "CSS3", "Axios", "State Management", "Responsive UI", "JavaScript"],
-	},
-	{
 		category: "Backend",
-		skills: ["Node.js", "Express.js", "JavaScript", "REST APIs", "WebSockets", "Authentication", "RBAC", "API Development", "Business Logic"],
+		skills: ["Node.js", "Express.js", "JavaScript", "REST APIs", "Authentication", "RBAC", "Business Logic"],
 	},
 	{
-		category: "Database",
-		skills: ["PostgreSQL", "SQL", "Database Design", "Query Optimization", "Indexing", "Transactions", "JSONB", "MongoDB"],
+		category: "Frontend",
+		skills: ["React.js", "JavaScript", "HTML5", "CSS3", "Responsive UI", "State Management"],
 	},
 	{
-		category: "Cloud & Deployment",
-		skills: ["Microsoft Azure", "AWS EC2", "Linux", "Nginx", "PM2", "GitHub Actions", "SSL", "DNS"],
+		category: "Databases",
+		skills: ["PostgreSQL", "MongoDB", "SQL", "JSONB", "Indexing", "Transactions", "Database Design", "Query Optimization"],
 	},
 	{
-		category: "Industrial IoT",
-		skills: ["MQTT", "Modbus TCP/RTU", "TCP/IP", "TCP Sockets", "PLC Integration", "Real-time Data Processing"],
+		category: "Cloud & Infrastructure",
+		skills: ["AWS EC2", "Microsoft Azure", "Linux", "Nginx", "PM2", "GitHub Actions", "DNS", "SSL"],
 	},
 	{
-		category: "Engineering",
-		skills: ["Full-Stack Development", "System Architecture", "Database Architecture", "Performance Optimization", "Code Review", "Debugging"],
+		category: "Real-Time & Industrial IoT",
+		skills: ["MQTT", "Modbus TCP/RTU", "TCP/IP", "TCP Sockets", "WebSockets", "Socket.IO", "PLC Integration"],
+	},
+	{
+		category: "Engineering & Leadership",
+		skills: [
+			"System Architecture",
+			"Full-Stack Development",
+			"Performance Optimization",
+			"SDLC",
+			"Debugging",
+			"Production Support",
+			"Technical Estimation",
+			"Code Review",
+			"Cross-Functional Collaboration",
+			"Technical Leadership",
+			"Team Mentoring",
+		],
 	},
 ];
 

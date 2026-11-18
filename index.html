@@ -6,11 +6,11 @@
       (function() {
         try {
           var savedColor = localStorage.getItem('prakhar_portfolio_color');
-          if (savedColor === 'navy') {
-            localStorage.setItem('prakhar_portfolio_color', 'slate');
-            savedColor = 'slate';
+          if (savedColor === 'navy' || savedColor === 'slate') {
+            localStorage.setItem('prakhar_portfolio_color', 'apple');
+            savedColor = 'apple';
           } else if (!savedColor) {
-            savedColor = 'slate';
+            savedColor = 'apple';
           }
           var saved = localStorage.getItem('prakhar_portfolio_theme');
           var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -24,25 +24,27 @@
             root.classList.add('light');
           }
           root.classList.add('theme-' + savedColor);
+          var metaTheme = document.querySelector('meta[name="theme-color"]');
+          if (metaTheme) metaTheme.setAttribute('content', isDark ? '#000000' : '#ffffff');
         } catch (e) {}
       })();
     </script>
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <link rel="apple-touch-icon" href="./favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Prakhar | Senior Full Stack &amp; Backend Engineer · Hands-On Tech Lead (Immediate Joiner)</title>
-    <meta name="description" content="Prakhar — Senior Full Stack & Backend Engineer (Node.js, React.js, PostgreSQL, IIoT). Immediate Joiner (ended Software Manager role at YM Automation on Oct 31, 2026). Open to Senior Full Stack, Backend, and Hands-On Tech Lead roles in Bengaluru (Hybrid/Remote)." />
+    <title>Prakhar | Senior Full Stack Engineer · Node.js · React.js · PostgreSQL · Enterprise SaaS · Industrial IoT</title>
+    <meta name="description" content="Senior Full Stack Engineer with 4+ years of professional experience in early-stage startup environments, building scalable enterprise SaaS, ERP, and Industrial IoT applications (Node.js, React.js, PostgreSQL). Progressed from SDE to Software Manager. Available Immediately (On-site / Hybrid / Remote)." />
     <meta name="author" content="Prakhar" />
-    <meta name="theme-color" content="#0c0d11" />
-    <meta name="keywords" content="Prakhar, Senior Software Engineer, Senior Full Stack Engineer, Senior Backend Engineer, Tech Lead, Immediate Joiner, Node.js, React.js, PostgreSQL, Azure, AWS EC2, IIoT, MQTT, Modbus, Enterprise ERP, SaaS Platform, Bengaluru, Software Manager" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="keywords" content="Prakhar, Senior Full Stack Engineer, Full Stack Developer, Node.js, React.js, PostgreSQL, MongoDB, Azure, AWS EC2, Industrial IoT, MQTT, Modbus, Enterprise ERP, SaaS Platform, Bengaluru, Technical Lead" />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <link rel="canonical" href="https://prax2410.github.io/portfolio/" />
 
     <!-- Open Graph / Facebook / LinkedIn / WhatsApp -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://prax2410.github.io/portfolio/" />
-    <meta property="og:title" content="Prakhar | Senior Full Stack & Backend Engineer · Tech Lead [Immediate Joiner]" />
-    <meta property="og:description" content="Immediate Joiner · 4+ yrs (Jul 2022–Oct 2026 @ YM Automation). Built 12+ module ERP (300+ APIs, 5 companies via DB-per-tenant) & 24×7 IIoT telemetry (up to 65 devices)." />
+    <meta property="og:title" content="Prakhar | Senior Full Stack Engineer · Node.js · React.js · PostgreSQL [Available Immediately]" />
+    <meta property="og:description" content="Available Immediately · 4+ yrs (Jul 2022–Oct 2026 @ YM Automation). Built 12+ module ERP (300+ APIs, 5 companies) & 24×7 IIoT telemetry (up to 65 devices). Node.js · React · PostgreSQL." />
     <meta property="og:site_name" content="Prakhar Portfolio" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:image" content="https://prax2410.github.io/portfolio/og-image.png" />
@@ -50,12 +52,12 @@
     <meta property="og:image:type" content="image/png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Prakhar - Senior Full Stack & Backend Engineer · Hands-On Tech Lead Portfolio" />
+    <meta property="og:image:alt" content="Prakhar - Senior Full Stack Engineer Portfolio" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Prakhar | Senior Full Stack & Backend Engineer · Tech Lead [Immediate Joiner]" />
-    <meta name="twitter:description" content="Immediate Joiner · 4+ yrs (Jul 2022–Oct 2026). 12+ module ERP (300+ APIs, 5 companies) & 24×7 IIoT telemetry (up to 65 devices). Node.js · React · PostgreSQL." />
+    <meta name="twitter:title" content="Prakhar | Senior Full Stack Engineer · Node.js · React.js · PostgreSQL [Available Immediately]" />
+    <meta name="twitter:description" content="Available Immediately · 4+ yrs (Jul 2022–Oct 2026). 12+ module ERP (300+ APIs, 5 companies) & 24×7 IIoT telemetry (up to 65 devices). Node.js · React · PostgreSQL." />
     <meta name="twitter:image" content="https://prax2410.github.io/portfolio/og-image.png" />
     <meta name="twitter:creator" content="@prax2410" />
 
@@ -68,7 +70,7 @@
           "@type": "ProfilePage",
           "@id": "https://prax2410.github.io/portfolio/#profilepage",
           "url": "https://prax2410.github.io/portfolio/",
-          "name": "Prakhar | Senior Software Engineer Portfolio",
+          "name": "Prakhar | Senior Full Stack Engineer Portfolio",
           "mainEntity": {
             "@id": "https://prax2410.github.io/portfolio/#person"
           }
@@ -77,9 +79,9 @@
           "@type": "Person",
           "@id": "https://prax2410.github.io/portfolio/#person",
           "name": "Prakhar",
-          "jobTitle": "Senior Full Stack & Backend Engineer",
-          "alternateName": "Ex-Software Manager (YM Automation Pvt Ltd)",
-          "description": "Senior Full Stack & Backend Engineer with 4+ years of experience (Jul 2022 – Oct 2026 at YM Automation) building 12+ module ERP SaaS (300+ APIs, 5 companies via per-tenant PostgreSQL DBs) and 24×7 IIoT telemetry systems (up to 65 devices). Available to join immediately.",
+          "jobTitle": "Senior Full Stack Engineer",
+          "alternateName": "Software Manager & Founding Full Stack Engineer (YM Automation Pvt Ltd)",
+          "description": "Senior Full Stack Engineer with 4+ years of professional experience (Jul 2022 – Oct 2026 at YM Automation) building 12+ module ERP SaaS (contributed to 300+ APIs, 100+ tables, 5 companies) and 24×7 Industrial IoT telemetry systems (up to 65 devices). Available to join immediately.",
           "address": {
             "@type": "PostalAddress",
             "addressLocality": "Bengaluru",
@@ -100,15 +102,16 @@
             "Express.js",
             "React.js",
             "PostgreSQL",
+            "MongoDB",
             "Database Architecture",
             "System Architecture",
-            "IIoT",
+            "Industrial IoT",
             "MQTT",
             "Modbus",
             "Microsoft Azure",
             "AWS EC2",
             "Enterprise ERP & SaaS Architecture",
-            "Software Engineering Management"
+            "Technical Leadership"
           ],
           "email": "mailto:prakhar2410kr@gmail.com",
           "telephone": "+917019954505"
@@ -118,7 +121,7 @@
           "@id": "https://prax2410.github.io/portfolio/#website",
           "url": "https://prax2410.github.io/portfolio/",
           "name": "Prakhar Portfolio",
-          "description": "Portfolio of Prakhar — Senior Full Stack & Backend Engineer (Ex-Software Manager, YM Automation, Jul 2022 – Oct 2026). Available to join immediately.",
+          "description": "Portfolio of Prakhar — Senior Full Stack Engineer (SDE to Software Manager, YM Automation, Jul 2022 – Oct 2026). Available to join immediately.",
           "publisher": {
             "@id": "https://prax2410.github.io/portfolio/#person"
           }
